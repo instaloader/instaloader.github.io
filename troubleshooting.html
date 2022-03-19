@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  
+    <title>Troubleshooting &#8212; Instaloader  documentation</title>
+  
+
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/instaloaderdoc.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing to Instaloader" href="contributing.html" />
+    <link rel="prev" title="Advanced Instaloader Examples" href="codesnippets.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="FNUsDdkOJM9obm9QEdrNBVd9AtAzHzA-aaSMCUrS6C8"/>
+  
+    <link rel="canonical" href="https://instaloader.github.io/troubleshooting.html"/>
+  
+
+  </head><body>
+  <nav class="navbar navbar-light navbar-expand bg-light border-bottom">
+    <a class="navbar-brand" href="index.html">
+      <img src="_static/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <span class="ml-3">Instaloader</span>
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ml-0 ml-sm-2">
+        <a class="nav-link"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           title="Released on 19 Mar 2022" data-toggle="tooltip">
+          v<b>4.8.5</b>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto d-none d-sm-flex">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/issues">
+          Issues
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/releases">
+          Releases
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader">
+          GitHub
+        </a>
+      </li>
+    </ul>
+    <button class="d-inline-block d-md-none btn btn-outline-primary btn-sm" type="button"
+            data-toggle="collapse" data-target="#instaloaderdocSidebar" aria-controls="instaloaderdocSidebar"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="instaloaderdoc-sidebar collapse d-md-block col-md-3 col-xl-2 bg-light"
+           id="instaloaderdocSidebar">
+        <nav role="navigation" aria-label="Table of Contents">
+          <form action="search.html" method="get" role="search" class="border-bottom mr-2 pb-2 mb-2 px-1">
+            <label class="sr-only" for="searchQueryInput">Search</label>
+            <input type="search" name="q" id="searchQueryInput" class="form-control my-2"
+                   placeholder="Search..." aria-label="Search">
+          </form>
+          <h4>Contents</h4>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install Instaloader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic-usage.html">Download Pictures from Instagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli-options.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as-module.html">Python Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="codesnippets.html">Advanced Instaloader Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#too-many-requests">429 Too Many Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#too-many-queries-in-the-last-time">Too many queries in the last time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#private-but-not-followed">Private but not followed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#login-error">Login error</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Instaloader</a></li>
+</ul>
+
+        </nav>
+      </div>
+      <main class="col-12 col-md-9 col-xl-10 pt-2" role="main">
+        
+
+  <section id="troubleshooting">
+<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<section id="too-many-requests">
+<h2>429 Too Many Requests<a class="headerlink" href="#too-many-requests" title="Permalink to this headline">¶</a></h2>
+<p>Instaloader has a logic to keep track of its requests to Instagram and to obey
+their rate limits. The rate controller assumes that</p>
+<ul class="simple">
+<li><p>at one time, Instaloader is the only application that consumes requests, i.e.
+neither the Instagram browser interface, nor a mobile app, nor another
+Instaloader instance is running in parallel, and</p></li>
+<li><p>no requests had been consumed when Instaloader starts.</p></li>
+</ul>
+<p>The latter one implies that restarting or reinstantiating Instaloader often
+within short time is prone to cause a 429.</p>
+<p>Since the behavior of the rate controller might change between different
+versions of Instaloader, make sure to use the current version of Instaloader,
+especially when encountering many 429 errors.</p>
+<p>If a request is denied with a 429,
+Instaloader retries the request as soon as the temporary ban is assumed to be
+expired. In case the retry continuously fails for some reason, which should not
+happen under normal conditions, consider adjusting the
+<a class="reference internal" href="cli-options.html#cmdoption-max-connection-attempts"><code class="xref std std-option docutils literal notranslate"><span class="pre">--max-connection-attempts</span></code></a> option.</p>
+<p>There have been observations that services, that in their nature offer
+promiscuous IP addresses, such as cloud, VPN and public proxy services, might be
+subject to significantly stricter limits for anonymous access. However,
+logged-in accesses (see <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>) do not seem to be affected.</p>
+<p>Instaloader allows to adjust the rate controlling behavior by overriding
+<a class="reference internal" href="module/instaloadercontext.html#instaloader.RateController" title="instaloader.RateController"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.RateController</span></code></a>.</p>
+</section>
+<section id="too-many-queries-in-the-last-time">
+<h2>Too many queries in the last time<a class="headerlink" href="#too-many-queries-in-the-last-time" title="Permalink to this headline">¶</a></h2>
+<p><strong>“Too many queries in the last time”</strong> is not an error. It is a notice that the
+rate limit has almost been reached, according to Instaloader’s own rate
+accounting mechanism.</p>
+<p>Instaloader allows to adjust the rate controlling behavior by overriding
+<a class="reference internal" href="module/instaloadercontext.html#instaloader.RateController" title="instaloader.RateController"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.RateController</span></code></a>.</p>
+</section>
+<section id="private-but-not-followed">
+<h2>Private but not followed<a class="headerlink" href="#private-but-not-followed" title="Permalink to this headline">¶</a></h2>
+<p>You have to follow a private account to access most of its associated
+information.</p>
+</section>
+<section id="login-error">
+<h2>Login error<a class="headerlink" href="#login-error" title="Permalink to this headline">¶</a></h2>
+<p>Instaloader’s login <em>should</em> work fine, both with and without
+Two-Factor-Authentication. It also supports handling the <em>checkpoint challenge</em>,
+issued when Instagram suspects authentication activity on your account, by
+pointing the user to an URL to be opened in a browser.</p>
+<p>Nevertheless, in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/92">Issue #92</a>, <a class="reference external" href="https://github.com/instaloader/instaloader/issues/615">Issue #615</a>, <a class="reference external" href="https://github.com/instaloader/instaloader/issues/1150">Issue #1150</a> and <a class="reference external" href="https://github.com/instaloader/instaloader/issues/1217">Issue #1217</a>,
+users reported problems with
+logging in. We recommend to always keep the session file which Instaloader
+creates when using <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>. If a session file is present,
+<a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a> does not make use of the failure-prone login procedure.
+Also, session files usually do not expire.</p>
+<p>If you do not have a session file present, you may use the following script
+(<a class="reference external" href="https://raw.githubusercontent.com/instaloader/instaloader/master/docs/codesnippets/615_import_firefox_session.py">Example 615_import_firefox_session.py</a>) to workaround login problems by
+importing the session cookies from Firefox and bypassing Instaloader’s login and
+so still use Instaloader’s logged-in functionality.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">expanduser</span>
+<span class="kn">from</span> <span class="nn">platform</span> <span class="kn">import</span> <span class="n">system</span>
+<span class="kn">from</span> <span class="nn">sqlite3</span> <span class="kn">import</span> <span class="n">OperationalError</span><span class="p">,</span> <span class="n">connect</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">instaloader</span> <span class="kn">import</span> <span class="n">ConnectionException</span><span class="p">,</span> <span class="n">Instaloader</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;Instaloader not found.</span><span class="se">\n</span><span class="s2">  pip install [--user] instaloader&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_cookiefile</span><span class="p">():</span>
+    <span class="n">default_cookiefile</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Windows&quot;</span><span class="p">:</span> <span class="s2">&quot;~/AppData/Roaming/Mozilla/Firefox/Profiles/*/cookies.sqlite&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Darwin&quot;</span><span class="p">:</span> <span class="s2">&quot;~/Library/Application Support/Firefox/Profiles/*/cookies.sqlite&quot;</span><span class="p">,</span>
+    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">system</span><span class="p">(),</span> <span class="s2">&quot;~/.mozilla/firefox/*/cookies.sqlite&quot;</span><span class="p">)</span>
+    <span class="n">cookiefiles</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="n">default_cookiefile</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cookiefiles</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;No Firefox cookies.sqlite file found. Use -c COOKIEFILE.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cookiefiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">import_session</span><span class="p">(</span><span class="n">cookiefile</span><span class="p">,</span> <span class="n">sessionfile</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using cookies from </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cookiefile</span><span class="p">))</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;file:</span><span class="si">{</span><span class="n">cookiefile</span><span class="si">}</span><span class="s2">?immutable=1&quot;</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cookie_data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&quot;SELECT name, value FROM moz_cookies WHERE baseDomain=&#39;instagram.com&#39;&quot;</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">OperationalError</span><span class="p">:</span>
+        <span class="n">cookie_data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
+            <span class="s2">&quot;SELECT name, value FROM moz_cookies WHERE host LIKE &#39;</span><span class="si">%i</span><span class="s2">nstagram.com&#39;&quot;</span>
+        <span class="p">)</span>
+    <span class="n">instaloader</span> <span class="o">=</span> <span class="n">Instaloader</span><span class="p">(</span><span class="n">max_connection_attempts</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">instaloader</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cookie_data</span><span class="p">)</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">test_login</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;Not logged in. Are you logged in successfully in Firefox?&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Imported session cookie for </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">))</span>
+    <span class="n">instaloader</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+    <span class="n">instaloader</span><span class="o">.</span><span class="n">save_session_to_file</span><span class="p">(</span><span class="n">sessionfile</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--cookiefile&quot;</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--sessionfile&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">import_session</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">cookiefile</span> <span class="ow">or</span> <span class="n">get_cookiefile</span><span class="p">(),</span> <span class="n">args</span><span class="o">.</span><span class="n">sessionfile</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="n">ConnectionException</span><span class="p">,</span> <span class="n">OperationalError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;Cookie import failed: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>To use this script,</p>
+<ol class="arabic simple">
+<li><p>Download the script: <a class="reference external" href="https://raw.githubusercontent.com/instaloader/instaloader/master/docs/codesnippets/615_import_firefox_session.py">Example 615_import_firefox_session.py</a>,</p></li>
+<li><p>Login to Instagram in Firefox,</p></li>
+<li><p>Execute the snippet, e.g. with <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">615_import_firefox_session.py</span></code>,</p></li>
+<li><p>Then, <code class="docutils literal notranslate"><span class="pre">instaloader</span> <span class="pre">-l</span> <span class="pre">USERNAME</span></code> should work fine.</p></li>
+</ol>
+<p>This script also supports specifying a cookie file path, which may be useful if
+you use multiple Firefox profiles or if your operating system has the directory
+structure differently set up. Also, you can specify an alternative session file
+path.</p>
+</section>
+</section>
+
+
+
+<h2>Next Section</h2>
+<p>
+  <a class="reference internal" href="contributing.html">Contributing to Instaloader</a>
+</p>
+
+
+      </main>
+    </div>
+  </div>
+
+  </body>
+</html>

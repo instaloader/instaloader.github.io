@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="How to download pictures from Instagram. Description of basic usage of Instaloader, free tool to download photos from public and private profiles, hashtags, stories, feeds, saved media, and their metadata, comments and captions." name="description" />
+
+  
+    <title>Download Pictures from Instagram &#8212; Instaloader  documentation</title>
+  
+
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/instaloaderdoc.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Command Line Options" href="cli-options.html" />
+    <link rel="prev" title="Install Instaloader" href="installation.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="FNUsDdkOJM9obm9QEdrNBVd9AtAzHzA-aaSMCUrS6C8"/>
+  
+    <link rel="canonical" href="https://instaloader.github.io/basic-usage.html"/>
+  
+
+  </head><body>
+  <nav class="navbar navbar-light navbar-expand bg-light border-bottom">
+    <a class="navbar-brand" href="index.html">
+      <img src="_static/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <span class="ml-3">Instaloader</span>
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ml-0 ml-sm-2">
+        <a class="nav-link"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           title="Released on 19 Mar 2022" data-toggle="tooltip">
+          v<b>4.8.5</b>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto d-none d-sm-flex">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/issues">
+          Issues
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/releases">
+          Releases
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader">
+          GitHub
+        </a>
+      </li>
+    </ul>
+    <button class="d-inline-block d-md-none btn btn-outline-primary btn-sm" type="button"
+            data-toggle="collapse" data-target="#instaloaderdocSidebar" aria-controls="instaloaderdocSidebar"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="instaloaderdoc-sidebar collapse d-md-block col-md-3 col-xl-2 bg-light"
+           id="instaloaderdocSidebar">
+        <nav role="navigation" aria-label="Table of Contents">
+          <form action="search.html" method="get" role="search" class="border-bottom mr-2 pb-2 mb-2 px-1">
+            <label class="sr-only" for="searchQueryInput">Search</label>
+            <input type="search" name="q" id="searchQueryInput" class="form-control my-2"
+                   placeholder="Search..." aria-label="Search">
+          </form>
+          <h4>Contents</h4>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install Instaloader</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Download Pictures from Instagram</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-to-download">What to Download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filename-specification">Filename Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filter-posts">Filter Posts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metadata-text-files">Metadata Text Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#instaloader-as-cronjob">Instaloader as Cronjob</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#programming-instaloader">Programming Instaloader</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cli-options.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as-module.html">Python Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="codesnippets.html">Advanced Instaloader Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Instaloader</a></li>
+</ul>
+
+        </nav>
+      </div>
+      <main class="col-12 col-md-9 col-xl-10 pt-2" role="main">
+        
+
+  <section id="download-pictures-from-instagram">
+<span id="id1"></span><h1>Download Pictures from Instagram<a class="headerlink" href="#download-pictures-from-instagram" title="Permalink to this headline">¶</a></h1>
+<p>Here we describe how to use Instaloader to download pictures from Instagram. If
+you do not have Instaloader installed yet, see <a class="reference internal" href="installation.html#install"><span class="std std-ref">Install Instaloader</span></a>.</p>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>To <strong>download all pictures and videos of a profile</strong>, as well as the
+<strong>profile picture</strong>, do</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader profile [profile ...]
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">profile</span></code> is the name of a profile you want to download. Instead
+of only one profile, you may also specify a list of profiles.</p>
+<p>To later <strong>update your local copy</strong> of that profiles, you may run</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --fast-update profile [profile ...]
+</pre></div>
+</div>
+<p>If <a class="reference internal" href="cli-options.html#cmdoption-fast-update"><code class="xref std std-option docutils literal notranslate"><span class="pre">--fast-update</span></code></a> is given, Instaloader stops when arriving at the
+first already-downloaded picture.</p>
+<p>Alternatively, you can use <a class="reference internal" href="cli-options.html#cmdoption-latest-stamps"><code class="xref std std-option docutils literal notranslate"><span class="pre">--latest-stamps</span></code></a> to have Instaloader store
+the time each profile was last downloaded and only download newer media:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --latest-stamps -- profile [profile ...]
+</pre></div>
+</div>
+<p>With this option it’s possible to move or delete downloaded media and still keep
+the archive updated.</p>
+<p>When updating profiles, Instaloader
+automatically <strong>detects profile name changes</strong> and renames the target directory
+accordingly.</p>
+<p>Instaloader can also be used to <strong>download private profiles</strong>. To do so,
+invoke it with</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --login=your_username profile [profile ...]
+</pre></div>
+</div>
+<p>When logging in, Instaloader <strong>stores the session cookies</strong> in a file in your
+home directory, which will be reused later the next time <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>
+is given.  So you can download private profiles <strong>non-interactively</strong> when you
+already have a valid session cookie file.</p>
+</section>
+<section id="what-to-download">
+<span id="id2"></span><h2>What to Download<a class="headerlink" href="#what-to-download" title="Permalink to this headline">¶</a></h2>
+<p>Instaloader supports the following targets:</p>
+<ul>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">profile</span></code></dt><dd><p>Public profile, or private profile with <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+<p>If an already-downloaded profile has been renamed, Instaloader automatically
+finds it by its unique ID and renames the folder accordingly.</p>
+<p>Besides the profile’s posts, its current profile picture is downloaded. For
+each profile you download,</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="cli-options.html#cmdoption-stories"><code class="xref std std-option docutils literal notranslate"><span class="pre">--stories</span></code></a></dt><dd><p>instructs Instaloader to also <strong>download the user’s stories</strong>,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="cli-options.html#cmdoption-highlights"><code class="xref std std-option docutils literal notranslate"><span class="pre">--highlights</span></code></a></dt><dd><p>to <strong>download the highlights of that profile</strong>,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="cli-options.html#cmdoption-tagged"><code class="xref std std-option docutils literal notranslate"><span class="pre">--tagged</span></code></a></dt><dd><p>to <strong>download posts where the user is tagged</strong>, and</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="cli-options.html#cmdoption-igtv"><code class="xref std std-option docutils literal notranslate"><span class="pre">--igtv</span></code></a></dt><dd><p>to <strong>download IGTV videos</strong>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&quot;#hashtag&quot;</span></code></dt><dd><p>Posts with a certain <strong>hashtag</strong> (the quotes are usually necessary).</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">%location</span> <span class="pre">id</span></code></dt><dd><p>Posts tagged with a given location; the location ID is the numerical ID
+Instagram labels a location with (e.g.
+https://www.instagram.com/explore/locations/<strong>362629379</strong>/plymouth-naval-memorial/).
+Requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.2.</span></p>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">:stories</span></code></dt><dd><p>The currently-visible <strong>stories</strong> of your followees (requires
+<a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">:feed</span></code></dt><dd><p>Your <strong>feed</strong> (requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">:saved</span></code></dt><dd><p>Posts which are marked as <strong>saved</strong> (requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">&#64;profile</span></code></dt><dd><p>All profiles that are followed by <code class="docutils literal notranslate"><span class="pre">profile</span></code>, i.e. the <em>followees</em> of
+<code class="docutils literal notranslate"><span class="pre">profile</span></code> (requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">-post</span></code></dt><dd><p>Replace <strong>post</strong> with the post’s shortcode to download single post. Must be preceded by <code class="docutils literal notranslate"><span class="pre">--</span></code> in
+the argument list to not be mistaken as an option flag:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader -- -B_K4CykAOtf
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.1.</span></p>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Instaloader goes through all media matching the specified targets and
+downloads the pictures and videos and their captions. You can specify</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="cli-options.html#cmdoption-comments"><code class="xref std std-option docutils literal notranslate"><span class="pre">--comments</span></code></a></dt><dd><p>also <strong>download comments</strong> of each post,</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="cli-options.html#cmdoption-geotags"><code class="xref std std-option docutils literal notranslate"><span class="pre">--geotags</span></code></a></dt><dd><p><strong>download geotags</strong> of each post and save them as
+Google Maps link (requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>),</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>For a reference of all supported command line options, see
+<a class="reference internal" href="cli-options.html#command-line-options"><span class="std std-ref">Command Line Options</span></a>.</p>
+</section>
+<section id="filename-specification">
+<span id="id3"></span><h2>Filename Specification<a class="headerlink" href="#filename-specification" title="Permalink to this headline">¶</a></h2>
+<p>For each target, Instaloader creates a directory named after the target,
+i.e. <code class="docutils literal notranslate"><span class="pre">profile</span></code>, <code class="docutils literal notranslate"><span class="pre">#hashtag</span></code>, <code class="docutils literal notranslate"><span class="pre">%location</span> <span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">:feed</span></code>, etc. and therein saves the
+posts in files named after the post’s timestamp.</p>
+<p><a class="reference internal" href="cli-options.html#cmdoption-dirname-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--dirname-pattern</span></code></a> allows to configure the directory name of each
+target. The default is <code class="docutils literal notranslate"><span class="pre">--dirname-pattern={target}</span></code>. In the dirname
+pattern, the token <code class="docutils literal notranslate"><span class="pre">{target}</span></code> is replaced by the target name, and
+<code class="docutils literal notranslate"><span class="pre">{profile}</span></code> is replaced by the owner of the post which is downloaded.</p>
+<p><a class="reference internal" href="cli-options.html#cmdoption-filename-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--filename-pattern</span></code></a> configures the path of the post and story’s files relative
+to the target directory that is specified with <a class="reference internal" href="cli-options.html#cmdoption-dirname-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--dirname-pattern</span></code></a>.
+The default is <code class="docutils literal notranslate"><span class="pre">--filename-pattern={date_utc}_UTC</span></code>.
+The tokens <code class="docutils literal notranslate"><span class="pre">{target}</span></code> and <code class="docutils literal notranslate"><span class="pre">{profile}</span></code> are replaced like in the
+dirname pattern.</p>
+<p><a class="reference internal" href="cli-options.html#cmdoption-title-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--title-pattern</span></code></a> is similar to <a class="reference internal" href="cli-options.html#cmdoption-filename-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--filename-pattern</span></code></a>, but for profile
+pics, hashtag profile pics, and highlight covers. The default is
+<code class="docutils literal notranslate"><span class="pre">{date_utc}_UTC_{typename}</span></code> if <a class="reference internal" href="cli-options.html#cmdoption-dirname-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--dirname-pattern</span></code></a> contains <code class="docutils literal notranslate"><span class="pre">{target}</span></code> or
+<code class="docutils literal notranslate"><span class="pre">{profile}</span></code>, or <code class="docutils literal notranslate"><span class="pre">{target}_{date_utc}_UTC_{typename}</span></code> if it does not. Some tokens
+are not supported for this option, see below for details.</p>
+<p>The following tokens are defined for usage with
+<a class="reference internal" href="cli-options.html#cmdoption-filename-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--filename-pattern</span></code></a> and <a class="reference internal" href="cli-options.html#cmdoption-title-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--title-pattern</span></code></a>:</p>
+<ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{target}</span></code></dt><dd><p>Target name (as given in Instaloader command line)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{profile}</span></code> (same as <code class="docutils literal notranslate"><span class="pre">{owner_username}</span></code>)</dt><dd><p>Owner of the Post / StoryItem / ProfilePic. For hashtag profile pics and
+highlight covers, equivalent to <code class="docutils literal notranslate"><span class="pre">{target}</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{owner_id}</span></code></dt><dd><p>Unique integer ID of owner profile. For hashtag profile pics, equivalent to
+<code class="docutils literal notranslate"><span class="pre">{target}</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{shortcode}</span></code></dt><dd><p>Shortcode (identifier string). Not available for <a class="reference internal" href="cli-options.html#cmdoption-title-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--title-pattern</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{mediaid}</span></code></dt><dd><p>Integer representation of shortcode. Not available for <a class="reference internal" href="cli-options.html#cmdoption-title-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--title-pattern</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{filename}</span></code></dt><dd><p>Instagram’s internal filename.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><code class="docutils literal notranslate"><span class="pre">{date_utc}</span></code> (same as <code class="docutils literal notranslate"><span class="pre">{date}</span></code>)</dt><dd><p>Creation time in UTC timezone.
+<a class="reference external" href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">strftime()-style formatting options</a>
+are supported as format specifier. The default date format specifier used by
+Instaloader is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{date_utc:%Y-%m-%d_%H-%M-%S}
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">{typename}</span></code></dt><dd><p>Type of media being saved, such as GraphImage, GraphStoryVideo, profile_pic,
+etc.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>For example, encode the poster’s profile name in the filenames with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --filename-pattern={date_utc}_UTC_{profile} &quot;#hashtag&quot;
+</pre></div>
+</div>
+<p>As another example, you may instruct Instaloader to store posts in a
+<code class="docutils literal notranslate"><span class="pre">PROFILE/YEAR/SHORTCODE.jpg</span></code> directory structure:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --dirname-pattern={profile} --filename-pattern={date_utc:%Y}/{shortcode} &lt;target&gt; ...
+</pre></div>
+</div>
+</section>
+<section id="filter-posts">
+<span id="id4"></span><h2>Filter Posts<a class="headerlink" href="#filter-posts" title="Permalink to this headline">¶</a></h2>
+<p>The options <a class="reference internal" href="cli-options.html#cmdoption-post-filter"><code class="xref std std-option docutils literal notranslate"><span class="pre">--post-filter</span></code></a> and <a class="reference internal" href="cli-options.html#cmdoption-storyitem-filter"><code class="xref std std-option docutils literal notranslate"><span class="pre">--storyitem-filter</span></code></a>
+allow to specify criteria that posts or story items have to
+meet to be downloaded. If not given, all posts are downloaded.</p>
+<p>The filter string must be a
+<a class="reference external" href="https://docs.python.org/3/reference/expressions.html#boolean-operations">Python boolean expression</a>
+where the attributes from <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a> or
+<a class="reference internal" href="module/structures.html#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a> respectively are defined.</p>
+<p>Id est, the following attributes can be used with both
+<a class="reference internal" href="cli-options.html#cmdoption-post-filter"><code class="xref std std-option docutils literal notranslate"><span class="pre">--post-filter</span></code></a> and <a class="reference internal" href="cli-options.html#cmdoption-storyitem-filter"><code class="xref std std-option docutils literal notranslate"><span class="pre">--storyitem-filter</span></code></a>:</p>
+<ul>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.owner_username" title="instaloader.Post.owner_username"><code class="xref py py-attr docutils literal notranslate"><span class="pre">owner_username</span></code></a> (str), <a class="reference internal" href="module/structures.html#instaloader.Post.owner_id" title="instaloader.Post.owner_id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">owner_id</span></code></a> (int)</dt><dd><p>Owner profile username / user ID.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.date_utc" title="instaloader.Post.date_utc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">date_utc</span></code></a> (datetime), <a class="reference internal" href="module/structures.html#instaloader.Post.date_local" title="instaloader.Post.date_local"><code class="xref py py-attr docutils literal notranslate"><span class="pre">date_local</span></code></a> (datetime)</dt><dd><p>Creation timestamp. Since <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> objects can be created
+inside filter strings, this easily allows filtering by creation date. E.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-filter=&quot;date_utc &lt;= datetime(2018, 5, 31)&quot; target
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.is_video" title="instaloader.Post.is_video"><code class="xref py py-attr docutils literal notranslate"><span class="pre">is_video</span></code></a> (bool)</dt><dd><p>Whether Post/StoryItem is a video. For example, you may skip videos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-filter=&quot;not is_video&quot; target
+</pre></div>
+</div>
+<p>This is not the same as <a class="reference internal" href="cli-options.html#cmdoption-no-videos"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-videos</span></code></a> and
+<a class="reference internal" href="cli-options.html#cmdoption-no-video-thumbnails"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-video-thumbnails</span></code></a>, since sidecar posts (posts that contain
+multiple pictures/videos in one post) have this attribute set to False.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>As <a class="reference internal" href="cli-options.html#cmdoption-post-filter"><code class="xref std std-option docutils literal notranslate"><span class="pre">--post-filter</span></code></a>, the following attributes can be used additionally:</p>
+<ul>
+<li><dl>
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.viewer_has_liked" title="instaloader.Post.viewer_has_liked"><code class="xref py py-attr docutils literal notranslate"><span class="pre">viewer_has_liked</span></code></a> (bool)</dt><dd><p>Whether user (with <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>) has liked given post. To download the
+pictures from your feed that you have liked:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --login=your_username --post-filter=viewer_has_liked :feed
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.likes" title="instaloader.Post.likes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">likes</span></code></a> (int), <a class="reference internal" href="module/structures.html#instaloader.Post.comments" title="instaloader.Post.comments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">comments</span></code></a> (int)</dt><dd><p>Likes count / comments count. You might only want to download posts that
+were either liked by yourself or by many others:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --login=your_username --post-filter=&quot;likes&gt;100 or viewer_has_liked&quot; profile
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.caption_hashtags" title="instaloader.Post.caption_hashtags"><code class="xref py py-attr docutils literal notranslate"><span class="pre">caption_hashtags</span></code></a> (list of str) / <a class="reference internal" href="module/structures.html#instaloader.Post.caption_mentions" title="instaloader.Post.caption_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">caption_mentions</span></code></a> (list of str)</dt><dd><p><code class="docutils literal notranslate"><span class="pre">#hashtags</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;mentions</span></code> (lowercased) in the Post’s caption. For example, to
+download posts of kittens that are cute:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-filter=&quot;&#39;cute&#39; in caption_hashtags&quot; &quot;#kitten&quot;
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.tagged_users" title="instaloader.Post.tagged_users"><code class="xref py py-attr docutils literal notranslate"><span class="pre">tagged_users</span></code></a> (list of str)</dt><dd><p>Lowercased usernames that are tagged in the Post.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>For <a class="reference internal" href="cli-options.html#cmdoption-storyitem-filter"><code class="xref std std-option docutils literal notranslate"><span class="pre">--storyitem-filter</span></code></a>, the following additional attributes are
+defined:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.StoryItem.expiring_utc" title="instaloader.StoryItem.expiring_utc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">expiring_utc</span></code></a> (datetime) / <a class="reference internal" href="module/structures.html#instaloader.StoryItem.expiring_local" title="instaloader.StoryItem.expiring_local"><code class="xref py py-attr docutils literal notranslate"><span class="pre">expiring_local</span></code></a> (datetime)</dt><dd><p>Timestamp when StoryItem will get unavailable.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="metadata-text-files">
+<span id="id5"></span><h2>Metadata Text Files<a class="headerlink" href="#metadata-text-files" title="Permalink to this headline">¶</a></h2>
+<p>Unless <a class="reference internal" href="cli-options.html#cmdoption-no-captions"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-captions</span></code></a> is given, Instaloader creates a <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file
+along with each post where the Post’s caption is saved.</p>
+<p>You can customize what metadata to save for each Post or StoryItem with
+<a class="reference internal" href="cli-options.html#cmdoption-post-metadata-txt"><code class="xref std std-option docutils literal notranslate"><span class="pre">--post-metadata-txt</span></code></a> and <a class="reference internal" href="cli-options.html#cmdoption-storyitem-metadata-txt"><code class="xref std std-option docutils literal notranslate"><span class="pre">--storyitem-metadata-txt</span></code></a>. The
+default is <code class="docutils literal notranslate"><span class="pre">--post-metadata-txt={caption}</span></code> and no storyitem metadata txt.
+These strings are formatted similar as the path patterns described in <a class="reference internal" href="#filename-specification"><span class="std std-ref">Filename Specification</span></a> and
+the result is saved in text files, unless it is empty.</p>
+<p>Specifying these options multiple times results in output having multiple lines,
+in the order they were given to Instaloader.</p>
+<p>The field names are evaluated to <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a> or <a class="reference internal" href="module/structures.html#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a> attributes,
+and as such, the same fields are supported as in <a class="reference internal" href="#filename-specification"><span class="std std-ref">Filename Specification</span></a>
+and <a class="reference internal" href="#filter-posts"><span class="std std-ref">Filter Posts</span></a>.</p>
+<p>For example, to save the current number of likes for each post, rather than
+the post’s caption:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-metadata-txt=&quot;{likes} likes.&quot; &lt;target&gt;
+</pre></div>
+</div>
+<p>Note that with this feature, it is possible to easily and fastly extract
+additional metadata of already-downloaded posts, by reimporting their JSON
+files. Say, you now also want to export the number of comments the Posts had
+when they were downloaded:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-metadata-txt=&quot;{likes} likes, {comments} comments.&quot; &lt;target&gt;/*.json.xz
+</pre></div>
+</div>
+</section>
+<section id="instaloader-as-cronjob">
+<span id="id6"></span><h2>Instaloader as Cronjob<a class="headerlink" href="#instaloader-as-cronjob" title="Permalink to this headline">¶</a></h2>
+<p>Instaloader is suitable for running as a cronjob to periodically update your
+personal Instagram archive. The <a class="reference internal" href="cli-options.html#cmdoption-quiet"><code class="xref std std-option docutils literal notranslate"><span class="pre">--quiet</span></code></a> option disables user
+interactions and logging of non-error messages. To non-interactively use
+Instaloader logged-in, create a session file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --login=your_username
+</pre></div>
+</div>
+<p>Then use the same username in your cronjob to load the session and download
+the given targets:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --login=your_username --quiet target [...]
+</pre></div>
+</div>
+<p>Instaloader saves the session file to
+<code class="docutils literal notranslate"><span class="pre">~/.config/instaloader/session-YOUR-USERNAME</span></code>. See
+<a class="reference internal" href="cli-options.html#cmdoption-sessionfile"><code class="xref std std-option docutils literal notranslate"><span class="pre">--sessionfile</span></code></a> option for how to override this path.</p>
+</section>
+<section id="programming-instaloader">
+<h2>Programming Instaloader<a class="headerlink" href="#programming-instaloader" title="Permalink to this headline">¶</a></h2>
+<p>If your task cannot be done with the command line interface of Instaloader,
+consider taking a look at the <a class="reference internal" href="as-module.html#python-module-instaloader"><span class="std std-ref">Python Module instaloader</span></a>.
+Instaloader exposes its internally used methods and structures, making it a
+powerful and intuitive Python API for Instagram, allowing to further customize
+obtaining media and metadata.</p>
+<p>Also see <a class="reference internal" href="codesnippets.html#codesnippets"><span class="std std-ref">Advanced Instaloader Examples</span></a>, where we collect a few example scripts that use
+Instaloader for simple tasks that cannot be done with the command line
+interface.</p>
+</section>
+</section>
+
+
+
+<h2>Next Section</h2>
+<p>
+  <a class="reference internal" href="cli-options.html">Command Line Options</a>
+</p>
+
+
+      </main>
+    </div>
+  </div>
+
+  </body>
+</html>

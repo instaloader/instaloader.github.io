@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  
+    <title>Resumable Iterations &#8212; Instaloader  documentation</title>
+  
+
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/instaloaderdoc.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/instaloaderdoc.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="InstaloaderContext (Low-level functions)" href="instaloadercontext.html" />
+    <link rel="prev" title="Instagram Structures" href="structures.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="FNUsDdkOJM9obm9QEdrNBVd9AtAzHzA-aaSMCUrS6C8"/>
+  
+    <link rel="canonical" href="https://instaloader.github.io/module/nodeiterator.html"/>
+  
+
+  </head><body>
+  <nav class="navbar navbar-light navbar-expand bg-light border-bottom">
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <span class="ml-3">Instaloader</span>
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ml-0 ml-sm-2">
+        <a class="nav-link"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           title="Released on 19 Mar 2022" data-toggle="tooltip">
+          v<b>4.8.5</b>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto d-none d-sm-flex">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/issues">
+          Issues
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/releases">
+          Releases
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader">
+          GitHub
+        </a>
+      </li>
+    </ul>
+    <button class="d-inline-block d-md-none btn btn-outline-primary btn-sm" type="button"
+            data-toggle="collapse" data-target="#instaloaderdocSidebar" aria-controls="instaloaderdocSidebar"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="instaloaderdoc-sidebar collapse d-md-block col-md-3 col-xl-2 bg-light"
+           id="instaloaderdocSidebar">
+        <nav role="navigation" aria-label="Table of Contents">
+          <form action="../search.html" method="get" role="search" class="border-bottom mr-2 pb-2 mb-2 px-1">
+            <label class="sr-only" for="searchQueryInput">Search</label>
+            <input type="search" name="q" id="searchQueryInput" class="form-control my-2"
+                   placeholder="Search..." aria-label="Search">
+          </form>
+          <h4>Contents</h4>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install Instaloader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-usage.html">Download Pictures from Instagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-options.html">Command Line Options</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../as-module.html">Python Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="instaloader.html"><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code> (Main Class)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures.html">Instagram Structures</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Resumable Iterations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nodeiterator"><code class="docutils literal notranslate"><span class="pre">NodeIterator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resumable-iteration"><code class="docutils literal notranslate"><span class="pre">resumable_iteration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="instaloadercontext.html"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code> (Low-level functions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../codesnippets.html">Advanced Instaloader Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Instaloader</a></li>
+</ul>
+
+        </nav>
+      </div>
+      <main class="col-12 col-md-9 col-xl-10 pt-2" role="main">
+        
+
+  <section id="resumable-iterations">
+<h1>Resumable Iterations<a class="headerlink" href="#resumable-iterations" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#resumable-iterations" id="id1">Resumable Iterations</a></p>
+<ul>
+<li><p><a class="reference internal" href="#nodeiterator" id="id2"><code class="docutils literal notranslate"><span class="pre">NodeIterator</span></code></a></p></li>
+<li><p><a class="reference internal" href="#resumable-iteration" id="id3"><code class="docutils literal notranslate"><span class="pre">resumable_iteration</span></code></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>For many download targets, Instaloader is able to resume a
+previously-interrupted iteration. It provides an interruptible
+Iterator <a class="reference internal" href="#instaloader.NodeIterator" title="instaloader.NodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeIterator</span></code></a> and a context manager
+<a class="reference internal" href="#instaloader.resumable_iteration" title="instaloader.resumable_iteration"><code class="xref py py-func docutils literal notranslate"><span class="pre">resumable_iteration()</span></code></a>, which we both present here.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.5.</span></p>
+</div>
+<section id="nodeiterator">
+<h2><code class="docutils literal notranslate"><span class="pre">NodeIterator</span></code><a class="headerlink" href="#nodeiterator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.NodeIterator">
+<em class="property">class </em><code class="sig-name descname">NodeIterator</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">query_hash</em>, <em class="sig-param">edge_extractor</em>, <em class="sig-param">node_wrapper</em>, <em class="sig-param">query_variables=None</em>, <em class="sig-param">query_referer=None</em>, <em class="sig-param">first_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.NodeIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate the nodes within edges in a GraphQL pagination. Instances of this class are returned by many (but not all)
+of Instaloader’s <a class="reference internal" href="structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>-returning functions (such as <a class="reference internal" href="structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a> etc.).</p>
+<p>What makes this iterator special is its ability to freeze/store its current state, e.g. to interrupt an iteration,
+and later thaw/resume from where it left off.</p>
+<p>You can freeze a NodeIterator with <a class="reference internal" href="#instaloader.NodeIterator.freeze" title="instaloader.NodeIterator.freeze"><code class="xref py py-meth docutils literal notranslate"><span class="pre">NodeIterator.freeze()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">post_iterator</span> <span class="o">=</span> <span class="n">profile</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">post_iterator</span><span class="p">:</span>
+        <span class="n">do_something_with</span><span class="p">(</span><span class="n">post</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="n">save</span><span class="p">(</span><span class="s2">&quot;resume_information.json&quot;</span><span class="p">,</span> <span class="n">post_iterator</span><span class="o">.</span><span class="n">freeze</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>and later reuse it with <a class="reference internal" href="#instaloader.NodeIterator.thaw" title="instaloader.NodeIterator.thaw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">NodeIterator.thaw()</span></code></a> on an equally-constructed NodeIterator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">post_iterator</span> <span class="o">=</span> <span class="n">profile</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+<span class="n">post_iterator</span><span class="o">.</span><span class="n">thaw</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;resume_information.json&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>(an appropriate method to load and save the <a class="reference internal" href="#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a> is e.g.
+<a class="reference internal" href="structures.html#instaloader.load_structure_from_file" title="instaloader.load_structure_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_structure_from_file()</span></code></a> and <a class="reference internal" href="structures.html#instaloader.save_structure_to_file" title="instaloader.save_structure_to_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">save_structure_to_file()</span></code></a>.)</p>
+<p>A <a class="reference internal" href="#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a> can only be thawn with a matching NodeIterator, i.e. a NodeIterator instance that has
+been constructed with the same parameters as the instance that is represented by the <a class="reference internal" href="#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a> in
+question. This is to ensure that an iteration cannot be resumed in a wrong, unmatching loop. As a quick way to
+distinguish iterators that are saved e.g. in files, there is the <a class="reference internal" href="#instaloader.NodeIterator.magic" title="instaloader.NodeIterator.magic"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NodeIterator.magic</span></code></a> string: Two
+NodeIterators are matching if and only if they have the same magic.</p>
+<p>See also <a class="reference internal" href="#instaloader.resumable_iteration" title="instaloader.resumable_iteration"><code class="xref py py-func docutils literal notranslate"><span class="pre">resumable_iteration()</span></code></a> for a high-level context manager that handles a resumable iteration.</p>
+<dl class="method">
+<dt id="instaloader.NodeIterator.count">
+<em class="property">property </em><code class="sig-name descname">count</code><a class="headerlink" href="#instaloader.NodeIterator.count" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <code class="docutils literal notranslate"><span class="pre">count</span></code> as returned by Instagram. This is not always the total count this iterator will yield.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.NodeIterator.total_index">
+<em class="property">property </em><code class="sig-name descname">total_index</code><a class="headerlink" href="#instaloader.NodeIterator.total_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of items that have already been returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.NodeIterator.magic">
+<em class="property">property </em><code class="sig-name descname">magic</code><a class="headerlink" href="#instaloader.NodeIterator.magic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Magic string for easily identifying a matching iterator file for resuming (hash of some parameters).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.NodeIterator.first_item">
+<em class="property">property </em><code class="sig-name descname">first_item</code><a class="headerlink" href="#instaloader.NodeIterator.first_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this iterator has produced any items, returns the first item produced.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.8.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[~T]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.NodeIterator.freeze">
+<code class="sig-name descname">freeze</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.NodeIterator.freeze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Freeze the iterator for later resuming.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.NodeIterator.thaw">
+<code class="sig-name descname">thaw</code><span class="sig-paren">(</span><em class="sig-param">frozen</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.NodeIterator.thaw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use this iterator for resuming from earlier iteration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#instaloader.InvalidArgumentException" title="instaloader.InvalidArgumentException"><strong>InvalidArgumentException</strong></a> – <p>If</p>
+<ul class="simple">
+<li><p>the iterator on which this method is called has already been used, or</p></li>
+<li><p>the given <a class="reference internal" href="#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a> does not match, i.e. belongs to a different iteration.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instaloader.FrozenNodeIterator">
+<em class="property">class </em><code class="sig-name descname">FrozenNodeIterator</code><span class="sig-paren">(</span><em class="sig-param">query_hash</em>, <em class="sig-param">query_variables</em>, <em class="sig-param">query_referer</em>, <em class="sig-param">context_username</em>, <em class="sig-param">total_index</em>, <em class="sig-param">best_before</em>, <em class="sig-param">remaining_data</em>, <em class="sig-param">first_node</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.FrozenNodeIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>A serializable representation of a <a class="reference internal" href="#instaloader.NodeIterator" title="instaloader.NodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeIterator</span></code></a> instance, saving
+its iteration state.</p>
+<p>It can be serialized and deserialized with <a class="reference internal" href="structures.html#instaloader.save_structure_to_file" title="instaloader.save_structure_to_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">save_structure_to_file()</span></code></a>
+and <a class="reference internal" href="structures.html#instaloader.load_structure_from_file" title="instaloader.load_structure_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_structure_from_file()</span></code></a>, as well as with <a class="reference external" href="https://docs.python.org/3/library/json.html#module-json" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code></a> and
+<a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> thanks to being a <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">namedtuple()</span></code></a>.</p>
+<dl class="method">
+<dt id="instaloader.FrozenNodeIterator.best_before">
+<em class="property">property </em><code class="sig-name descname">best_before</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.best_before" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date when parts of the stored nodes might have expired.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.FrozenNodeIterator.context_username">
+<em class="property">property </em><code class="sig-name descname">context_username</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.context_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>The username who created the iterator, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.FrozenNodeIterator.first_node">
+<em class="property">property </em><code class="sig-name descname">first_node</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.first_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node data of the first item, if an item has been produced.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.FrozenNodeIterator.query_hash">
+<em class="property">property </em><code class="sig-name descname">query_hash</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.query_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>The GraphQL <code class="docutils literal notranslate"><span class="pre">query_hash</span></code> parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.FrozenNodeIterator.query_referer">
+<em class="property">property </em><code class="sig-name descname">query_referer</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.query_referer" title="Permalink to this definition">¶</a></dt>
+<dd><p>The HTTP referer used for the GraphQL query.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.FrozenNodeIterator.query_variables">
+<em class="property">property </em><code class="sig-name descname">query_variables</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.query_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>The GraphQL <code class="docutils literal notranslate"><span class="pre">query_variables</span></code> parameter.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.FrozenNodeIterator.remaining_data">
+<em class="property">property </em><code class="sig-name descname">remaining_data</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.remaining_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>The already-retrieved, yet-unprocessed <code class="docutils literal notranslate"><span class="pre">edges</span></code> and the <code class="docutils literal notranslate"><span class="pre">page_info</span></code> at time of freezing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.FrozenNodeIterator.total_index">
+<em class="property">property </em><code class="sig-name descname">total_index</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.total_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of items that have already been returned.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="resumable-iteration">
+<h2><code class="docutils literal notranslate"><span class="pre">resumable_iteration</span></code><a class="headerlink" href="#resumable-iteration" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="instaloader.resumable_iteration">
+<code class="sig-name descname">resumable_iteration</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">iterator</em>, <em class="sig-param">load</em>, <em class="sig-param">save</em>, <em class="sig-param">format_path</em>, <em class="sig-param">check_bbd=True</em>, <em class="sig-param">enabled=True</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.resumable_iteration" title="Permalink to this definition">¶</a></dt>
+<dd><p>High-level context manager to handle a resumable iteration that can be interrupted
+with a <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyboardInterrupt" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code></a> or an <a class="reference internal" href="exceptions.html#instaloader.AbortDownloadException" title="instaloader.AbortDownloadException"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbortDownloadException</span></code></a>.</p>
+<p>It can be used as follows to automatically load a previously-saved state into the iterator, save the iterator’s
+state when interrupted, and delete the resume file upon completion:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">post_iterator</span> <span class="o">=</span> <span class="n">profile</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">resumable_iteration</span><span class="p">(</span>
+        <span class="n">context</span><span class="o">=</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span>
+        <span class="n">iterator</span><span class="o">=</span><span class="n">post_iterator</span><span class="p">,</span>
+        <span class="n">load</span><span class="o">=</span><span class="k">lambda</span> <span class="n">_</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">FrozenNodeIterator</span><span class="p">(</span><span class="o">**</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">))),</span>
+        <span class="n">save</span><span class="o">=</span><span class="k">lambda</span> <span class="n">fni</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">fni</span><span class="o">.</span><span class="n">_asdict</span><span class="p">(),</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)),</span>
+        <span class="n">format_path</span><span class="o">=</span><span class="k">lambda</span> <span class="n">magic</span><span class="p">:</span> <span class="s2">&quot;resume_info_</span><span class="si">{}</span><span class="s2">.json&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">magic</span><span class="p">)</span>
+<span class="p">)</span> <span class="k">as</span> <span class="p">(</span><span class="n">is_resuming</span><span class="p">,</span> <span class="n">start_index</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">post_iterator</span><span class="p">:</span>
+        <span class="n">do_something_with</span><span class="p">(</span><span class="n">post</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It yields a tuple (is_resuming, start_index).</p>
+<p>When the passed iterator is not a <a class="reference internal" href="#instaloader.NodeIterator" title="instaloader.NodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeIterator</span></code></a>, it behaves as if <code class="docutils literal notranslate"><span class="pre">resumable_iteration</span></code> was not used,
+just executing the inner body.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – The <a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>.</p></li>
+<li><p><strong>iterator</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code></a>[+T_co]) – The fresh <a class="reference internal" href="#instaloader.NodeIterator" title="instaloader.NodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeIterator</span></code></a>.</p></li>
+<li><p><strong>load</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></a>[[<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – Loads a FrozenNodeIterator from given path. The object is ignored if it has a different type.</p></li>
+<li><p><strong>save</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></a>[[<a class="reference internal" href="#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>], <code class="docutils literal notranslate"><span class="pre">None</span></code>]) – Saves the given FrozenNodeIterator to the given path.</p></li>
+<li><p><strong>format_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></a>[[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – Returns the path to the resume file for the given magic.</p></li>
+<li><p><strong>check_bbd</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Whether to check the best before date and reject an expired FrozenNodeIterator.</p></li>
+<li><p><strong>enabled</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Set to False to disable all functionality and simply execute the inner body.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.7: </span>Also interrupt on <a class="reference internal" href="exceptions.html#instaloader.AbortDownloadException" title="instaloader.AbortDownloadException"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbortDownloadException</span></code></a>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Tuple</span></code>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+
+<h2>Next Section</h2>
+<p>
+  <a class="reference internal" href="instaloadercontext.html"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code> (Low-level functions)</a>
+</p>
+
+
+      </main>
+    </div>
+  </div>
+
+  </body>
+</html>

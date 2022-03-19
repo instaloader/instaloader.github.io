@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  
+    <title>Contributing to Instaloader &#8212; Instaloader  documentation</title>
+  
+
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/instaloaderdoc.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Troubleshooting" href="troubleshooting.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="FNUsDdkOJM9obm9QEdrNBVd9AtAzHzA-aaSMCUrS6C8"/>
+  
+    <link rel="canonical" href="https://instaloader.github.io/contributing.html"/>
+  
+
+  </head><body>
+  <nav class="navbar navbar-light navbar-expand bg-light border-bottom">
+    <a class="navbar-brand" href="index.html">
+      <img src="_static/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <span class="ml-3">Instaloader</span>
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ml-0 ml-sm-2">
+        <a class="nav-link"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           title="Released on 19 Mar 2022" data-toggle="tooltip">
+          v<b>4.8.5</b>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto d-none d-sm-flex">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/issues">
+          Issues
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/releases">
+          Releases
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader">
+          GitHub
+        </a>
+      </li>
+    </ul>
+    <button class="d-inline-block d-md-none btn btn-outline-primary btn-sm" type="button"
+            data-toggle="collapse" data-target="#instaloaderdocSidebar" aria-controls="instaloaderdocSidebar"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="instaloaderdoc-sidebar collapse d-md-block col-md-3 col-xl-2 bg-light"
+           id="instaloaderdocSidebar">
+        <nav role="navigation" aria-label="Table of Contents">
+          <form action="search.html" method="get" role="search" class="border-bottom mr-2 pb-2 mb-2 px-1">
+            <label class="sr-only" for="searchQueryInput">Search</label>
+            <input type="search" name="q" id="searchQueryInput" class="form-control my-2"
+                   placeholder="Search..." aria-label="Search">
+          </form>
+          <h4>Contents</h4>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install Instaloader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic-usage.html">Download Pictures from Instagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli-options.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as-module.html">Python Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="codesnippets.html">Advanced Instaloader Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing to Instaloader</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#answering-questions">Answering Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reporting-bugs">Reporting Bugs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-code-or-improving-the-documentation">Writing Code or Improving the Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#proposing-features">Proposing Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sponsoring">Sponsoring</a></li>
+</ul>
+</li>
+</ul>
+
+        </nav>
+      </div>
+      <main class="col-12 col-md-9 col-xl-10 pt-2" role="main">
+        
+
+  <section id="contributing-to-instaloader">
+<span id="contributing"></span><h1>Contributing to Instaloader<a class="headerlink" href="#contributing-to-instaloader" title="Permalink to this headline">¶</a></h1>
+<p>As an open source project, Instaloader heavily depends on the contributions from
+its community.  In this document, we advise on how you may help Instaloader to
+become an even greater tool.</p>
+<p>Instaloader’s development is organized on
+<a class="reference external" href="https://github.com/instaloader/instaloader">GitHub</a>, where Issues and Pull
+Requests are discussed.</p>
+<p>Contributing to an open source project is an unmatchable opportunity to improve
+and manifest programming skills. For issues that are good starting points to get
+involved in Instaloader development, as they do not require deep insight into
+Instaloader’s code base, have a look at our
+<a class="reference external" href="https://github.com/instaloader/instaloader/contribute">Issues labelled ‘good first issue’</a>.</p>
+<p>This document covers several ways of how you can contribute back to Instaloader.</p>
+<section id="answering-questions">
+<h2>Answering Questions<a class="headerlink" href="#answering-questions" title="Permalink to this headline">¶</a></h2>
+<p>The easiest way to help out is to answer questions. If you are interested in
+answering questions regarding Instaloader, good places to begin are</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/tagged/instaloader">Questions tagged ‘instaloader’ on Stack Overflow</a>,</p></li>
+<li><p><a class="reference external" href="https://github.com/instaloader/instaloader/issues?q=is%3Aissue+is%3Aopen+label%3Aquestion">Instaloader Issues labeled ‘question’</a>.</p></li>
+</ul>
+</section>
+<section id="reporting-bugs">
+<h2>Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Permalink to this headline">¶</a></h2>
+<p>If you encounter a bug, do not hesitate to report it in our
+<a class="reference external" href="https://github.com/instaloader/instaloader/issues">Issue Tracker</a>. When
+reporting a problem, please keep the following in mind:</p>
+<ul class="simple">
+<li><p>Ensure you <strong>use the latest version</strong> of Instaloader. The currently-installed
+version can be found out with <code class="docutils literal notranslate"><span class="pre">instaloader</span> <span class="pre">--version</span></code>.</p></li>
+<li><p>Check whether there is a valid solution in our <a class="reference internal" href="troubleshooting.html#troubleshooting"><span class="std std-ref">Troubleshooting</span></a> section.</p></li>
+<li><p>Briefly <strong>check whether the bug has already been reported</strong>. If you find an
+issue reporting the same bug you encountered, comment there rather than
+opening a new issue. However, if unsure, please create a new issue.</p></li>
+<li><p>State <strong>how the bug can be reproduced</strong>, i.e. how Instaloader was invoked
+when the problem occurred (of course, you may anonymize profile names etc.).</p></li>
+<li><p>Include all <strong>error messages and tracebacks</strong> in the report.</p></li>
+<li><p>Even if it seems obvious, describe <strong>which behavior you expected</strong>
+instead of what actually happened.</p></li>
+<li><p>If we have closed an issue apparently inadvertently or inappropriately, please
+let us know.</p></li>
+</ul>
+</section>
+<section id="writing-code-or-improving-the-documentation">
+<h2>Writing Code or Improving the Documentation<a class="headerlink" href="#writing-code-or-improving-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Improvements of the Instaloader source or its documentation can be proposed as a
+<a class="reference external" href="https://github.com/instaloader/instaloader/pulls">Pull Request</a>.</p>
+<ul>
+<li><p>Please base your Pull Request on</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">master</span></code>, which will be released with the next minor release, if it is</p>
+<ul>
+<li><p>a bug fix that does not require extensive testing,</p></li>
+<li><p>an improvement to the documentation,</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upcoming/v4.X</span></code>, if it is</p>
+<ul>
+<li><p>a new feature,</p></li>
+<li><p>a bug fix that does require thorough testing before being released to a
+final version.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>All Pull Requests are analyzed by <a class="reference external" href="https://www.pylint.org/">Pylint</a> for
+error and syntax checking of the source and
+<a class="reference external" href="https://github.com/python/mypy">Mypy</a> for type checking. You can run them
+locally with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pylint</span> <span class="n">instaloader</span>
+<span class="n">mypy</span> <span class="o">-</span><span class="n">m</span> <span class="n">instaloader</span>
+</pre></div>
+</div>
+</li>
+<li><p>Improvements to the documentation are very welcome. The documentation is
+created with <a class="reference external" href="https://www.sphinx-doc.org/en/2.0/">Sphinx</a>, version 2,
+and can be build locally using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="o">-</span><span class="n">C</span> <span class="n">docs</span> <span class="n">html</span>
+</pre></div>
+</div>
+</li>
+<li><p>Feel free to create an issue to make sure someone from the Instaloader team
+agrees that the change might be an improvement, or if you want to discuss
+your basic proposal, before working on a pull request.</p></li>
+</ul>
+</section>
+<section id="proposing-features">
+<h2>Proposing Features<a class="headerlink" href="#proposing-features" title="Permalink to this headline">¶</a></h2>
+<p>Instaloader’s goal is to mimic the browser’s behavior to access the data that
+is available through the Instagram web interface, pack this data into complete
+and easily-(re)usable python objects, and provide a user interface for the most
+common downloading and metadata collection tasks, without changing any of the
+online data.</p>
+<p>Prior spending effort on implementing a new feature, it might be appropriate to
+clarify how it could fit into the project’s scope or discuss implementation
+details. If you feel the need to do so, please create a “feature suggestion”.</p>
+<ul class="simple">
+<li><p>Instaloader already has plenty of features. <strong>Check the documentation</strong>
+beforehand to ensure your desired suggestion is not already implemented.</p></li>
+<li><p>Briefly <strong>ensure that your idea has not already been suggested</strong>. If you find
+an issue suggesting the same or a similar feature, share your thoughts in a
+comment there, instead of opening a new issue.</p></li>
+<li><p><strong>Motivate the feature</strong>, i.e.</p>
+<ul>
+<li><p>Provide us a <strong>use case of the feature</strong>: How could the user
+invoke the new function? Which problem would it solve? If new information is
+obtained, how would it be further processed?</p></li>
+<li><p>Describe already-working <strong>alternatives of the feature</strong> and how they
+compare to your proposed feature.</p></li>
+<li><p>Briefly describe how your suggested feature <strong>conforms with Instaloader’s
+project goal</strong>.</p></li>
+</ul>
+</li>
+<li><p>Explain your <strong>solution ideas</strong>. Describe your ideas on how the feature could
+be implemented and the underlying problem could be solved. Also <strong>describe
+alternatives</strong> that you have considered.</p></li>
+</ul>
+</section>
+<section id="sponsoring">
+<h2>Sponsoring<a class="headerlink" href="#sponsoring" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="https://github.com/sponsors/aandergr">Alex’ GitHub Sponsors</a> page for
+how you can sponsor the development of Instaloader!</p>
+<p>It is a pleasure for us to share our Instaloader to the world, and we are proud
+to have attracted such an active and motivating community, with so many users
+who share their suggestions and ideas with us. Buying a community-sponsored beer
+or coffee from time to time is very likely to further raise our passion for the
+development of Instaloader.</p>
+<div class="line-block">
+<div class="line">For Donations, we provide GitHub Sponsors page, a PayPal.Me link and a Bitcoin address.</div>
+<div class="line-block">
+<div class="line">GitHub Sponsors: <a class="reference external" href="https://github.com/sponsors/aandergr">Sponsor &#64;aandergr on GitHub Sponsors</a></div>
+<div class="line">PayPal: <a class="reference external" href="https://www.paypal.me/aandergr">PayPal.me/aandergr</a></div>
+<div class="line">BTC: 1Nst4LoadeYzrKjJ1DX9CpbLXBYE9RKLwY</div>
+</div>
+</div>
+</section>
+</section>
+
+
+
+
+      </main>
+    </div>
+  </div>
+
+  </body>
+</html>

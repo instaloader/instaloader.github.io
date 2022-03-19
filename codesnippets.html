@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  
+    <title>Advanced Instaloader Examples &#8212; Instaloader  documentation</title>
+  
+
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/instaloaderdoc.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Exceptions" href="module/exceptions.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="FNUsDdkOJM9obm9QEdrNBVd9AtAzHzA-aaSMCUrS6C8"/>
+  
+    <link rel="canonical" href="https://instaloader.github.io/codesnippets.html"/>
+  
+
+  </head><body>
+  <nav class="navbar navbar-light navbar-expand bg-light border-bottom">
+    <a class="navbar-brand" href="index.html">
+      <img src="_static/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <span class="ml-3">Instaloader</span>
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ml-0 ml-sm-2">
+        <a class="nav-link"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           title="Released on 19 Mar 2022" data-toggle="tooltip">
+          v<b>4.8.5</b>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto d-none d-sm-flex">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/issues">
+          Issues
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/releases">
+          Releases
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader">
+          GitHub
+        </a>
+      </li>
+    </ul>
+    <button class="d-inline-block d-md-none btn btn-outline-primary btn-sm" type="button"
+            data-toggle="collapse" data-target="#instaloaderdocSidebar" aria-controls="instaloaderdocSidebar"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="instaloaderdoc-sidebar collapse d-md-block col-md-3 col-xl-2 bg-light"
+           id="instaloaderdocSidebar">
+        <nav role="navigation" aria-label="Table of Contents">
+          <form action="search.html" method="get" role="search" class="border-bottom mr-2 pb-2 mb-2 px-1">
+            <label class="sr-only" for="searchQueryInput">Search</label>
+            <input type="search" name="q" id="searchQueryInput" class="form-control my-2"
+                   placeholder="Search..." aria-label="Search">
+          </form>
+          <h4>Contents</h4>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install Instaloader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic-usage.html">Download Pictures from Instagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli-options.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="as-module.html">Python Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced Instaloader Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#download-posts-in-a-specific-period">Download Posts in a Specific Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#likes-of-a-profile-ghost-followers">Likes of a Profile / Ghost Followers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#track-deleted-posts">Track Deleted Posts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#only-one-post-per-user">Only one Post per User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#top-x-posts-of-user">Top X Posts of User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metadata-json-files">Metadata JSON Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Instaloader</a></li>
+</ul>
+
+        </nav>
+      </div>
+      <main class="col-12 col-md-9 col-xl-10 pt-2" role="main">
+        
+
+  <section id="advanced-instaloader-examples">
+<span id="codesnippets"></span><h1>Advanced Instaloader Examples<a class="headerlink" href="#advanced-instaloader-examples" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#advanced-instaloader-examples" id="id1">Advanced Instaloader Examples</a></p>
+<ul>
+<li><p><a class="reference internal" href="#download-posts-in-a-specific-period" id="id2">Download Posts in a Specific Period</a></p></li>
+<li><p><a class="reference internal" href="#likes-of-a-profile-ghost-followers" id="id3">Likes of a Profile / Ghost Followers</a></p></li>
+<li><p><a class="reference internal" href="#track-deleted-posts" id="id4">Track Deleted Posts</a></p></li>
+<li><p><a class="reference internal" href="#only-one-post-per-user" id="id5">Only one Post per User</a></p></li>
+<li><p><a class="reference internal" href="#top-x-posts-of-user" id="id6">Top X Posts of User</a></p></li>
+<li><p><a class="reference internal" href="#metadata-json-files" id="id7">Metadata JSON Files</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Here we present code examples that use the <a class="reference internal" href="as-module.html#python-module-instaloader"><span class="std std-ref">Python Module instaloader</span></a> for
+more advanced Instagram downloading or metadata mining than what is possible
+with the Instaloader command line interface.</p>
+<p>The scripts presented here can be downloaded from our source tree:
+<a class="reference external" href="https://github.com/instaloader/instaloader/tree/master/docs/codesnippets">instaloader/docs/codesnippets/</a></p>
+<section id="download-posts-in-a-specific-period">
+<h2>Download Posts in a Specific Period<a class="headerlink" href="#download-posts-in-a-specific-period" title="Permalink to this headline">¶</a></h2>
+<p>To only download Instagram pictures (and metadata) that are within a specific
+period, you can simply use <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropwhile()</span></code></a> and
+<a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">takewhile()</span></code></a> from <a class="reference external" href="https://docs.python.org/3/library/itertools.html#module-itertools" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">itertools</span></code></a> on a generator that returns
+Posts in <strong>exact chronological order</strong>, such as <a class="reference internal" href="module/structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">dropwhile</span><span class="p">,</span> <span class="n">takewhile</span>
+
+<span class="kn">import</span> <span class="nn">instaloader</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
+
+<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;instagram&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+
+<span class="n">SINCE</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">UNTIL</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">takewhile</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;</span> <span class="n">UNTIL</span><span class="p">,</span> <span class="n">dropwhile</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;</span> <span class="n">SINCE</span><span class="p">,</span> <span class="n">posts</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="s2">&quot;instagram&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.download_post" title="instaloader.Instaloader.download_post"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.download_post()</span></code></a>.</p>
+<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/121">Issue #121</a>.</p>
+<p>The code example with <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropwhile()</span></code></a> and
+<a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">takewhile()</span></code></a> makes the assumption that the post iterator returns
+posts in exact chronological order.  As discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/666">Issue #666</a>, the following
+approach fits for an <strong>almost chronological order</strong>, where up to <em>k</em> older posts
+are inserted into an otherwise chronological order, such as a Hashtag feed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">instaloader</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
+
+<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;urbanphotography&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+
+<span class="n">SINCE</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># further from today, inclusive</span>
+<span class="n">UNTIL</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>  <span class="c1"># closer to today, not inclusive</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># initiate k</span>
+<span class="c1">#k_list = []  # uncomment this to tune k</span>
+
+<span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span>
+    <span class="n">postdate</span> <span class="o">=</span> <span class="n">post</span><span class="o">.</span><span class="n">date</span>
+
+    <span class="k">if</span> <span class="n">postdate</span> <span class="o">&gt;</span> <span class="n">UNTIL</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="k">elif</span> <span class="n">postdate</span> <span class="o">&lt;=</span> <span class="n">SINCE</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">50</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">continue</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="s2">&quot;#urbanphotography&quot;</span><span class="p">)</span>
+        <span class="c1"># if you want to tune k, uncomment below to get your k max</span>
+        <span class="c1">#k_list.append(k)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># set k to 0</span>
+
+<span class="c1">#max(k_list)</span>
+</pre></div>
+</div>
+</section>
+<section id="likes-of-a-profile-ghost-followers">
+<h2>Likes of a Profile / Ghost Followers<a class="headerlink" href="#likes-of-a-profile-ghost-followers" title="Permalink to this headline">¶</a></h2>
+<p>To obtain a list of your inactive followers, i.e. followers that did not like
+any of your pictures, you can use this approach.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">instaloader</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
+
+<span class="n">USER</span> <span class="o">=</span> <span class="s2">&quot;your_account&quot;</span>
+<span class="n">PROFILE</span> <span class="o">=</span> <span class="n">USER</span>
+
+<span class="c1"># Load session previously saved with `instaloader -l USERNAME`:</span>
+<span class="n">L</span><span class="o">.</span><span class="n">load_session_from_file</span><span class="p">(</span><span class="n">USER</span><span class="p">)</span>
+
+<span class="n">profile</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">PROFILE</span><span class="p">)</span>
+
+<span class="n">likes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fetching likes of all posts of profile </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">profile</span><span class="o">.</span><span class="n">get_posts</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">post</span><span class="p">)</span>
+    <span class="n">likes</span> <span class="o">=</span> <span class="n">likes</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">get_likes</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fetching followers of profile </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
+<span class="n">followers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">get_followers</span><span class="p">())</span>
+
+<span class="n">ghosts</span> <span class="o">=</span> <span class="n">followers</span> <span class="o">-</span> <span class="n">likes</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Storing ghosts into file.&quot;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;inactive-users.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ghost</span> <span class="ow">in</span> <span class="n">ghosts</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ghost</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="module/structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Post.get_likes" title="instaloader.Post.get_likes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Post.get_likes()</span></code></a>,
+<a class="reference internal" href="module/structures.html#instaloader.Profile.get_followers" title="instaloader.Profile.get_followers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_followers()</span></code></a>, <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.load_session_from_file" title="instaloader.Instaloader.load_session_from_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.load_session_from_file()</span></code></a>,
+<a class="reference internal" href="module/structures.html#instaloader.Profile.from_username" title="instaloader.Profile.from_username"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.from_username()</span></code></a>.</p>
+<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/120">Issue #120</a>.</p>
+</section>
+<section id="track-deleted-posts">
+<h2>Track Deleted Posts<a class="headerlink" href="#track-deleted-posts" title="Permalink to this headline">¶</a></h2>
+<p>This script uses Instaloader to obtain a list of currently-online Instagram and
+compares it with the set of posts that you already have downloaded.  It outputs
+a list of posts which are online but not offline (i.e. not yet downloaded) and a
+list of posts which are offline but not online (i.e. deleted in the profile).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">chdir</span>
+
+<span class="kn">from</span> <span class="nn">instaloader</span> <span class="kn">import</span> <span class="n">Instaloader</span><span class="p">,</span> <span class="n">Post</span><span class="p">,</span> <span class="n">Profile</span><span class="p">,</span> <span class="n">load_structure_from_file</span>
+
+<span class="c1"># Instaloader instantiation - you may pass additional arguments to the constructor here</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">Instaloader</span><span class="p">()</span>
+
+<span class="c1"># If desired, load session previously saved with `instaloader -l USERNAME`:</span>
+<span class="c1">#L.load_session_from_file(USERNAME)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">TARGET</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;Pass profile name as argument!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Obtain set of posts that are on hard disk</span>
+<span class="n">chdir</span><span class="p">(</span><span class="n">TARGET</span><span class="p">)</span>
+<span class="n">offline_posts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">Post</span><span class="p">),</span>
+                           <span class="p">(</span><span class="n">load_structure_from_file</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+                            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.json.xz&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.json&#39;</span><span class="p">)))))</span>
+
+<span class="c1"># Obtain set of posts that are currently online</span>
+<span class="n">post_iterator</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">TARGET</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+<span class="n">online_posts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">post_iterator</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">online_posts</span> <span class="o">-</span> <span class="n">offline_posts</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not yet downloaded posts:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">online_posts</span> <span class="o">-</span> <span class="n">offline_posts</span><span class="p">)))</span>
+
+<span class="k">if</span> <span class="n">offline_posts</span> <span class="o">-</span> <span class="n">online_posts</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deleted posts:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">offline_posts</span> <span class="o">-</span> <span class="n">online_posts</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="module/structures.html#instaloader.load_structure_from_file" title="instaloader.load_structure_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_structure_from_file()</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Profile.from_username" title="instaloader.Profile.from_username"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.from_username()</span></code></a>,
+<a class="reference internal" href="module/structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>.</p>
+<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/56">Issue #56</a>.</p>
+</section>
+<section id="only-one-post-per-user">
+<h2>Only one Post per User<a class="headerlink" href="#only-one-post-per-user" title="Permalink to this headline">¶</a></h2>
+<p>To download only the single most recent post per user within a hashtag feed,
+this snippet uses a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> that contains the users of whom a post has
+already been downloaded. For each post, it checks whether the post’s creator is
+already contained in that set. If not, the post is downloaded from Instagram and
+the user is added to that set.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">instaloader</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
+
+<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s1">&#39;urbanphotography&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">owner_profile</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="s1">&#39;#urbanphotography&#39;</span><span class="p">)</span>
+        <span class="n">users</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">owner_profile</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> from </span><span class="si">{}</span><span class="s2"> skipped.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">post</span><span class="o">.</span><span class="n">owner_profile</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>See also <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.download_post" title="instaloader.Instaloader.download_post"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.download_post()</span></code></a>,
+<a class="reference internal" href="module/structures.html#instaloader.Post.owner_profile" title="instaloader.Post.owner_profile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Post.owner_profile</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>.</p>
+<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/113">Issue #113</a>.</p>
+</section>
+<section id="top-x-posts-of-user">
+<h2>Top X Posts of User<a class="headerlink" href="#top-x-posts-of-user" title="Permalink to this headline">¶</a></h2>
+<p>With Instaloader, it is easy to download the few most-liked pictures of a user.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+
+<span class="kn">from</span> <span class="nn">instaloader</span> <span class="kn">import</span> <span class="n">Instaloader</span><span class="p">,</span> <span class="n">Profile</span>
+
+<span class="n">PROFILE</span> <span class="o">=</span> <span class="o">...</span>        <span class="c1"># profile to download from</span>
+<span class="n">X_percentage</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1"># percentage of posts that should be downloaded</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">Instaloader</span><span class="p">()</span>
+
+<span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">PROFILE</span><span class="p">)</span>
+<span class="n">posts_sorted_by_likes</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">get_posts</span><span class="p">(),</span>
+                               <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">likes</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">comments</span><span class="p">,</span>
+                               <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">islice</span><span class="p">(</span><span class="n">posts_sorted_by_likes</span><span class="p">,</span> <span class="n">ceil</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">mediacount</span> <span class="o">*</span> <span class="n">X_percentage</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)):</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">PROFILE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/194">Issue #194</a>.</p>
+</section>
+<section id="metadata-json-files">
+<h2>Metadata JSON Files<a class="headerlink" href="#metadata-json-files" title="Permalink to this headline">¶</a></h2>
+<p>The JSON files Instaloader saves along with each Post contain all the metadata
+that has been retrieved from Instagram while downloading the picture and
+associated required information.</p>
+<p>With <a class="reference external" href="https://stedolan.github.io/jq/">jq</a>, a command-line JSON processor, the
+metadata can be easily post-processed. For example, Instaloader’s JSON files can
+be pretty-formatted with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>xzcat 2018-05-13_11-18-45_UTC.json.xz | jq .node
+</pre></div>
+</div>
+<p>However, Instaloader tries to do as few metadata requests as possible, so,
+depending on how Instaloader has been invoked, it may occur that these files do
+not contain the complete available metadata structure. Nevertheless, the file
+can be loaded into Instaloader with <a class="reference internal" href="module/structures.html#instaloader.load_structure_from_file" title="instaloader.load_structure_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_structure_from_file()</span></code></a> and the
+required metadata then be accessed via the <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a> or <a class="reference internal" href="module/structures.html#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>
+attributes, which trigger an Instagram request if that particular information is
+not present in the JSON file.</p>
+</section>
+</section>
+
+
+
+<h2>Next Section</h2>
+<p>
+  <a class="reference internal" href="troubleshooting.html">Troubleshooting</a>
+</p>
+
+
+      </main>
+    </div>
+  </div>
+
+  </body>
+</html>

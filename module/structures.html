@@ -1,0 +1,2193 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  
+    <title>Instagram Structures &#8212; Instaloader  documentation</title>
+  
+
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/instaloaderdoc.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/instaloaderdoc.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Resumable Iterations" href="nodeiterator.html" />
+    <link rel="prev" title="Instaloader (Main Class)" href="instaloader.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="FNUsDdkOJM9obm9QEdrNBVd9AtAzHzA-aaSMCUrS6C8"/>
+  
+    <link rel="canonical" href="https://instaloader.github.io/module/structures.html"/>
+  
+
+  </head><body>
+  <nav class="navbar navbar-light navbar-expand bg-light border-bottom">
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <span class="ml-3">Instaloader</span>
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ml-0 ml-sm-2">
+        <a class="nav-link"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           title="Released on 19 Mar 2022" data-toggle="tooltip">
+          v<b>4.8.5</b>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto d-none d-sm-flex">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/issues">
+          Issues
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/releases">
+          Releases
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader">
+          GitHub
+        </a>
+      </li>
+    </ul>
+    <button class="d-inline-block d-md-none btn btn-outline-primary btn-sm" type="button"
+            data-toggle="collapse" data-target="#instaloaderdocSidebar" aria-controls="instaloaderdocSidebar"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="instaloaderdoc-sidebar collapse d-md-block col-md-3 col-xl-2 bg-light"
+           id="instaloaderdocSidebar">
+        <nav role="navigation" aria-label="Table of Contents">
+          <form action="../search.html" method="get" role="search" class="border-bottom mr-2 pb-2 mb-2 px-1">
+            <label class="sr-only" for="searchQueryInput">Search</label>
+            <input type="search" name="q" id="searchQueryInput" class="form-control my-2"
+                   placeholder="Search..." aria-label="Search">
+          </form>
+          <h4>Contents</h4>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install Instaloader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-usage.html">Download Pictures from Instagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-options.html">Command Line Options</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../as-module.html">Python Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="instaloader.html"><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code> (Main Class)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Instagram Structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#posts">Posts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-stories">User Stories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiles">Profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hashtags">Hashtags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#topsearchresults">TopSearchResults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-and-saving">Loading and Saving</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lateststamps">LatestStamps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="nodeiterator.html">Resumable Iterations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="instaloadercontext.html"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code> (Low-level functions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../codesnippets.html">Advanced Instaloader Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Instaloader</a></li>
+</ul>
+
+        </nav>
+      </div>
+      <main class="col-12 col-md-9 col-xl-10 pt-2" role="main">
+        
+
+  <section id="instagram-structures">
+<h1>Instagram Structures<a class="headerlink" href="#instagram-structures" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#instagram-structures" id="id1">Instagram Structures</a></p>
+<ul>
+<li><p><a class="reference internal" href="#posts" id="id2">Posts</a></p></li>
+<li><p><a class="reference internal" href="#user-stories" id="id3">User Stories</a></p></li>
+<li><p><a class="reference internal" href="#highlights" id="id4">Highlights</a></p></li>
+<li><p><a class="reference internal" href="#profiles" id="id5">Profiles</a></p></li>
+<li><p><a class="reference internal" href="#hashtags" id="id6">Hashtags</a></p></li>
+<li><p><a class="reference internal" href="#topsearchresults" id="id7">TopSearchResults</a></p></li>
+<li><p><a class="reference internal" href="#loading-and-saving" id="id8">Loading and Saving</a></p></li>
+<li><p><a class="reference internal" href="#lateststamps" id="id9">LatestStamps</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="posts">
+<h2>Posts<a class="headerlink" href="#posts" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.Post">
+<em class="property">class </em><code class="sig-name descname">Post</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">node</em>, <em class="sig-param">owner_profile=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure containing information about an Instagram post.</p>
+<p>Created by methods <a class="reference internal" href="#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a>, <a class="reference internal" href="instaloader.html#instaloader.Instaloader.get_hashtag_posts" title="instaloader.Instaloader.get_hashtag_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.get_hashtag_posts()</span></code></a>,
+<a class="reference internal" href="instaloader.html#instaloader.Instaloader.get_feed_posts" title="instaloader.Instaloader.get_feed_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.get_feed_posts()</span></code></a> and <a class="reference internal" href="#instaloader.Profile.get_saved_posts" title="instaloader.Profile.get_saved_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_saved_posts()</span></code></a>, which return iterators of Posts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">Instaloader</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">L</span><span class="o">.</span><span class="n">get_hashtag_posts</span><span class="p">(</span><span class="n">HASHTAG</span><span class="p">):</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="o">+</span><span class="n">HASHTAG</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Might also be created with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">post</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">from_shortcode</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">SHORTCODE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This class unifies access to the properties associated with a post. It implements == and is
+hashable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloader.html#instaloader.Instaloader.context" title="instaloader.Instaloader.context"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Instaloader.context</span></code></a> used for additional queries if neccessary..</p></li>
+<li><p><strong>node</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – Node structure, as returned by Instagram.</p></li>
+<li><p><strong>owner_profile</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>]) – The Profile of the owner, if already known at creation.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="instaloader.Post.from_shortcode">
+<em class="property">classmethod </em><code class="sig-name descname">from_shortcode</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">shortcode</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.from_shortcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a post object from a given shortcode</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.from_mediaid">
+<em class="property">classmethod </em><code class="sig-name descname">from_mediaid</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">mediaid</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.from_mediaid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a post object from a given mediaid</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.shortcode_to_mediaid">
+<em class="property">static </em><code class="sig-name descname">shortcode_to_mediaid</code><span class="sig-paren">(</span><em class="sig-param">code</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.shortcode_to_mediaid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.mediaid_to_shortcode">
+<em class="property">static </em><code class="sig-name descname">mediaid_to_shortcode</code><span class="sig-paren">(</span><em class="sig-param">mediaid</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.mediaid_to_shortcode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.supported_graphql_types">
+<em class="property">static </em><code class="sig-name descname">supported_graphql_types</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.supported_graphql_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>The values of __typename fields that the <a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a> class can handle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.shortcode">
+<em class="property">property </em><code class="sig-name descname">shortcode</code><a class="headerlink" href="#instaloader.Post.shortcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Media shortcode. URL of the post is instagram.com/p/&lt;shortcode&gt;/.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.mediaid">
+<em class="property">property </em><code class="sig-name descname">mediaid</code><a class="headerlink" href="#instaloader.Post.mediaid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The mediaid is a decimal representation of the media shortcode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.title">
+<em class="property">property </em><code class="sig-name descname">title</code><a class="headerlink" href="#instaloader.Post.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Title of post</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.owner_profile">
+<em class="property">property </em><code class="sig-name descname">owner_profile</code><a class="headerlink" href="#instaloader.Post.owner_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instance of the Post’s owner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.owner_username">
+<em class="property">property </em><code class="sig-name descname">owner_username</code><a class="headerlink" href="#instaloader.Post.owner_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Post’s lowercase owner name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.owner_id">
+<em class="property">property </em><code class="sig-name descname">owner_id</code><a class="headerlink" href="#instaloader.Post.owner_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the Post’s owner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.date_local">
+<em class="property">property </em><code class="sig-name descname">date_local</code><a class="headerlink" href="#instaloader.Post.date_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the post was created (local time zone).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.date_utc">
+<em class="property">property </em><code class="sig-name descname">date_utc</code><a class="headerlink" href="#instaloader.Post.date_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the post was created (UTC).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.date">
+<em class="property">property </em><code class="sig-name descname">date</code><a class="headerlink" href="#instaloader.Post.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synonym to <a class="reference internal" href="#instaloader.Post.date_utc" title="instaloader.Post.date_utc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">date_utc</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.profile">
+<em class="property">property </em><code class="sig-name descname">profile</code><a class="headerlink" href="#instaloader.Post.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synonym to <a class="reference internal" href="#instaloader.Post.owner_username" title="instaloader.Post.owner_username"><code class="xref py py-attr docutils literal notranslate"><span class="pre">owner_username</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.url">
+<em class="property">property </em><code class="sig-name descname">url</code><a class="headerlink" href="#instaloader.Post.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the picture / video thumbnail of the post</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.typename">
+<em class="property">property </em><code class="sig-name descname">typename</code><a class="headerlink" href="#instaloader.Post.typename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of post, GraphImage, GraphVideo or GraphSidecar</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.mediacount">
+<em class="property">property </em><code class="sig-name descname">mediacount</code><a class="headerlink" href="#instaloader.Post.mediacount" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of media in a sidecar Post, or 1 if the Post it not a sidecar.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.6.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.get_is_videos">
+<code class="sig-name descname">get_is_videos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.get_is_videos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list containing the <code class="docutils literal notranslate"><span class="pre">is_video</span></code> property for each media in the post.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.7.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.get_sidecar_nodes">
+<code class="sig-name descname">get_sidecar_nodes</code><span class="sig-paren">(</span><em class="sig-param">start=0</em>, <em class="sig-param">end=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.get_sidecar_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sidecar nodes of a Post with typename==GraphSidecar.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.6: </span>Added parameters <em>start</em> and <em>end</em> to specify a slice of sidecar media.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.PostSidecarNode" title="instaloader.PostSidecarNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostSidecarNode</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.caption">
+<em class="property">property </em><code class="sig-name descname">caption</code><a class="headerlink" href="#instaloader.Post.caption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Caption.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.caption_hashtags">
+<em class="property">property </em><code class="sig-name descname">caption_hashtags</code><a class="headerlink" href="#instaloader.Post.caption_hashtags" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all lowercased hashtags (without preceeding #) that occur in the Post’s caption.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.caption_mentions">
+<em class="property">property </em><code class="sig-name descname">caption_mentions</code><a class="headerlink" href="#instaloader.Post.caption_mentions" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all lowercased profiles that are mentioned in the Post’s caption, without preceeding &#64;.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.pcaption">
+<em class="property">property </em><code class="sig-name descname">pcaption</code><a class="headerlink" href="#instaloader.Post.pcaption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Printable caption, useful as a format specifier for –filename-pattern.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.2.6.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.tagged_users">
+<em class="property">property </em><code class="sig-name descname">tagged_users</code><a class="headerlink" href="#instaloader.Post.tagged_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all lowercased users that are tagged in the Post.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.is_video">
+<em class="property">property </em><code class="sig-name descname">is_video</code><a class="headerlink" href="#instaloader.Post.is_video" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the Post is a video.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.video_url">
+<em class="property">property </em><code class="sig-name descname">video_url</code><a class="headerlink" href="#instaloader.Post.video_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the video, or None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.video_view_count">
+<em class="property">property </em><code class="sig-name descname">video_view_count</code><a class="headerlink" href="#instaloader.Post.video_view_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>View count of the video, or None.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.2.6.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.video_duration">
+<em class="property">property </em><code class="sig-name descname">video_duration</code><a class="headerlink" href="#instaloader.Post.video_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duration of the video in seconds, or None.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.2.6.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.viewer_has_liked">
+<em class="property">property </em><code class="sig-name descname">viewer_has_liked</code><a class="headerlink" href="#instaloader.Post.viewer_has_liked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the viewer has liked the post, or None if not logged in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.likes">
+<em class="property">property </em><code class="sig-name descname">likes</code><a class="headerlink" href="#instaloader.Post.likes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Likes count</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.comments">
+<em class="property">property </em><code class="sig-name descname">comments</code><a class="headerlink" href="#instaloader.Post.comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comment count including answers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.get_comments">
+<code class="sig-name descname">get_comments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.get_comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over all comments of the post.</p>
+<p>Each comment is represented by a PostComment namedtuple with fields text (string), created_at (datetime),
+id (int), owner (<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>) and answers (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.PostCommentAnswer" title="instaloader.PostCommentAnswer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostCommentAnswer</span></code></a>])
+if available.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.7: </span>Change return type to <code class="docutils literal notranslate"><span class="pre">Iterable</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code></a>[<a class="reference internal" href="#instaloader.PostComment" title="instaloader.PostComment"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostComment</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.get_likes">
+<code class="sig-name descname">get_likes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.get_likes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate over all likes of the post. A <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instance of each likee is yielded.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.5.4: </span>Require being logged in (as required by Instagram).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.is_sponsored">
+<em class="property">property </em><code class="sig-name descname">is_sponsored</code><a class="headerlink" href="#instaloader.Post.is_sponsored" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether Post is a sponsored post, equivalent to non-empty <a class="reference internal" href="#instaloader.Post.sponsor_users" title="instaloader.Post.sponsor_users"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Post.sponsor_users()</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.4.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.sponsor_users">
+<em class="property">property </em><code class="sig-name descname">sponsor_users</code><a class="headerlink" href="#instaloader.Post.sponsor_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Post’s sponsors.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.4.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.location">
+<em class="property">property </em><code class="sig-name descname">location</code><a class="headerlink" href="#instaloader.Post.location" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the Post has a location, returns PostLocation namedtuple with fields ‘id’, ‘lat’ and ‘lng’ and ‘name’.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.2.9: </span>Require being logged in (as required by Instagram), return None if not logged-in.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference internal" href="#instaloader.PostLocation" title="instaloader.PostLocation"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostLocation</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<p>Additionally, the following trivial structures are defined:</p>
+<dl class="class">
+<dt id="instaloader.PostSidecarNode">
+<em class="property">class </em><code class="sig-name descname">PostSidecarNode</code><a class="headerlink" href="#instaloader.PostSidecarNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Item of a Sidecar Post.</p>
+<dl class="method">
+<dt id="instaloader.PostSidecarNode.display_url">
+<em class="property">property </em><code class="sig-name descname">display_url</code><a class="headerlink" href="#instaloader.PostSidecarNode.display_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of image or video thumbnail.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostSidecarNode.is_video">
+<em class="property">property </em><code class="sig-name descname">is_video</code><a class="headerlink" href="#instaloader.PostSidecarNode.is_video" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this node is a video.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostSidecarNode.video_url">
+<em class="property">property </em><code class="sig-name descname">video_url</code><a class="headerlink" href="#instaloader.PostSidecarNode.video_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of video or None.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instaloader.PostComment">
+<em class="property">class </em><code class="sig-name descname">PostComment</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">created_at_utc</em>, <em class="sig-param">text</em>, <em class="sig-param">owner</em>, <em class="sig-param">likes_count</em>, <em class="sig-param">answers</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.PostComment" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instaloader.PostComment.answers">
+<em class="property">property </em><code class="sig-name descname">answers</code><a class="headerlink" href="#instaloader.PostComment.answers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator which yields all <a class="reference internal" href="#instaloader.PostCommentAnswer" title="instaloader.PostCommentAnswer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostCommentAnswer</span></code></a>s for the comment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostComment.created_at_utc">
+<em class="property">property </em><code class="sig-name descname">created_at_utc</code><a class="headerlink" href="#instaloader.PostComment.created_at_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> when comment was created (UTC).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostComment.id">
+<em class="property">property </em><code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostComment.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID number of comment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostComment.likes_count">
+<em class="property">property </em><code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostComment.likes_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of likes on comment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostComment.owner">
+<em class="property">property </em><code class="sig-name descname">owner</code><a class="headerlink" href="#instaloader.PostComment.owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Owner <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> of the comment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostComment.text">
+<em class="property">property </em><code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostComment.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comment text.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instaloader.PostCommentAnswer">
+<em class="property">class </em><code class="sig-name descname">PostCommentAnswer</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">created_at_utc</em>, <em class="sig-param">text</em>, <em class="sig-param">owner</em>, <em class="sig-param">likes_count</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.PostCommentAnswer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instaloader.PostCommentAnswer.created_at_utc">
+<em class="property">property </em><code class="sig-name descname">created_at_utc</code><a class="headerlink" href="#instaloader.PostCommentAnswer.created_at_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> when comment was created (UTC).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostCommentAnswer.id">
+<em class="property">property </em><code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostCommentAnswer.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID number of comment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostCommentAnswer.likes_count">
+<em class="property">property </em><code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostCommentAnswer.likes_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of likes on comment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostCommentAnswer.owner">
+<em class="property">property </em><code class="sig-name descname">owner</code><a class="headerlink" href="#instaloader.PostCommentAnswer.owner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Owner <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> of the comment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostCommentAnswer.text">
+<em class="property">property </em><code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostCommentAnswer.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comment text.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instaloader.PostLocation">
+<em class="property">class </em><code class="sig-name descname">PostLocation</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">name</em>, <em class="sig-param">slug</em>, <em class="sig-param">has_public_page</em>, <em class="sig-param">lat</em>, <em class="sig-param">lng</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.PostLocation" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="instaloader.PostLocation.has_public_page">
+<em class="property">property </em><code class="sig-name descname">has_public_page</code><a class="headerlink" href="#instaloader.PostLocation.has_public_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether location has a public page.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostLocation.id">
+<em class="property">property </em><code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostLocation.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID number of location.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostLocation.lat">
+<em class="property">property </em><code class="sig-name descname">lat</code><a class="headerlink" href="#instaloader.PostLocation.lat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Latitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or None).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostLocation.lng">
+<em class="property">property </em><code class="sig-name descname">lng</code><a class="headerlink" href="#instaloader.PostLocation.lng" title="Permalink to this definition">¶</a></dt>
+<dd><p>Longitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or None).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostLocation.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#instaloader.PostLocation.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Location name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.PostLocation.slug">
+<em class="property">property </em><code class="sig-name descname">slug</code><a class="headerlink" href="#instaloader.PostLocation.slug" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL friendly variant of location name.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="user-stories">
+<h2>User Stories<a class="headerlink" href="#user-stories" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.Story">
+<em class="property">class </em><code class="sig-name descname">Story</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">node</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Story" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure representing a user story with its associated items.</p>
+<p>Provides methods for accessing story properties, as well as <a class="reference internal" href="#instaloader.Story.get_items" title="instaloader.Story.get_items"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Story.get_items()</span></code></a> to request associated
+<a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a> nodes. Stories are returned by <a class="reference internal" href="instaloader.html#instaloader.Instaloader.get_stories" title="instaloader.Instaloader.get_stories"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.get_stories()</span></code></a>.</p>
+<p>With a logged-in <a class="reference internal" href="instaloader.html#instaloader.Instaloader" title="instaloader.Instaloader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Instaloader</span></code></a> instance <cite>L</cite>, you may download all your visible user stories with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">story</span> <span class="ow">in</span> <span class="n">L</span><span class="o">.</span><span class="n">get_stories</span><span class="p">():</span>
+    <span class="c1"># story is a Story object</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">story</span><span class="o">.</span><span class="n">get_items</span><span class="p">():</span>
+        <span class="c1"># item is a StoryItem object</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">download_storyitem</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s1">&#39;:stories&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This class implements == and is hashable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a> instance used for additional queries if necessary.</p></li>
+<li><p><strong>node</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – Dictionary containing the available information of the story as returned by Instagram.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="instaloader.Story.unique_id">
+<em class="property">property </em><code class="sig-name descname">unique_id</code><a class="headerlink" href="#instaloader.Story.unique_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>This ID only equals amongst <a class="reference internal" href="#instaloader.Story" title="instaloader.Story"><code class="xref py py-class docutils literal notranslate"><span class="pre">Story</span></code></a> instances which have the same owner and the same set of
+<a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>. For all other <a class="reference internal" href="#instaloader.Story" title="instaloader.Story"><code class="xref py py-class docutils literal notranslate"><span class="pre">Story</span></code></a> instances this ID is different.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Story.last_seen_local">
+<em class="property">property </em><code class="sig-name descname">last_seen_local</code><a class="headerlink" href="#instaloader.Story.last_seen_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp of the most recent StoryItem that has been watched or None (local time zone).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Story.last_seen_utc">
+<em class="property">property </em><code class="sig-name descname">last_seen_utc</code><a class="headerlink" href="#instaloader.Story.last_seen_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp of the most recent StoryItem that has been watched or None (UTC).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Story.latest_media_local">
+<em class="property">property </em><code class="sig-name descname">latest_media_local</code><a class="headerlink" href="#instaloader.Story.latest_media_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the last item of the story was created (local time zone).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Story.latest_media_utc">
+<em class="property">property </em><code class="sig-name descname">latest_media_utc</code><a class="headerlink" href="#instaloader.Story.latest_media_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the last item of the story was created (UTC).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Story.itemcount">
+<em class="property">property </em><code class="sig-name descname">itemcount</code><a class="headerlink" href="#instaloader.Story.itemcount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count of items associated with the <a class="reference internal" href="#instaloader.Story" title="instaloader.Story"><code class="xref py py-class docutils literal notranslate"><span class="pre">Story</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Story.owner_profile">
+<em class="property">property </em><code class="sig-name descname">owner_profile</code><a class="headerlink" href="#instaloader.Story.owner_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instance of the story owner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Story.owner_username">
+<em class="property">property </em><code class="sig-name descname">owner_username</code><a class="headerlink" href="#instaloader.Story.owner_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>The story owner’s lowercase username.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Story.owner_id">
+<em class="property">property </em><code class="sig-name descname">owner_id</code><a class="headerlink" href="#instaloader.Story.owner_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The story owner’s ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Story.get_items">
+<code class="sig-name descname">get_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Story.get_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all items from a story.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="instaloader.StoryItem">
+<em class="property">class </em><code class="sig-name descname">StoryItem</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">node</em>, <em class="sig-param">owner_profile=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.StoryItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure containing information about a user story item i.e. image or video.</p>
+<p>Created by method <a class="reference internal" href="#instaloader.Story.get_items" title="instaloader.Story.get_items"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Story.get_items()</span></code></a>. This class implements == and is hashable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a> instance used for additional queries if necessary.</p></li>
+<li><p><strong>node</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – Dictionary containing the available information of the story item.</p></li>
+<li><p><strong>owner_profile</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>]) – <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instance representing the story owner.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="instaloader.StoryItem.mediaid">
+<em class="property">property </em><code class="sig-name descname">mediaid</code><a class="headerlink" href="#instaloader.StoryItem.mediaid" title="Permalink to this definition">¶</a></dt>
+<dd><p>The mediaid is a decimal representation of the media shortcode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.shortcode">
+<em class="property">property </em><code class="sig-name descname">shortcode</code><a class="headerlink" href="#instaloader.StoryItem.shortcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert <a class="reference internal" href="#instaloader.StoryItem.mediaid" title="instaloader.StoryItem.mediaid"><code class="xref py py-attr docutils literal notranslate"><span class="pre">mediaid</span></code></a> to a shortcode-like string, allowing <code class="docutils literal notranslate"><span class="pre">{shortcode}</span></code> to be used with
+<a class="reference internal" href="../cli-options.html#cmdoption-filename-pattern"><code class="xref std std-option docutils literal notranslate"><span class="pre">--filename-pattern</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.owner_profile">
+<em class="property">property </em><code class="sig-name descname">owner_profile</code><a class="headerlink" href="#instaloader.StoryItem.owner_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instance of the story item’s owner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.owner_username">
+<em class="property">property </em><code class="sig-name descname">owner_username</code><a class="headerlink" href="#instaloader.StoryItem.owner_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>The StoryItem owner’s lowercase name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.owner_id">
+<em class="property">property </em><code class="sig-name descname">owner_id</code><a class="headerlink" href="#instaloader.StoryItem.owner_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ID of the StoryItem owner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.date_local">
+<em class="property">property </em><code class="sig-name descname">date_local</code><a class="headerlink" href="#instaloader.StoryItem.date_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the StoryItem was created (local time zone).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.date_utc">
+<em class="property">property </em><code class="sig-name descname">date_utc</code><a class="headerlink" href="#instaloader.StoryItem.date_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the StoryItem was created (UTC).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.date">
+<em class="property">property </em><code class="sig-name descname">date</code><a class="headerlink" href="#instaloader.StoryItem.date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synonym to <a class="reference internal" href="#instaloader.StoryItem.date_utc" title="instaloader.StoryItem.date_utc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">date_utc</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.profile">
+<em class="property">property </em><code class="sig-name descname">profile</code><a class="headerlink" href="#instaloader.StoryItem.profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synonym to <a class="reference internal" href="#instaloader.StoryItem.owner_username" title="instaloader.StoryItem.owner_username"><code class="xref py py-attr docutils literal notranslate"><span class="pre">owner_username</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.expiring_local">
+<em class="property">property </em><code class="sig-name descname">expiring_local</code><a class="headerlink" href="#instaloader.StoryItem.expiring_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the StoryItem will get unavailable (local time zone).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.expiring_utc">
+<em class="property">property </em><code class="sig-name descname">expiring_utc</code><a class="headerlink" href="#instaloader.StoryItem.expiring_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the StoryItem will get unavailable (UTC).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.url">
+<em class="property">property </em><code class="sig-name descname">url</code><a class="headerlink" href="#instaloader.StoryItem.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the picture / video thumbnail of the StoryItem</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.typename">
+<em class="property">property </em><code class="sig-name descname">typename</code><a class="headerlink" href="#instaloader.StoryItem.typename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Type of post, GraphStoryImage or GraphStoryVideo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.is_video">
+<em class="property">property </em><code class="sig-name descname">is_video</code><a class="headerlink" href="#instaloader.StoryItem.is_video" title="Permalink to this definition">¶</a></dt>
+<dd><p>True if the StoryItem is a video.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.video_url">
+<em class="property">property </em><code class="sig-name descname">video_url</code><a class="headerlink" href="#instaloader.StoryItem.video_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the video, or None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.Highlight">
+<em class="property">class </em><code class="sig-name descname">Highlight</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">node</em>, <em class="sig-param">owner=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Highlight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Structure representing a user’s highlight with its associated story items.</p>
+<p>Provides methods for accessing highlight properties, as well as <a class="reference internal" href="#instaloader.Highlight.get_items" title="instaloader.Highlight.get_items"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Highlight.get_items()</span></code></a> to request associated
+<a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a> nodes. Highlights are returned by <a class="reference internal" href="instaloader.html#instaloader.Instaloader.get_highlights" title="instaloader.Instaloader.get_highlights"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.get_highlights()</span></code></a>.</p>
+<p>With a logged-in <a class="reference internal" href="instaloader.html#instaloader.Instaloader" title="instaloader.Instaloader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Instaloader</span></code></a> instance <cite>L</cite>, you may download all highlights of a <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instance
+USER with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">highlight</span> <span class="ow">in</span> <span class="n">L</span><span class="o">.</span><span class="n">get_highlights</span><span class="p">(</span><span class="n">USER</span><span class="p">):</span>
+    <span class="c1"># highlight is a Highlight object</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">highlight</span><span class="o">.</span><span class="n">get_items</span><span class="p">():</span>
+        <span class="c1"># item is a StoryItem object</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">download_storyitem</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">highlight</span><span class="o">.</span><span class="n">owner_username</span><span class="p">,</span> <span class="n">highlight</span><span class="o">.</span><span class="n">title</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This class implements == and is hashable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a> instance used for additional queries if necessary.</p></li>
+<li><p><strong>node</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – Dictionary containing the available information of the highlight as returned by Instagram.</p></li>
+<li><p><strong>owner</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>]) – <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instance representing the owner profile of the highlight.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Bases: <a class="reference internal" href="#instaloader.Story" title="instaloader.Story"><code class="xref py py-class docutils literal notranslate"><span class="pre">Story</span></code></a></p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.1.</span></p>
+</div>
+<dl class="method">
+<dt id="instaloader.Highlight.unique_id">
+<em class="property">property </em><code class="sig-name descname">unique_id</code><a class="headerlink" href="#instaloader.Highlight.unique_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A unique ID identifying this set of highlights.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.owner_profile">
+<em class="property">property </em><code class="sig-name descname">owner_profile</code><a class="headerlink" href="#instaloader.Highlight.owner_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instance of the highlights’ owner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.title">
+<em class="property">property </em><code class="sig-name descname">title</code><a class="headerlink" href="#instaloader.Highlight.title" title="Permalink to this definition">¶</a></dt>
+<dd><p>The title of these highlights.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.cover_url">
+<em class="property">property </em><code class="sig-name descname">cover_url</code><a class="headerlink" href="#instaloader.Highlight.cover_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the highlights’ cover.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.cover_cropped_url">
+<em class="property">property </em><code class="sig-name descname">cover_cropped_url</code><a class="headerlink" href="#instaloader.Highlight.cover_cropped_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of the cropped version of the cover.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.itemcount">
+<em class="property">property </em><code class="sig-name descname">itemcount</code><a class="headerlink" href="#instaloader.Highlight.itemcount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count of items associated with the <a class="reference internal" href="#instaloader.Highlight" title="instaloader.Highlight"><code class="xref py py-class docutils literal notranslate"><span class="pre">Highlight</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.get_items">
+<code class="sig-name descname">get_items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Highlight.get_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all associated highlight items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.last_seen_local">
+<em class="property">property </em><code class="sig-name descname">last_seen_local</code><a class="headerlink" href="#instaloader.Highlight.last_seen_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp of the most recent StoryItem that has been watched or None (local time zone).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.last_seen_utc">
+<em class="property">property </em><code class="sig-name descname">last_seen_utc</code><a class="headerlink" href="#instaloader.Highlight.last_seen_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp of the most recent StoryItem that has been watched or None (UTC).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.latest_media_local">
+<em class="property">property </em><code class="sig-name descname">latest_media_local</code><a class="headerlink" href="#instaloader.Highlight.latest_media_local" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the last item of the story was created (local time zone).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.latest_media_utc">
+<em class="property">property </em><code class="sig-name descname">latest_media_utc</code><a class="headerlink" href="#instaloader.Highlight.latest_media_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestamp when the last item of the story was created (UTC).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.owner_id">
+<em class="property">property </em><code class="sig-name descname">owner_id</code><a class="headerlink" href="#instaloader.Highlight.owner_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The story owner’s ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Highlight.owner_username">
+<em class="property">property </em><code class="sig-name descname">owner_username</code><a class="headerlink" href="#instaloader.Highlight.owner_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>The story owner’s lowercase username.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="profiles">
+<h2>Profiles<a class="headerlink" href="#profiles" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.Profile">
+<em class="property">class </em><code class="sig-name descname">Profile</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">node</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Instagram Profile.</p>
+<p>Provides methods for accessing profile properties, as well as <a class="reference internal" href="#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a> and for own profile
+<a class="reference internal" href="#instaloader.Profile.get_saved_posts" title="instaloader.Profile.get_saved_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_saved_posts()</span></code></a>.</p>
+<p>Get instances with <a class="reference internal" href="#instaloader.Post.owner_profile" title="instaloader.Post.owner_profile"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Post.owner_profile()</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem.owner_profile" title="instaloader.StoryItem.owner_profile"><code class="xref py py-meth docutils literal notranslate"><span class="pre">StoryItem.owner_profile()</span></code></a>, <a class="reference internal" href="#instaloader.Profile.get_followees" title="instaloader.Profile.get_followees"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_followees()</span></code></a>,
+<a class="reference internal" href="#instaloader.Profile.get_followers" title="instaloader.Profile.get_followers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_followers()</span></code></a> or:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">Instaloader</span><span class="p">()</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">USERNAME</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Provides <a class="reference internal" href="#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a> and for own profile <a class="reference internal" href="#instaloader.Profile.get_saved_posts" title="instaloader.Profile.get_saved_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_saved_posts()</span></code></a> to iterate over associated
+<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a> objects:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">profile</span><span class="o">.</span><span class="n">get_posts</span><span class="p">():</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">profile</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="#instaloader.Profile.get_followees" title="instaloader.Profile.get_followees"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_followees()</span></code></a> and <a class="reference internal" href="#instaloader.Profile.get_followers" title="instaloader.Profile.get_followers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_followers()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> follows these profiles:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">followee</span> <span class="ow">in</span> <span class="n">profile</span><span class="o">.</span><span class="n">get_followees</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">followee</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also, this class implements == and is hashable.</p>
+<dl class="method">
+<dt id="instaloader.Profile.from_username">
+<em class="property">classmethod </em><code class="sig-name descname">from_username</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">username</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.from_username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Profile instance from a given username, raise exception if it does not exist.</p>
+<p>See also <a class="reference internal" href="instaloader.html#instaloader.Instaloader.check_profile_id" title="instaloader.Instaloader.check_profile_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.check_profile_id()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloader.html#instaloader.Instaloader.context" title="instaloader.Instaloader.context"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Instaloader.context</span></code></a></p></li>
+<li><p><strong>username</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Username</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#instaloader.ProfileNotExistsException" title="instaloader.ProfileNotExistsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileNotExistsException</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.from_id">
+<em class="property">classmethod </em><code class="sig-name descname">from_id</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">profile_id</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.from_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Profile instance from a given userid. If possible, use <a class="reference internal" href="#instaloader.Profile.from_username" title="instaloader.Profile.from_username"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.from_username()</span></code></a>
+or constructor directly rather than this method, since it requires more requests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloader.html#instaloader.Instaloader.context" title="instaloader.Instaloader.context"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Instaloader.context</span></code></a></p></li>
+<li><p><strong>profile_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – userid</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#instaloader.ProfileNotExistsException" title="instaloader.ProfileNotExistsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileNotExistsException</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.own_profile">
+<em class="property">classmethod </em><code class="sig-name descname">own_profile</code><span class="sig-paren">(</span><em class="sig-param">context</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.own_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return own profile if logged-in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloader.html#instaloader.Instaloader.context" title="instaloader.Instaloader.context"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Instaloader.context</span></code></a></p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.5.2.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.userid">
+<em class="property">property </em><code class="sig-name descname">userid</code><a class="headerlink" href="#instaloader.Profile.userid" title="Permalink to this definition">¶</a></dt>
+<dd><p>User ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.username">
+<em class="property">property </em><code class="sig-name descname">username</code><a class="headerlink" href="#instaloader.Profile.username" title="Permalink to this definition">¶</a></dt>
+<dd><p>Profile Name</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.is_private">
+<em class="property">property </em><code class="sig-name descname">is_private</code><a class="headerlink" href="#instaloader.Profile.is_private" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.followed_by_viewer">
+<em class="property">property </em><code class="sig-name descname">followed_by_viewer</code><a class="headerlink" href="#instaloader.Profile.followed_by_viewer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.mediacount">
+<em class="property">property </em><code class="sig-name descname">mediacount</code><a class="headerlink" href="#instaloader.Profile.mediacount" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.igtvcount">
+<em class="property">property </em><code class="sig-name descname">igtvcount</code><a class="headerlink" href="#instaloader.Profile.igtvcount" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.followers">
+<em class="property">property </em><code class="sig-name descname">followers</code><a class="headerlink" href="#instaloader.Profile.followers" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.followees">
+<em class="property">property </em><code class="sig-name descname">followees</code><a class="headerlink" href="#instaloader.Profile.followees" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.external_url">
+<em class="property">property </em><code class="sig-name descname">external_url</code><a class="headerlink" href="#instaloader.Profile.external_url" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.is_business_account">
+<em class="property">property </em><code class="sig-name descname">is_business_account</code><a class="headerlink" href="#instaloader.Profile.is_business_account" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">New in version 4.4.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.business_category_name">
+<em class="property">property </em><code class="sig-name descname">business_category_name</code><a class="headerlink" href="#instaloader.Profile.business_category_name" title="Permalink to this definition">¶</a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">New in version 4.4.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.biography">
+<em class="property">property </em><code class="sig-name descname">biography</code><a class="headerlink" href="#instaloader.Profile.biography" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.blocked_by_viewer">
+<em class="property">property </em><code class="sig-name descname">blocked_by_viewer</code><a class="headerlink" href="#instaloader.Profile.blocked_by_viewer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.follows_viewer">
+<em class="property">property </em><code class="sig-name descname">follows_viewer</code><a class="headerlink" href="#instaloader.Profile.follows_viewer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.full_name">
+<em class="property">property </em><code class="sig-name descname">full_name</code><a class="headerlink" href="#instaloader.Profile.full_name" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.has_blocked_viewer">
+<em class="property">property </em><code class="sig-name descname">has_blocked_viewer</code><a class="headerlink" href="#instaloader.Profile.has_blocked_viewer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.has_highlight_reels">
+<em class="property">property </em><code class="sig-name descname">has_highlight_reels</code><a class="headerlink" href="#instaloader.Profile.has_highlight_reels" title="Permalink to this definition">¶</a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 4.0.6: </span>Always returns <cite>True</cite> since <a class="reference external" href="https://github.com/instaloader/instaloader/issues/153">Issue #153</a>.</p>
+</div>
+<p>Before broken, this indicated whether the <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> had available stories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.has_public_story">
+<em class="property">property </em><code class="sig-name descname">has_public_story</code><a class="headerlink" href="#instaloader.Profile.has_public_story" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.has_viewable_story">
+<em class="property">property </em><code class="sig-name descname">has_viewable_story</code><a class="headerlink" href="#instaloader.Profile.has_viewable_story" title="Permalink to this definition">¶</a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 4.0.6.</span></p>
+</div>
+<p>Some stories are private. This property determines if the <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>
+has at least one story which can be viewed using the associated <a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>,
+i.e. the viewer has privileges to view it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.has_requested_viewer">
+<em class="property">property </em><code class="sig-name descname">has_requested_viewer</code><a class="headerlink" href="#instaloader.Profile.has_requested_viewer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.is_verified">
+<em class="property">property </em><code class="sig-name descname">is_verified</code><a class="headerlink" href="#instaloader.Profile.is_verified" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.requested_by_viewer">
+<em class="property">property </em><code class="sig-name descname">requested_by_viewer</code><a class="headerlink" href="#instaloader.Profile.requested_by_viewer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.profile_pic_url">
+<em class="property">property </em><code class="sig-name descname">profile_pic_url</code><a class="headerlink" href="#instaloader.Profile.profile_pic_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return URL of profile picture. If logged in, the HD version is returned, otherwise a lower-quality version.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.0.3.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.2.1: </span>Require being logged in for HD version (as required by Instagram).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.get_profile_pic_url">
+<code class="sig-name descname">get_profile_pic_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.get_profile_pic_url" title="Permalink to this definition">¶</a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 4.0.3.</span></p>
+</div>
+<p>Use <a class="reference internal" href="#instaloader.Profile.profile_pic_url" title="instaloader.Profile.profile_pic_url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">profile_pic_url</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.get_posts">
+<code class="sig-name descname">get_posts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.get_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all posts from a profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post">Post</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.get_saved_posts">
+<code class="sig-name descname">get_saved_posts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.get_saved_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Posts that are marked as saved by the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post">Post</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.get_tagged_posts">
+<code class="sig-name descname">get_tagged_posts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.get_tagged_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all posts where a profile is tagged.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post">Post</a>]</p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.0.7.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.get_igtv_posts">
+<code class="sig-name descname">get_igtv_posts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.get_igtv_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve all IGTV posts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post">Post</a>]</p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.3.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.get_followers">
+<code class="sig-name descname">get_followers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.get_followers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve list of followers of given profile.
+To use this, one needs to be logged in and private profiles has to be followed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile">Profile</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.get_followees">
+<code class="sig-name descname">get_followees</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.get_followees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve list of followees (followings) of given profile.
+To use this, one needs to be logged in and private profiles has to be followed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile">Profile</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.get_similar_accounts">
+<code class="sig-name descname">get_similar_accounts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.get_similar_accounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve list of suggested / similar accounts for this profile.
+To use this, one needs to be logged in.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.4.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="hashtags">
+<h2>Hashtags<a class="headerlink" href="#hashtags" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.Hashtag">
+<em class="property">class </em><code class="sig-name descname">Hashtag</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">node</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Hashtag" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Hashtag.</p>
+<p>Analogous to <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, get an instance with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">Instaloader</span><span class="p">()</span>
+<span class="n">hashtag</span> <span class="o">=</span> <span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">HASHTAG</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To then download the Hashtag’s Posts, do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">hashtag</span><span class="o">.</span><span class="n">get_posts</span><span class="p">():</span>
+   <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="o">+</span><span class="n">hashtag</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also, this class implements == and is hashable.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.4.</span></p>
+</div>
+<dl class="method">
+<dt id="instaloader.Hashtag.from_name">
+<em class="property">classmethod </em><code class="sig-name descname">from_name</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Hashtag.from_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Hashtag instance from a given hashtag name, without preceeding ‘#’. Raises an Exception if there is no
+hashtag with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloader.html#instaloader.Instaloader.context" title="instaloader.Instaloader.context"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Instaloader.context</span></code></a></p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Hashtag, without preceeding ‘#’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedNotFoundException" title="instaloader.QueryReturnedNotFoundException"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueryReturnedNotFoundException</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#instaloader.Hashtag.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hashtag name lowercased, without preceeding ‘#’</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.hashtagid">
+<em class="property">property </em><code class="sig-name descname">hashtagid</code><a class="headerlink" href="#instaloader.Hashtag.hashtagid" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.profile_pic_url">
+<em class="property">property </em><code class="sig-name descname">profile_pic_url</code><a class="headerlink" href="#instaloader.Hashtag.profile_pic_url" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.description">
+<em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#instaloader.Hashtag.description" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.allow_following">
+<em class="property">property </em><code class="sig-name descname">allow_following</code><a class="headerlink" href="#instaloader.Hashtag.allow_following" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.is_following">
+<em class="property">property </em><code class="sig-name descname">is_following</code><a class="headerlink" href="#instaloader.Hashtag.is_following" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.is_top_media_only">
+<em class="property">property </em><code class="sig-name descname">is_top_media_only</code><a class="headerlink" href="#instaloader.Hashtag.is_top_media_only" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.get_related_tags">
+<code class="sig-name descname">get_related_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Hashtag.get_related_tags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yields similar hashtags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.get_top_posts">
+<code class="sig-name descname">get_top_posts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Hashtag.get_top_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yields the top posts of the hashtag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.mediacount">
+<em class="property">property </em><code class="sig-name descname">mediacount</code><a class="headerlink" href="#instaloader.Hashtag.mediacount" title="Permalink to this definition">¶</a></dt>
+<dd><p>The count of all media associated with this hashtag.</p>
+<p>The number of posts with a certain hashtag may differ from the number of posts that can actually be accessed, as
+the hashtag count might include private posts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.get_posts">
+<code class="sig-name descname">get_posts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Hashtag.get_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yields the posts associated with this hashtag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.get_all_posts">
+<code class="sig-name descname">get_all_posts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Hashtag.get_all_posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yields all posts, i.e. all most recent posts and the top posts, in almost-chronological order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="topsearchresults">
+<h2>TopSearchResults<a class="headerlink" href="#topsearchresults" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.TopSearchResults">
+<em class="property">class </em><code class="sig-name descname">TopSearchResults</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">searchstring</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.TopSearchResults" title="Permalink to this definition">¶</a></dt>
+<dd><p>An invocation of this class triggers a search on Instagram for the provided search string.</p>
+<p>Provides methods to access the search results as profiles (<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>), locations (<a class="reference internal" href="#instaloader.PostLocation" title="instaloader.PostLocation"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostLocation</span></code></a>) and
+hashtags.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloader.html#instaloader.Instaloader.context" title="instaloader.Instaloader.context"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Instaloader.context</span></code></a> used to send the query for the search.</p></li>
+<li><p><strong>searchstring</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – String to search for with Instagram’s “top search”.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.3.</span></p>
+</div>
+<dl class="method">
+<dt id="instaloader.TopSearchResults.get_profiles">
+<code class="sig-name descname">get_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.TopSearchResults.get_profiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instances from the search result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.TopSearchResults.get_prefixed_usernames">
+<code class="sig-name descname">get_prefixed_usernames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.TopSearchResults.get_prefixed_usernames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides all profile names from the search result that start with the search string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.TopSearchResults.get_locations">
+<code class="sig-name descname">get_locations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.TopSearchResults.get_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides instances of <a class="reference internal" href="#instaloader.PostLocation" title="instaloader.PostLocation"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostLocation</span></code></a> from the search result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.PostLocation" title="instaloader.PostLocation"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostLocation</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.TopSearchResults.get_hashtag_strings">
+<code class="sig-name descname">get_hashtag_strings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.TopSearchResults.get_hashtag_strings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the hashtags from the search result as strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.TopSearchResults.get_hashtags">
+<code class="sig-name descname">get_hashtags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.TopSearchResults.get_hashtags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides the hashtags from the search result.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.4.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.TopSearchResults.searchstring">
+<em class="property">property </em><code class="sig-name descname">searchstring</code><a class="headerlink" href="#instaloader.TopSearchResults.searchstring" title="Permalink to this definition">¶</a></dt>
+<dd><p>The string that was searched for on Instagram to produce this <a class="reference internal" href="#instaloader.TopSearchResults" title="instaloader.TopSearchResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopSearchResults</span></code></a> instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="loading-and-saving">
+<h2>Loading and Saving<a class="headerlink" href="#loading-and-saving" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a> and
+<a class="reference internal" href="nodeiterator.html#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a> can be saved and loaded to/from JSON files.</p>
+<dl class="function">
+<dt id="instaloader.load_structure">
+<code class="sig-name descname">load_structure</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">json_structure</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.load_structure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a <a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>, <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a> or <a class="reference internal" href="nodeiterator.html#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a> from
+a json structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloader.html#instaloader.Instaloader.context" title="instaloader.Instaloader.context"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Instaloader.context</span></code></a> linked to the new object, used for additional queries if neccessary.</p></li>
+<li><p><strong>json_structure</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – Instaloader JSON structure</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.8.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>, <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a>, <a class="reference internal" href="nodeiterator.html#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="instaloader.load_structure_from_file">
+<code class="sig-name descname">load_structure_from_file</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.load_structure_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a <a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>, <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a> or <a class="reference internal" href="nodeiterator.html#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a> from
+a ‘.json’ or ‘.json.xz’ file that has been saved by <a class="reference internal" href="#instaloader.save_structure_to_file" title="instaloader.save_structure_to_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">save_structure_to_file()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>context</strong> (<a class="reference internal" href="instaloadercontext.html#instaloader.InstaloaderContext" title="instaloader.InstaloaderContext"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a>) – <a class="reference internal" href="instaloader.html#instaloader.Instaloader.context" title="instaloader.Instaloader.context"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Instaloader.context</span></code></a> linked to the new object, used for additional queries if neccessary.</p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Filename, ends in ‘.json’ or ‘.json.xz’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>, <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a>, <a class="reference internal" href="nodeiterator.html#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="instaloader.get_json_structure">
+<code class="sig-name descname">get_json_structure</code><span class="sig-paren">(</span><em class="sig-param">structure</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.get_json_structure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Returns Instaloader JSON structure for a <a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>, <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a></dt><dd><p>or <a class="reference internal" href="nodeiterator.html#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a> so that it can be loaded by <a class="reference internal" href="#instaloader.load_structure" title="instaloader.load_structure"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_structure()</span></code></a>.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>structure</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>, <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a>, <a class="reference internal" href="nodeiterator.html#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a>]) – <a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a> or <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a></p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.8.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="instaloader.save_structure_to_file">
+<code class="sig-name descname">save_structure_to_file</code><span class="sig-paren">(</span><em class="sig-param">structure</em>, <em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.save_structure_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a <a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>, <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a> or <a class="reference internal" href="nodeiterator.html#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a> to a
+‘.json’ or ‘.json.xz’ file such that it can later be loaded by <a class="reference internal" href="#instaloader.load_structure_from_file" title="instaloader.load_structure_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_structure_from_file()</span></code></a>.</p>
+<p>If the specified filename ends in ‘.xz’, the file will be LZMA compressed. Otherwise, a pretty-printed JSON file
+will be created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>structure</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code></a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a>, <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a>, <a class="reference internal" href="nodeiterator.html#instaloader.FrozenNodeIterator" title="instaloader.FrozenNodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrozenNodeIterator</span></code></a>]) – <a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>, <a class="reference internal" href="#instaloader.StoryItem" title="instaloader.StoryItem"><code class="xref py py-class docutils literal notranslate"><span class="pre">StoryItem</span></code></a> or <a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a></p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Filename, ends in ‘.json’ or ‘.json.xz’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="lateststamps">
+<h2>LatestStamps<a class="headerlink" href="#lateststamps" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.LatestStamps">
+<em class="property">class </em><code class="sig-name descname">LatestStamps</code><span class="sig-paren">(</span><em class="sig-param">latest_stamps_file</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps" title="Permalink to this definition">¶</a></dt>
+<dd><p>LatestStamps class.</p>
+<p>Convenience class for retrieving and storing data from the <a class="reference internal" href="../cli-options.html#cmdoption-latest-stamps"><code class="xref std std-option docutils literal notranslate"><span class="pre">--latest-stamps</span></code></a> file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>latest_stamps_file</strong> – path to file.</p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.8.</span></p>
+</div>
+<dl class="attribute">
+<dt id="instaloader.LatestStamps.PROFILE_ID">
+<code class="sig-name descname">PROFILE_ID</code><em class="property"> = 'profile-id'</em><a class="headerlink" href="#instaloader.LatestStamps.PROFILE_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.LatestStamps.PROFILE_PIC">
+<code class="sig-name descname">PROFILE_PIC</code><em class="property"> = 'profile-pic'</em><a class="headerlink" href="#instaloader.LatestStamps.PROFILE_PIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.LatestStamps.POST_TIMESTAMP">
+<code class="sig-name descname">POST_TIMESTAMP</code><em class="property"> = 'post-timestamp'</em><a class="headerlink" href="#instaloader.LatestStamps.POST_TIMESTAMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.LatestStamps.TAGGED_TIMESTAMP">
+<code class="sig-name descname">TAGGED_TIMESTAMP</code><em class="property"> = 'tagged-timestamp'</em><a class="headerlink" href="#instaloader.LatestStamps.TAGGED_TIMESTAMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.LatestStamps.IGTV_TIMESTAMP">
+<code class="sig-name descname">IGTV_TIMESTAMP</code><em class="property"> = 'igtv-timestamp'</em><a class="headerlink" href="#instaloader.LatestStamps.IGTV_TIMESTAMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.LatestStamps.STORY_TIMESTAMP">
+<code class="sig-name descname">STORY_TIMESTAMP</code><em class="property"> = 'story-timestamp'</em><a class="headerlink" href="#instaloader.LatestStamps.STORY_TIMESTAMP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.LatestStamps.ISO_FORMAT">
+<code class="sig-name descname">ISO_FORMAT</code><em class="property"> = '%Y-%m-%dT%H:%M:%S.%f%z'</em><a class="headerlink" href="#instaloader.LatestStamps.ISO_FORMAT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.get_profile_id">
+<code class="sig-name descname">get_profile_id</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.get_profile_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns stored ID of profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.save_profile_id">
+<code class="sig-name descname">save_profile_id</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em>, <em class="sig-param">profile_id</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.save_profile_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stores ID of profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.rename_profile">
+<code class="sig-name descname">rename_profile</code><span class="sig-paren">(</span><em class="sig-param">old_profile</em>, <em class="sig-param">new_profile</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.rename_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renames a profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.get_last_post_timestamp">
+<code class="sig-name descname">get_last_post_timestamp</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.get_last_post_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns timestamp of last download of a profile’s posts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.set_last_post_timestamp">
+<code class="sig-name descname">set_last_post_timestamp</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em>, <em class="sig-param">timestamp</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.set_last_post_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets timestamp of last download of a profile’s posts.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.get_last_tagged_timestamp">
+<code class="sig-name descname">get_last_tagged_timestamp</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.get_last_tagged_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns timestamp of last download of a profile’s tagged posts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.set_last_tagged_timestamp">
+<code class="sig-name descname">set_last_tagged_timestamp</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em>, <em class="sig-param">timestamp</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.set_last_tagged_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets timestamp of last download of a profile’s tagged posts.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.get_last_igtv_timestamp">
+<code class="sig-name descname">get_last_igtv_timestamp</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.get_last_igtv_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns timestamp of last download of a profile’s igtv posts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.set_last_igtv_timestamp">
+<code class="sig-name descname">set_last_igtv_timestamp</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em>, <em class="sig-param">timestamp</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.set_last_igtv_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets timestamp of last download of a profile’s igtv posts.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.get_last_story_timestamp">
+<code class="sig-name descname">get_last_story_timestamp</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.get_last_story_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns timestamp of last download of a profile’s stories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.set_last_story_timestamp">
+<code class="sig-name descname">set_last_story_timestamp</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em>, <em class="sig-param">timestamp</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.set_last_story_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets timestamp of last download of a profile’s stories.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.get_profile_pic">
+<code class="sig-name descname">get_profile_pic</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.get_profile_pic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns filename of profile’s last downloaded profile pic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.LatestStamps.set_profile_pic">
+<code class="sig-name descname">set_profile_pic</code><span class="sig-paren">(</span><em class="sig-param">profile_name</em>, <em class="sig-param">profile_pic</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.set_profile_pic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets filename of profile’s last downloaded profile pic.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+
+<h2>Next Section</h2>
+<p>
+  <a class="reference internal" href="nodeiterator.html">Resumable Iterations</a>
+</p>
+
+
+      </main>
+    </div>
+  </div>
+
+  </body>
+</html>

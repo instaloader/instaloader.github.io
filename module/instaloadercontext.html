@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  
+    <title>InstaloaderContext (Low-level functions) &#8212; Instaloader  documentation</title>
+  
+
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/instaloaderdoc.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/instaloaderdoc.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exceptions" href="exceptions.html" />
+    <link rel="prev" title="Resumable Iterations" href="nodeiterator.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="FNUsDdkOJM9obm9QEdrNBVd9AtAzHzA-aaSMCUrS6C8"/>
+  
+    <link rel="canonical" href="https://instaloader.github.io/module/instaloadercontext.html"/>
+  
+
+  </head><body>
+  <nav class="navbar navbar-light navbar-expand bg-light border-bottom">
+    <a class="navbar-brand" href="../index.html">
+      <img src="../_static/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <span class="ml-3">Instaloader</span>
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ml-0 ml-sm-2">
+        <a class="nav-link"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           title="Released on 19 Mar 2022" data-toggle="tooltip">
+          v<b>4.8.5</b>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto d-none d-sm-flex">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/issues">
+          Issues
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/releases">
+          Releases
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader">
+          GitHub
+        </a>
+      </li>
+    </ul>
+    <button class="d-inline-block d-md-none btn btn-outline-primary btn-sm" type="button"
+            data-toggle="collapse" data-target="#instaloaderdocSidebar" aria-controls="instaloaderdocSidebar"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="instaloaderdoc-sidebar collapse d-md-block col-md-3 col-xl-2 bg-light"
+           id="instaloaderdocSidebar">
+        <nav role="navigation" aria-label="Table of Contents">
+          <form action="../search.html" method="get" role="search" class="border-bottom mr-2 pb-2 mb-2 px-1">
+            <label class="sr-only" for="searchQueryInput">Search</label>
+            <input type="search" name="q" id="searchQueryInput" class="form-control my-2"
+                   placeholder="Search..." aria-label="Search">
+          </form>
+          <h4>Contents</h4>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install Instaloader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic-usage.html">Download Pictures from Instagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli-options.html">Command Line Options</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../as-module.html">Python Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="instaloader.html"><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code> (Main Class)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="structures.html">Instagram Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodeiterator.html">Resumable Iterations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code> (Low-level functions)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instaloadercontext"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ratecontroller"><code class="docutils literal notranslate"><span class="pre">RateController</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../codesnippets.html">Advanced Instaloader Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing to Instaloader</a></li>
+</ul>
+
+        </nav>
+      </div>
+      <main class="col-12 col-md-9 col-xl-10 pt-2" role="main">
+        
+
+  <section id="instaloadercontext-low-level-functions">
+<h1><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code> (Low-level functions)<a class="headerlink" href="#instaloadercontext-low-level-functions" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="contents">
+<p class="topic-title">Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#instaloadercontext-low-level-functions" id="id1"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code> (Low-level functions)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#instaloadercontext" id="id2"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a></p></li>
+<li><p><a class="reference internal" href="#ratecontroller" id="id3"><code class="docutils literal notranslate"><span class="pre">RateController</span></code></a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="instaloadercontext">
+<h2><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code><a class="headerlink" href="#instaloadercontext" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.InstaloaderContext">
+<em class="property">class </em><code class="sig-name descname">InstaloaderContext</code><span class="sig-paren">(</span><em class="sig-param">sleep=True</em>, <em class="sig-param">quiet=False</em>, <em class="sig-param">user_agent=None</em>, <em class="sig-param">max_connection_attempts=3</em>, <em class="sig-param">request_timeout=300.0</em>, <em class="sig-param">rate_controller=None</em>, <em class="sig-param">fatal_status_codes=None</em>, <em class="sig-param">iphone_support=True</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class providing methods for (error) logging and low-level communication with Instagram.</p>
+<p>It is not thought to be instantiated directly, rather <a class="reference internal" href="instaloader.html#instaloader.Instaloader" title="instaloader.Instaloader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Instaloader</span></code></a> instances maintain a context
+object.</p>
+<p>For logging, it provides <a class="reference internal" href="#instaloader.InstaloaderContext.log" title="instaloader.InstaloaderContext.log"><code class="xref py py-meth docutils literal notranslate"><span class="pre">log()</span></code></a>, <a class="reference internal" href="#instaloader.InstaloaderContext.error" title="instaloader.InstaloaderContext.error"><code class="xref py py-meth docutils literal notranslate"><span class="pre">error()</span></code></a>, <a class="reference internal" href="#instaloader.InstaloaderContext.error_catcher" title="instaloader.InstaloaderContext.error_catcher"><code class="xref py py-meth docutils literal notranslate"><span class="pre">error_catcher()</span></code></a>.</p>
+<p>It provides low-level communication routines <a class="reference internal" href="#instaloader.InstaloaderContext.get_json" title="instaloader.InstaloaderContext.get_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_json()</span></code></a>, <a class="reference internal" href="#instaloader.InstaloaderContext.graphql_query" title="instaloader.InstaloaderContext.graphql_query"><code class="xref py py-meth docutils literal notranslate"><span class="pre">graphql_query()</span></code></a>, <a class="reference internal" href="#instaloader.InstaloaderContext.graphql_node_list" title="instaloader.InstaloaderContext.graphql_node_list"><code class="xref py py-meth docutils literal notranslate"><span class="pre">graphql_node_list()</span></code></a>,
+<a class="reference internal" href="#instaloader.InstaloaderContext.get_and_write_raw" title="instaloader.InstaloaderContext.get_and_write_raw"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_and_write_raw()</span></code></a> and implements mechanisms for rate controlling and error handling.</p>
+<p>Further, it provides methods for logging in and general session handles, which are used by that routines in
+class <a class="reference internal" href="instaloader.html#instaloader.Instaloader" title="instaloader.Instaloader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Instaloader</span></code></a>.</p>
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.anonymous_copy">
+<code class="sig-name descname">anonymous_copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.anonymous_copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.is_logged_in">
+<em class="property">property </em><code class="sig-name descname">is_logged_in</code><a class="headerlink" href="#instaloader.InstaloaderContext.is_logged_in" title="Permalink to this definition">¶</a></dt>
+<dd><p>True, if this Instaloader instance is logged in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.log">
+<code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">*msg</em>, <em class="sig-param">sep=''</em>, <em class="sig-param">end='\n'</em>, <em class="sig-param">flush=False</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log a message to stdout that can be suppressed with –quiet.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.error">
+<code class="sig-name descname">error</code><span class="sig-paren">(</span><em class="sig-param">msg</em>, <em class="sig-param">repeat_at_end=True</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log a non-fatal error message to stderr, which is repeated at program termination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>msg</strong> – Message to be printed.</p></li>
+<li><p><strong>repeat_at_end</strong> – Set to false if the message should be printed, but not repeated at program termination.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.close">
+<code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print error log and close session</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.error_catcher">
+<code class="sig-name descname">error_catcher</code><span class="sig-paren">(</span><em class="sig-param">extra_info=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.error_catcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context manager to catch, print and record InstaloaderExceptions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>extra_info</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – String to prefix error message with.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.get_anonymous_session">
+<code class="sig-name descname">get_anonymous_session</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.get_anonymous_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns our default anonymous requests.Session object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://requests.kennethreitz.org/en/master/api/#requests.Session" title="(in Requests v2.26.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.save_session_to_file">
+<code class="sig-name descname">save_session_to_file</code><span class="sig-paren">(</span><em class="sig-param">sessionfile</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.save_session_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not meant to be used directly, use <a class="reference internal" href="instaloader.html#instaloader.Instaloader.save_session_to_file" title="instaloader.Instaloader.save_session_to_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.save_session_to_file()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.load_session_from_file">
+<code class="sig-name descname">load_session_from_file</code><span class="sig-paren">(</span><em class="sig-param">username</em>, <em class="sig-param">sessionfile</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.load_session_from_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not meant to be used directly, use <a class="reference internal" href="instaloader.html#instaloader.Instaloader.load_session_from_file" title="instaloader.Instaloader.load_session_from_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.load_session_from_file()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.test_login">
+<code class="sig-name descname">test_login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.test_login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not meant to be used directly, use <a class="reference internal" href="instaloader.html#instaloader.Instaloader.test_login" title="instaloader.Instaloader.test_login"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.test_login()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.login">
+<code class="sig-name descname">login</code><span class="sig-paren">(</span><em class="sig-param">user</em>, <em class="sig-param">passwd</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not meant to be used directly, use <a class="reference internal" href="instaloader.html#instaloader.Instaloader.login" title="instaloader.Instaloader.login"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.login()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#instaloader.InvalidArgumentException" title="instaloader.InvalidArgumentException"><strong>InvalidArgumentException</strong></a> – If the provided username does not exist.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.BadCredentialsException" title="instaloader.BadCredentialsException"><strong>BadCredentialsException</strong></a> – If the provided password is wrong.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><strong>ConnectionException</strong></a> – If connection to Instagram failed.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.TwoFactorAuthRequiredException" title="instaloader.TwoFactorAuthRequiredException"><strong>TwoFactorAuthRequiredException</strong></a> – First step of 2FA login done, now call
+<a class="reference internal" href="instaloader.html#instaloader.Instaloader.two_factor_login" title="instaloader.Instaloader.two_factor_login"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.two_factor_login()</span></code></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.two_factor_login">
+<code class="sig-name descname">two_factor_login</code><span class="sig-paren">(</span><em class="sig-param">two_factor_code</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.two_factor_login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Second step of login if 2FA is enabled.
+Not meant to be used directly, use <a class="reference internal" href="instaloader.html#instaloader.Instaloader.two_factor_login" title="instaloader.Instaloader.two_factor_login"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.two_factor_login()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#instaloader.InvalidArgumentException" title="instaloader.InvalidArgumentException"><strong>InvalidArgumentException</strong></a> – No two-factor authentication pending.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.BadCredentialsException" title="instaloader.BadCredentialsException"><strong>BadCredentialsException</strong></a> – 2FA verification code invalid.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.2.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.do_sleep">
+<code class="sig-name descname">do_sleep</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.do_sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sleep a short time if self.sleep is set. Called before each request to instagram.com.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.get_json">
+<code class="sig-name descname">get_json</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">params</em>, <em class="sig-param">host='www.instagram.com'</em>, <em class="sig-param">session=None</em>, <em class="sig-param">_attempt=1</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.get_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>JSON request to Instagram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – URL, relative to the given domain which defaults to www.instagram.com/</p></li>
+<li><p><strong>params</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – GET parameters</p></li>
+<li><p><strong>host</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Domain part of the URL from where to download the requested JSON; defaults to www.instagram.com</p></li>
+<li><p><strong>session</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://requests.kennethreitz.org/en/master/api/#requests.Session" title="(in Requests v2.26.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>]) – Session to use, or None to use self.session</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decoded response dictionary</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedBadRequestException" title="instaloader.QueryReturnedBadRequestException"><strong>QueryReturnedBadRequestException</strong></a> – When the server responds with a 400.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedNotFoundException" title="instaloader.QueryReturnedNotFoundException"><strong>QueryReturnedNotFoundException</strong></a> – When the server responds with a 404.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><strong>ConnectionException</strong></a> – When query repeatedly failed.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.graphql_query">
+<code class="sig-name descname">graphql_query</code><span class="sig-paren">(</span><em class="sig-param">query_hash</em>, <em class="sig-param">variables</em>, <em class="sig-param">referer=None</em>, <em class="sig-param">rhx_gis=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.graphql_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do a GraphQL Query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query_hash</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Query identifying hash.</p></li>
+<li><p><strong>variables</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – Variables for the Query.</p></li>
+<li><p><strong>referer</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – HTTP Referer, or None.</p></li>
+<li><p><strong>rhx_gis</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – ‘rhx_gis’ variable as somewhere returned by Instagram, needed to ‘sign’ request</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The server’s response dictionary.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.graphql_node_list">
+<code class="sig-name descname">graphql_node_list</code><span class="sig-paren">(</span><em class="sig-param">query_hash</em>, <em class="sig-param">query_variables</em>, <em class="sig-param">query_referer</em>, <em class="sig-param">edge_extractor</em>, <em class="sig-param">rhx_gis=None</em>, <em class="sig-param">first_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.graphql_node_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a list of GraphQL nodes.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 4.5: </span>Use <a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator"><code class="xref py py-class docutils literal notranslate"><span class="pre">NodeIterator</span></code></a> instead, which provides more functionality.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.get_iphone_json">
+<code class="sig-name descname">get_iphone_json</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">params</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.get_iphone_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>JSON request to <code class="docutils literal notranslate"><span class="pre">i.instagram.com</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – URL, relative to <code class="docutils literal notranslate"><span class="pre">i.instagram.com/</span></code></p></li>
+<li><p><strong>params</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – GET parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Decoded response dictionary</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedBadRequestException" title="instaloader.QueryReturnedBadRequestException"><strong>QueryReturnedBadRequestException</strong></a> – When the server responds with a 400.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedNotFoundException" title="instaloader.QueryReturnedNotFoundException"><strong>QueryReturnedNotFoundException</strong></a> – When the server responds with a 404.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><strong>ConnectionException</strong></a> – When query repeatedly failed.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.2.1.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.write_raw">
+<code class="sig-name descname">write_raw</code><span class="sig-paren">(</span><em class="sig-param">resp</em>, <em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.write_raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write raw response data into a file.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.2.1.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.get_raw">
+<code class="sig-name descname">get_raw</code><span class="sig-paren">(</span><em class="sig-param">url</em>, <em class="sig-param">_attempt=1</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.get_raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads a file anonymously.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedNotFoundException" title="instaloader.QueryReturnedNotFoundException"><strong>QueryReturnedNotFoundException</strong></a> – When the server responds with a 404.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedForbiddenException" title="instaloader.QueryReturnedForbiddenException"><strong>QueryReturnedForbiddenException</strong></a> – When the server responds with a 403.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><strong>ConnectionException</strong></a> – When download failed.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.2.1.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://requests.kennethreitz.org/en/master/api/#requests.Response" title="(in Requests v2.26.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.get_and_write_raw">
+<code class="sig-name descname">get_and_write_raw</code><span class="sig-paren">(</span><em class="sig-param">url</em>, <em class="sig-param">filename</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.get_and_write_raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloads and writes anonymously-requested raw data into a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedNotFoundException" title="instaloader.QueryReturnedNotFoundException"><strong>QueryReturnedNotFoundException</strong></a> – When the server responds with a 404.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedForbiddenException" title="instaloader.QueryReturnedForbiddenException"><strong>QueryReturnedForbiddenException</strong></a> – When the server responds with a 403.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><strong>ConnectionException</strong></a> – When download repeatedly failed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.head">
+<code class="sig-name descname">head</code><span class="sig-paren">(</span><em class="sig-param">url</em>, <em class="sig-param">allow_redirects=False</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.head" title="Permalink to this definition">¶</a></dt>
+<dd><p>HEAD a URL anonymously.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedNotFoundException" title="instaloader.QueryReturnedNotFoundException"><strong>QueryReturnedNotFoundException</strong></a> – When the server responds with a 404.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedForbiddenException" title="instaloader.QueryReturnedForbiddenException"><strong>QueryReturnedForbiddenException</strong></a> – When the server responds with a 403.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><strong>ConnectionException</strong></a> – When request failed.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.7.6.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://requests.kennethreitz.org/en/master/api/#requests.Response" title="(in Requests v2.26.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.root_rhx_gis">
+<em class="property">property </em><code class="sig-name descname">root_rhx_gis</code><a class="headerlink" href="#instaloader.InstaloaderContext.root_rhx_gis" title="Permalink to this definition">¶</a></dt>
+<dd><p>rhx_gis string returned in the / query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="ratecontroller">
+<h2><code class="docutils literal notranslate"><span class="pre">RateController</span></code><a class="headerlink" href="#ratecontroller" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="instaloader.RateController">
+<em class="property">class </em><code class="sig-name descname">RateController</code><span class="sig-paren">(</span><em class="sig-param">context</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.RateController" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class providing request tracking and rate controlling to stay within rate limits.</p>
+<p>It can be overridden to change Instaloader’s behavior regarding rate limits, for example to raise a custom
+exception when the rate limit is hit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">instaloader</span>
+
+<span class="k">class</span> <span class="nc">MyRateController</span><span class="p">(</span><span class="n">instaloader</span><span class="o">.</span><span class="n">RateController</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">sleep</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">secs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">MyCustomException</span><span class="p">()</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">(</span><span class="n">rate_controller</span><span class="o">=</span><span class="k">lambda</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">MyRateController</span><span class="p">(</span><span class="n">ctx</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.5.</span></p>
+</div>
+<dl class="method">
+<dt id="instaloader.RateController.sleep">
+<code class="sig-name descname">sleep</code><span class="sig-paren">(</span><em class="sig-param">secs</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.RateController.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait given number of seconds.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.RateController.count_per_sliding_window">
+<code class="sig-name descname">count_per_sliding_window</code><span class="sig-paren">(</span><em class="sig-param">query_type</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.RateController.count_per_sliding_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return how many requests of the given type can be done within a sliding window of 11 minutes.</p>
+<p>This is called by <a class="reference internal" href="#instaloader.RateController.query_waittime" title="instaloader.RateController.query_waittime"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RateController.query_waittime()</span></code></a> and allows to simply customize wait times before queries
+at query_type granularity. Consider overriding <a class="reference internal" href="#instaloader.RateController.query_waittime" title="instaloader.RateController.query_waittime"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RateController.query_waittime()</span></code></a> directly if you need more
+control.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.RateController.query_waittime">
+<code class="sig-name descname">query_waittime</code><span class="sig-paren">(</span><em class="sig-param">query_type</em>, <em class="sig-param">current_time</em>, <em class="sig-param">untracked_queries=False</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.RateController.query_waittime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate time needed to wait before query can be executed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.RateController.wait_before_query">
+<code class="sig-name descname">wait_before_query</code><span class="sig-paren">(</span><em class="sig-param">query_type</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.RateController.wait_before_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called before a query to Instagram.</p>
+<p>It calls <a class="reference internal" href="#instaloader.RateController.query_waittime" title="instaloader.RateController.query_waittime"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RateController.query_waittime()</span></code></a> to determine the time needed to wait and then calls
+<a class="reference internal" href="#instaloader.RateController.sleep" title="instaloader.RateController.sleep"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RateController.sleep()</span></code></a> to wait until the request can be made.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.RateController.handle_429">
+<code class="sig-name descname">handle_429</code><span class="sig-paren">(</span><em class="sig-param">query_type</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.RateController.handle_429" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called to handle a 429 Too Many Requests response.</p>
+<p>It calls <a class="reference internal" href="#instaloader.RateController.query_waittime" title="instaloader.RateController.query_waittime"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RateController.query_waittime()</span></code></a> to determine the time needed to wait and then calls
+<a class="reference internal" href="#instaloader.RateController.sleep" title="instaloader.RateController.sleep"><code class="xref py py-meth docutils literal notranslate"><span class="pre">RateController.sleep()</span></code></a> to wait until we can repeat the same request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+
+<h2>Next Section</h2>
+<p>
+  <a class="reference internal" href="exceptions.html">Exceptions</a>
+</p>
+
+
+      </main>
+    </div>
+  </div>
+
+  </body>
+</html>

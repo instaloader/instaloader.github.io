@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Documentation of Instaloader module, a powerful and intuitive Python library to download Instagram media and metadata." name="description" />
+
+  
+    <title>Python Module instaloader &#8212; Instaloader  documentation</title>
+  
+
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/instaloaderdoc.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Instaloader (Main Class)" href="module/instaloader.html" />
+    <link rel="prev" title="Command Line Options" href="cli-options.html" />
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="google-site-verification" content="FNUsDdkOJM9obm9QEdrNBVd9AtAzHzA-aaSMCUrS6C8"/>
+  
+    <link rel="canonical" href="https://instaloader.github.io/as-module.html"/>
+  
+
+  </head><body>
+  <nav class="navbar navbar-light navbar-expand bg-light border-bottom">
+    <a class="navbar-brand" href="index.html">
+      <img src="_static/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+      <span class="ml-3">Instaloader</span>
+    </a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item ml-0 ml-sm-2">
+        <a class="nav-link"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           title="Released on 19 Mar 2022" data-toggle="tooltip">
+          v<b>4.8.5</b>
+        </a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto d-none d-sm-flex">
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/issues">
+          Issues
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader/releases">
+          Releases
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/instaloader/instaloader">
+          GitHub
+        </a>
+      </li>
+    </ul>
+    <button class="d-inline-block d-md-none btn btn-outline-primary btn-sm" type="button"
+            data-toggle="collapse" data-target="#instaloaderdocSidebar" aria-controls="instaloaderdocSidebar"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="instaloaderdoc-sidebar collapse d-md-block col-md-3 col-xl-2 bg-light"
+           id="instaloaderdocSidebar">
+        <nav role="navigation" aria-label="Table of Contents">
+          <form action="search.html" method="get" role="search" class="border-bottom mr-2 pb-2 mb-2 px-1">
+            <label class="sr-only" for="searchQueryInput">Search</label>
+            <input type="search" name="q" id="searchQueryInput" class="form-control my-2"
+                   placeholder="Search..." aria-label="Search">
+          </form>
+          <h4>Contents</h4>
+          <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Install Instaloader</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic-usage.html">Download Pictures from Instagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli-options.html">Command Line Options</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python Module <code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module/instaloader.html"><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code> (Main Class)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html">Instagram Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/nodeiterator.html">Resumable Iterations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/instaloadercontext.html"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code> (Low-level functions)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html">Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="codesnippets.html">Advanced Instaloader Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to Instaloader</a></li>
+</ul>
+
+        </nav>
+      </div>
+      <main class="col-12 col-md-9 col-xl-10 pt-2" role="main">
+        
+
+  <section id="module-instaloader">
+<span id="id1"></span><span id="python-module-instaloader"></span><h1>Python Module <a class="reference internal" href="#module-instaloader" title="instaloader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a><a class="headerlink" href="#module-instaloader" title="Permalink to this headline">¶</a></h1>
+<p>Instaloader exposes its internally used methods and structures as a Python
+module, making it a powerful and intuitive Python API for Instagram,
+allowing to further customize obtaining media and metadata.</p>
+<p>Start with getting an instance of <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader" title="instaloader.Instaloader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Instaloader</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">instaloader</span>
+
+<span class="c1"># Get instance</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
+
+<span class="c1"># Optionally, login or load session</span>
+<span class="n">L</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">USER</span><span class="p">,</span> <span class="n">PASSWORD</span><span class="p">)</span>        <span class="c1"># (login)</span>
+<span class="n">L</span><span class="o">.</span><span class="n">interactive_login</span><span class="p">(</span><span class="n">USER</span><span class="p">)</span>      <span class="c1"># (ask password on terminal)</span>
+<span class="n">L</span><span class="o">.</span><span class="n">load_session_from_file</span><span class="p">(</span><span class="n">USER</span><span class="p">)</span> <span class="c1"># (load session created w/</span>
+                               <span class="c1">#  `instaloader -l USERNAME`)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="#module-instaloader" title="instaloader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a> provides the <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a> structure, which represents a
+picture, video or sidecar (set of multiple pictures/videos) posted in a user’s
+profile. <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader" title="instaloader.Instaloader"><code class="xref py py-class docutils literal notranslate"><span class="pre">Instaloader</span></code></a> provides methods to iterate over Posts from a
+certain source:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">():</span>
+    <span class="c1"># post is an instance of instaloader.Post</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s1">&#39;#cat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a> instances can be created with:</p>
+<ul>
+<li><dl>
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.from_shortcode" title="instaloader.Post.from_shortcode"><code class="xref py py-func docutils literal notranslate"><span class="pre">Post.from_shortcode()</span></code></a></dt><dd><p>Use a Post shortcode (part of the Post URL,
+<code class="docutils literal notranslate"><span class="pre">https://www.instagram.com/p/SHORTCODE/</span></code>) to create a Post
+object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">post</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">from_shortcode</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">SHORTCODE</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a></dt><dd><p>All media of a <a class="reference internal" href="module/structures.html#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.Profile.get_saved_posts" title="instaloader.Profile.get_saved_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_saved_posts()</span></code></a></dt><dd><p>Media that the user marked as saved (<a class="reference internal" href="module/structures.html#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> must be own profile
+for this to work)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.get_feed_posts" title="instaloader.Instaloader.get_feed_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.get_feed_posts()</span></code></a></dt><dd><p>Media in the user’s feed.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.get_explore_posts" title="instaloader.Instaloader.get_explore_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.get_explore_posts()</span></code></a></dt><dd><p>Media that is suggested by Instagram to explore.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.Hashtag.get_posts" title="instaloader.Hashtag.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Hashtag.get_posts()</span></code></a></dt><dd><p>Media associated with given hashtag.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>With the <a class="reference internal" href="module/structures.html#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> class, Instaloader also makes it easy to access
+metadata of a Profile. <a class="reference internal" href="module/structures.html#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instances can be created with:</p>
+<ul>
+<li><p><a class="reference internal" href="module/structures.html#instaloader.Profile.from_username" title="instaloader.Profile.from_username"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.from_username()</span></code></a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">USERNAME</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><dl>
+<dt><a class="reference internal" href="module/structures.html#instaloader.Profile.from_id" title="instaloader.Profile.from_id"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.from_id()</span></code></a></dt><dd><p>given its User ID. This allows to easily lookup a Profile’s username given
+its ID:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Profile</span><span class="o">.</span><span class="n">from_id</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">USERID</span><span class="p">)</span><span class="o">.</span><span class="n">username</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.Profile.get_followees" title="instaloader.Profile.get_followees"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_followees()</span></code></a></dt><dd><p>Profiles that are followed by given user.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.Profile.get_followers" title="instaloader.Profile.get_followers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_followers()</span></code></a></dt><dd><p>Profiles that follow given user.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.owner_profile" title="instaloader.Post.owner_profile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Post.owner_profile</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Story.owner_profile" title="instaloader.Story.owner_profile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Story.owner_profile</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.StoryItem.owner_profile" title="instaloader.StoryItem.owner_profile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">StoryItem.owner_profile</span></code></a></dt><dd><p>Owner profile of particular object.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.get_likes" title="instaloader.Post.get_likes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Post.get_likes()</span></code></a></dt><dd><p>Profiles that liked a given <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="module/structures.html#instaloader.PostComment.owner" title="instaloader.PostComment.owner"><code class="xref py py-attr docutils literal notranslate"><span class="pre">PostComment.owner</span></code></a></dt><dd><p>Profile of a Post comment.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>For a list of a few code examples that use the Instaloader module, see
+<a class="reference internal" href="codesnippets.html#codesnippets"><span class="std std-ref">Advanced Instaloader Examples</span></a>.</p>
+<p>The reference of the classes and functions provided by the <a class="reference internal" href="#module-instaloader" title="instaloader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a> module is
+divided into the following subsections:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="module/instaloader.html"><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code> (Main Class)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module/structures.html">Instagram Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html#posts">Posts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html#user-stories">User Stories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html#highlights">Highlights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html#profiles">Profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html#hashtags">Hashtags</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html#topsearchresults">TopSearchResults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html#loading-and-saving">Loading and Saving</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html#lateststamps">LatestStamps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module/nodeiterator.html">Resumable Iterations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module/nodeiterator.html#nodeiterator"><code class="docutils literal notranslate"><span class="pre">NodeIterator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/nodeiterator.html#resumable-iteration"><code class="docutils literal notranslate"><span class="pre">resumable_iteration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module/instaloadercontext.html"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code> (Low-level functions)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module/instaloadercontext.html#instaloadercontext"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/instaloadercontext.html#ratecontroller"><code class="docutils literal notranslate"><span class="pre">RateController</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="module/exceptions.html">Exceptions</a></li>
+</ul>
+</div>
+</section>
+
+
+
+<h2>Next Section</h2>
+<p>
+  <a class="reference internal" href="module/instaloader.html"><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code> (Main Class)</a>
+</p>
+
+
+      </main>
+    </div>
+  </div>
+
+  </body>
+</html>
