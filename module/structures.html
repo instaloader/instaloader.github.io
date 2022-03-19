@@ -597,21 +597,21 @@ if available.</p>
 <dt id="instaloader.PostSidecarNode">
 <em class="property">class </em><code class="sig-name descname">PostSidecarNode</code><a class="headerlink" href="#instaloader.PostSidecarNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Item of a Sidecar Post.</p>
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostSidecarNode.display_url">
-<em class="property">property </em><code class="sig-name descname">display_url</code><a class="headerlink" href="#instaloader.PostSidecarNode.display_url" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">display_url</code><a class="headerlink" href="#instaloader.PostSidecarNode.display_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>URL of image or video thumbnail.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostSidecarNode.is_video">
-<em class="property">property </em><code class="sig-name descname">is_video</code><a class="headerlink" href="#instaloader.PostSidecarNode.is_video" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">is_video</code><a class="headerlink" href="#instaloader.PostSidecarNode.is_video" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether this node is a video.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostSidecarNode.video_url">
-<em class="property">property </em><code class="sig-name descname">video_url</code><a class="headerlink" href="#instaloader.PostSidecarNode.video_url" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">video_url</code><a class="headerlink" href="#instaloader.PostSidecarNode.video_url" title="Permalink to this definition">¶</a></dt>
 <dd><p>URL of video or None.</p>
 </dd></dl>
 
@@ -620,39 +620,39 @@ if available.</p>
 <dl class="class">
 <dt id="instaloader.PostComment">
 <em class="property">class </em><code class="sig-name descname">PostComment</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">created_at_utc</em>, <em class="sig-param">text</em>, <em class="sig-param">owner</em>, <em class="sig-param">likes_count</em>, <em class="sig-param">answers</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.PostComment" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><dl class="attribute">
 <dt id="instaloader.PostComment.answers">
-<em class="property">property </em><code class="sig-name descname">answers</code><a class="headerlink" href="#instaloader.PostComment.answers" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">answers</code><a class="headerlink" href="#instaloader.PostComment.answers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterator which yields all <a class="reference internal" href="#instaloader.PostCommentAnswer" title="instaloader.PostCommentAnswer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostCommentAnswer</span></code></a>s for the comment.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostComment.created_at_utc">
-<em class="property">property </em><code class="sig-name descname">created_at_utc</code><a class="headerlink" href="#instaloader.PostComment.created_at_utc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">created_at_utc</code><a class="headerlink" href="#instaloader.PostComment.created_at_utc" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> when comment was created (UTC).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostComment.id">
-<em class="property">property </em><code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostComment.id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostComment.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID number of comment.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostComment.likes_count">
-<em class="property">property </em><code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostComment.likes_count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostComment.likes_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of likes on comment.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostComment.owner">
-<em class="property">property </em><code class="sig-name descname">owner</code><a class="headerlink" href="#instaloader.PostComment.owner" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">owner</code><a class="headerlink" href="#instaloader.PostComment.owner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Owner <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> of the comment.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostComment.text">
-<em class="property">property </em><code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostComment.text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostComment.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Comment text.</p>
 </dd></dl>
 
@@ -661,33 +661,33 @@ if available.</p>
 <dl class="class">
 <dt id="instaloader.PostCommentAnswer">
 <em class="property">class </em><code class="sig-name descname">PostCommentAnswer</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">created_at_utc</em>, <em class="sig-param">text</em>, <em class="sig-param">owner</em>, <em class="sig-param">likes_count</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.PostCommentAnswer" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><dl class="attribute">
 <dt id="instaloader.PostCommentAnswer.created_at_utc">
-<em class="property">property </em><code class="sig-name descname">created_at_utc</code><a class="headerlink" href="#instaloader.PostCommentAnswer.created_at_utc" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">created_at_utc</code><a class="headerlink" href="#instaloader.PostCommentAnswer.created_at_utc" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> when comment was created (UTC).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostCommentAnswer.id">
-<em class="property">property </em><code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostCommentAnswer.id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostCommentAnswer.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID number of comment.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostCommentAnswer.likes_count">
-<em class="property">property </em><code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostCommentAnswer.likes_count" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostCommentAnswer.likes_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of likes on comment.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostCommentAnswer.owner">
-<em class="property">property </em><code class="sig-name descname">owner</code><a class="headerlink" href="#instaloader.PostCommentAnswer.owner" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">owner</code><a class="headerlink" href="#instaloader.PostCommentAnswer.owner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Owner <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> of the comment.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostCommentAnswer.text">
-<em class="property">property </em><code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostCommentAnswer.text" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostCommentAnswer.text" title="Permalink to this definition">¶</a></dt>
 <dd><p>Comment text.</p>
 </dd></dl>
 
@@ -696,39 +696,39 @@ if available.</p>
 <dl class="class">
 <dt id="instaloader.PostLocation">
 <em class="property">class </em><code class="sig-name descname">PostLocation</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">name</em>, <em class="sig-param">slug</em>, <em class="sig-param">has_public_page</em>, <em class="sig-param">lat</em>, <em class="sig-param">lng</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.PostLocation" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><dl class="attribute">
 <dt id="instaloader.PostLocation.has_public_page">
-<em class="property">property </em><code class="sig-name descname">has_public_page</code><a class="headerlink" href="#instaloader.PostLocation.has_public_page" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">has_public_page</code><a class="headerlink" href="#instaloader.PostLocation.has_public_page" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether location has a public page.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostLocation.id">
-<em class="property">property </em><code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostLocation.id" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostLocation.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID number of location.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostLocation.lat">
-<em class="property">property </em><code class="sig-name descname">lat</code><a class="headerlink" href="#instaloader.PostLocation.lat" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lat</code><a class="headerlink" href="#instaloader.PostLocation.lat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Latitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or None).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostLocation.lng">
-<em class="property">property </em><code class="sig-name descname">lng</code><a class="headerlink" href="#instaloader.PostLocation.lng" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">lng</code><a class="headerlink" href="#instaloader.PostLocation.lng" title="Permalink to this definition">¶</a></dt>
 <dd><p>Longitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or None).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostLocation.name">
-<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#instaloader.PostLocation.name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">name</code><a class="headerlink" href="#instaloader.PostLocation.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Location name.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.PostLocation.slug">
-<em class="property">property </em><code class="sig-name descname">slug</code><a class="headerlink" href="#instaloader.PostLocation.slug" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">slug</code><a class="headerlink" href="#instaloader.PostLocation.slug" title="Permalink to this definition">¶</a></dt>
 <dd><p>URL friendly variant of location name.</p>
 </dd></dl>
 

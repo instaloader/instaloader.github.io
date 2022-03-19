@@ -244,51 +244,51 @@ its iteration state.</p>
 <p>It can be serialized and deserialized with <a class="reference internal" href="structures.html#instaloader.save_structure_to_file" title="instaloader.save_structure_to_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">save_structure_to_file()</span></code></a>
 and <a class="reference internal" href="structures.html#instaloader.load_structure_from_file" title="instaloader.load_structure_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_structure_from_file()</span></code></a>, as well as with <a class="reference external" href="https://docs.python.org/3/library/json.html#module-json" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">json</span></code></a> and
 <a class="reference external" href="https://docs.python.org/3/library/pickle.html#module-pickle" title="(in Python v3.10)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">pickle</span></code></a> thanks to being a <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.namedtuple" title="(in Python v3.10)"><code class="xref py py-func docutils literal notranslate"><span class="pre">namedtuple()</span></code></a>.</p>
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.FrozenNodeIterator.best_before">
-<em class="property">property </em><code class="sig-name descname">best_before</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.best_before" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">best_before</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.best_before" title="Permalink to this definition">¶</a></dt>
 <dd><p>Date when parts of the stored nodes might have expired.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.FrozenNodeIterator.context_username">
-<em class="property">property </em><code class="sig-name descname">context_username</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.context_username" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">context_username</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.context_username" title="Permalink to this definition">¶</a></dt>
 <dd><p>The username who created the iterator, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.FrozenNodeIterator.first_node">
-<em class="property">property </em><code class="sig-name descname">first_node</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.first_node" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">first_node</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.first_node" title="Permalink to this definition">¶</a></dt>
 <dd><p>Node data of the first item, if an item has been produced.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.FrozenNodeIterator.query_hash">
-<em class="property">property </em><code class="sig-name descname">query_hash</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.query_hash" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">query_hash</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.query_hash" title="Permalink to this definition">¶</a></dt>
 <dd><p>The GraphQL <code class="docutils literal notranslate"><span class="pre">query_hash</span></code> parameter.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.FrozenNodeIterator.query_referer">
-<em class="property">property </em><code class="sig-name descname">query_referer</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.query_referer" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">query_referer</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.query_referer" title="Permalink to this definition">¶</a></dt>
 <dd><p>The HTTP referer used for the GraphQL query.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.FrozenNodeIterator.query_variables">
-<em class="property">property </em><code class="sig-name descname">query_variables</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.query_variables" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">query_variables</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.query_variables" title="Permalink to this definition">¶</a></dt>
 <dd><p>The GraphQL <code class="docutils literal notranslate"><span class="pre">query_variables</span></code> parameter.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.FrozenNodeIterator.remaining_data">
-<em class="property">property </em><code class="sig-name descname">remaining_data</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.remaining_data" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">remaining_data</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.remaining_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>The already-retrieved, yet-unprocessed <code class="docutils literal notranslate"><span class="pre">edges</span></code> and the <code class="docutils literal notranslate"><span class="pre">page_info</span></code> at time of freezing.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="instaloader.FrozenNodeIterator.total_index">
-<em class="property">property </em><code class="sig-name descname">total_index</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.total_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">total_index</code><a class="headerlink" href="#instaloader.FrozenNodeIterator.total_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of items that have already been returned.</p>
 </dd></dl>
 
