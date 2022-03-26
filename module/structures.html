@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.9b3"
            title="Released on 19 Mar 2022" data-toggle="tooltip">
-          v<b>4.8.5</b>
+          v<b>4.9b3</b>
         </a>
       </li>
     </ul>
@@ -172,6 +172,15 @@ hashable.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="instaloader.Post.from_iphone_struct">
+<em class="property">classmethod </em><code class="sig-name descname">from_iphone_struct</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">media</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.from_iphone_struct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a post from a given iphone_struct.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.9.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="instaloader.Post.shortcode_to_mediaid">
 <em class="property">static </em><code class="sig-name descname">shortcode_to_mediaid</code><span class="sig-paren">(</span><em class="sig-param">code</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.shortcode_to_mediaid" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -272,6 +281,9 @@ hashable.</p>
 <dt id="instaloader.Post.date_local">
 <em class="property">property </em><code class="sig-name descname">date_local</code><a class="headerlink" href="#instaloader.Post.date_local" title="Permalink to this definition">¶</a></dt>
 <dd><p>Timestamp when the post was created (local time zone).</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.9: </span>Return timezone aware datetime object.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
@@ -419,6 +431,20 @@ hashable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Post.accessibility_caption">
+<em class="property">property </em><code class="sig-name descname">accessibility_caption</code><a class="headerlink" href="#instaloader.Post.accessibility_caption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessibility caption of the post, if available.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.9.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -911,6 +937,15 @@ if available.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="instaloader.StoryItem.from_mediaid">
+<em class="property">classmethod </em><code class="sig-name descname">from_mediaid</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">mediaid</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.StoryItem.from_mediaid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a StoryItem object from a given mediaid.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.9.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
 <dt id="instaloader.StoryItem.owner_profile">
 <em class="property">property </em><code class="sig-name descname">owner_profile</code><a class="headerlink" href="#instaloader.StoryItem.owner_profile" title="Permalink to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> instance of the story item’s owner.</p>
@@ -947,6 +982,9 @@ if available.</p>
 <dt id="instaloader.StoryItem.date_local">
 <em class="property">property </em><code class="sig-name descname">date_local</code><a class="headerlink" href="#instaloader.StoryItem.date_local" title="Permalink to this definition">¶</a></dt>
 <dd><p>Timestamp when the StoryItem was created (local time zone).</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.9: </span>Return timezone aware datetime object.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a></p>
@@ -1294,6 +1332,15 @@ or constructor directly rather than this method, since it requires more requests
 <dd class="field-even"><p><a class="reference internal" href="exceptions.html#instaloader.ProfileNotExistsException" title="instaloader.ProfileNotExistsException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfileNotExistsException</span></code></a></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.from_iphone_struct">
+<em class="property">classmethod </em><code class="sig-name descname">from_iphone_struct</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">media</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.from_iphone_struct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a profile from a given iphone_struct.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.9.</span></p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -1688,6 +1735,9 @@ To use this, one needs to be logged in.</p>
 </pre></div>
 </div>
 <p>Also, this class implements == and is hashable.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.9: </span>Removed <code class="docutils literal notranslate"><span class="pre">get_related_tags()</span></code> and <code class="docutils literal notranslate"><span class="pre">is_top_media_only</span></code> as these features were removed from Instagram.</p>
+</div>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.4.</span></p>
 </div>
@@ -1740,7 +1790,7 @@ hashtag with the given name.</p>
 <em class="property">property </em><code class="sig-name descname">description</code><a class="headerlink" href="#instaloader.Hashtag.description" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1761,27 +1811,6 @@ hashtag with the given name.</p>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="instaloader.Hashtag.is_top_media_only">
-<em class="property">property </em><code class="sig-name descname">is_top_media_only</code><a class="headerlink" href="#instaloader.Hashtag.is_top_media_only" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="instaloader.Hashtag.get_related_tags">
-<code class="sig-name descname">get_related_tags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Hashtag.get_related_tags" title="Permalink to this definition">¶</a></dt>
-<dd><p>Yields similar hashtags.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag"><code class="xref py py-class docutils literal notranslate"><span class="pre">Hashtag</span></code></a>]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1813,7 +1842,10 @@ the hashtag count might include private posts</p>
 <dl class="method">
 <dt id="instaloader.Hashtag.get_posts">
 <code class="sig-name descname">get_posts</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Hashtag.get_posts" title="Permalink to this definition">¶</a></dt>
-<dd><p>Yields the posts associated with this hashtag.</p>
+<dd><p>Yields the recent posts associated with this hashtag.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 4.9: </span>Use <a class="reference internal" href="#instaloader.Hashtag.get_posts_resumable" title="instaloader.Hashtag.get_posts_resumable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Hashtag.get_posts_resumable()</span></code></a> as this method may return incorrect results (<a class="reference external" href="https://github.com/instaloader/instaloader/issues/1457">Issue #1457</a>)</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>]</p>
@@ -1830,6 +1862,20 @@ the hashtag count might include private posts</p>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>]</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Hashtag.get_posts_resumable">
+<code class="sig-name descname">get_posts_resumable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Hashtag.get_posts_resumable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the recent posts of the hashtag in a resumable fashion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post">Post</a>]</p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.9.</span></p>
+</div>
 </dd></dl>
 
 </dd></dl>

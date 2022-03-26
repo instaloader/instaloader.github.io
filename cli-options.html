@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.9b3"
            title="Released on 19 Mar 2022" data-toggle="tooltip">
-          v<b>4.8.5</b>
+          v<b>4.9b3</b>
         </a>
       </li>
     </ul>
@@ -487,6 +487,16 @@ See <a class="reference internal" href="basic-usage.html#filename-specification"
 </dd></dl>
 
 <dl class="option">
+<dt id="cmdoption-sanitize-paths">
+<code class="sig-name descname">--sanitize-paths</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-sanitize-paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Force sanitization of paths so that the resulting file and directory names
+are valid on both Windows and Unix.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.9.</span></p>
+</div>
+</dd></dl>
+
+<dl class="option">
 <dt id="cmdoption-resume-prefix">
 <code class="sig-name descname">--resume-prefix</code><code class="sig-prename descclassname"> prefix</code><a class="headerlink" href="#cmdoption-resume-prefix" title="Permalink to this definition">¶</a></dt>
 <dd><p>For many targets, Instaloader is capable of resuming a previously-aborted
@@ -499,7 +509,8 @@ prefix is <code class="docutils literal notranslate"><span class="pre">iterator<
 <li><p>Profile posts,</p></li>
 <li><p>Profile IGTV posts (<a class="reference internal" href="#cmdoption-igtv"><code class="xref std std-option docutils literal notranslate"><span class="pre">--igtv</span></code></a>),</p></li>
 <li><p>Profile tagged posts (<a class="reference internal" href="#cmdoption-tagged"><code class="xref std std-option docutils literal notranslate"><span class="pre">--tagged</span></code></a>),</p></li>
-<li><p>Saved posts (<code class="docutils literal notranslate"><span class="pre">:saved</span></code>).</p></li>
+<li><p>Saved posts (<code class="docutils literal notranslate"><span class="pre">:saved</span></code>),</p></li>
+<li><p>Hashtags.</p></li>
 </ul>
 </dd>
 </dl>
@@ -527,7 +538,7 @@ information when interrupted.</p>
 <dt id="cmdoption-user-agent">
 <code class="sig-name descname">--user-agent</code><code class="sig-prename descclassname"> USER_AGENT</code><a class="headerlink" href="#cmdoption-user-agent" title="Permalink to this definition">¶</a></dt>
 <dd><p>User Agent to use for HTTP requests. Per default, Instaloader pretends being
-Chrome/89 on Linux.</p>
+Chrome/92 on Linux.</p>
 </dd></dl>
 
 <dl class="option">

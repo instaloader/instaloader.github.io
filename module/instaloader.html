@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.9b3"
            title="Released on 19 Mar 2022" data-toggle="tooltip">
-          v<b>4.8.5</b>
+          v<b>4.9b3</b>
         </a>
       </li>
     </ul>
@@ -106,7 +106,7 @@
 <h1><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code> (Main Class)<a class="headerlink" href="#instaloader-main-class" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="instaloader.Instaloader">
-<em class="property">class </em><code class="sig-name descname">Instaloader</code><span class="sig-paren">(</span><em class="sig-param">sleep=True</em>, <em class="sig-param">quiet=False</em>, <em class="sig-param">user_agent=None</em>, <em class="sig-param">dirname_pattern=None</em>, <em class="sig-param">filename_pattern=None</em>, <em class="sig-param">download_pictures=True</em>, <em class="sig-param">download_videos=True</em>, <em class="sig-param">download_video_thumbnails=True</em>, <em class="sig-param">download_geotags=False</em>, <em class="sig-param">download_comments=False</em>, <em class="sig-param">save_metadata=True</em>, <em class="sig-param">compress_json=True</em>, <em class="sig-param">post_metadata_txt_pattern=None</em>, <em class="sig-param">storyitem_metadata_txt_pattern=None</em>, <em class="sig-param">max_connection_attempts=3</em>, <em class="sig-param">request_timeout=300.0</em>, <em class="sig-param">rate_controller=None</em>, <em class="sig-param">resume_prefix='iterator'</em>, <em class="sig-param">check_resume_bbd=True</em>, <em class="sig-param">slide=None</em>, <em class="sig-param">fatal_status_codes=None</em>, <em class="sig-param">iphone_support=True</em>, <em class="sig-param">title_pattern=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">Instaloader</code><span class="sig-paren">(</span><em class="sig-param">sleep=True</em>, <em class="sig-param">quiet=False</em>, <em class="sig-param">user_agent=None</em>, <em class="sig-param">dirname_pattern=None</em>, <em class="sig-param">filename_pattern=None</em>, <em class="sig-param">download_pictures=True</em>, <em class="sig-param">download_videos=True</em>, <em class="sig-param">download_video_thumbnails=True</em>, <em class="sig-param">download_geotags=False</em>, <em class="sig-param">download_comments=False</em>, <em class="sig-param">save_metadata=True</em>, <em class="sig-param">compress_json=True</em>, <em class="sig-param">post_metadata_txt_pattern=None</em>, <em class="sig-param">storyitem_metadata_txt_pattern=None</em>, <em class="sig-param">max_connection_attempts=3</em>, <em class="sig-param">request_timeout=300.0</em>, <em class="sig-param">rate_controller=None</em>, <em class="sig-param">resume_prefix='iterator'</em>, <em class="sig-param">check_resume_bbd=True</em>, <em class="sig-param">slide=None</em>, <em class="sig-param">fatal_status_codes=None</em>, <em class="sig-param">iphone_support=True</em>, <em class="sig-param">title_pattern=None</em>, <em class="sig-param">sanitize_paths=False</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instaloader Class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -135,6 +135,7 @@ txt file.</p></li>
 <li><p><strong>slide</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – <a class="reference internal" href="../cli-options.html#cmdoption-slide"><code class="xref std std-option docutils literal notranslate"><span class="pre">--slide</span></code></a></p></li>
 <li><p><strong>fatal_status_codes</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]]) – <a class="reference internal" href="../cli-options.html#cmdoption-abort-on"><code class="xref std std-option docutils literal notranslate"><span class="pre">--abort-on</span></code></a></p></li>
 <li><p><strong>iphone_support</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – not <a class="reference internal" href="../cli-options.html#cmdoption-no-iphone"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-iphone</span></code></a></p></li>
+<li><p><strong>sanitize_paths</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – <a class="reference internal" href="../cli-options.html#cmdoption-sanitize-paths"><code class="xref std std-option docutils literal notranslate"><span class="pre">--sanitize-paths</span></code></a></p></li>
 </ul>
 </dd>
 </dl>
@@ -708,7 +709,7 @@ or None if profile name and the highlights’ titles should be used instead</p><
 <code class="sig-name descname">get_hashtag_posts</code><span class="sig-paren">(</span><em class="sig-param">hashtag</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader.get_hashtag_posts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get Posts associated with a #hashtag.</p>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 4.4: </span>Use <a class="reference internal" href="structures.html#instaloader.Hashtag.get_posts" title="instaloader.Hashtag.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Hashtag.get_posts()</span></code></a>.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 4.4: </span>Use <a class="reference internal" href="structures.html#instaloader.Hashtag.get_posts_resumable" title="instaloader.Hashtag.get_posts_resumable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Hashtag.get_posts_resumable()</span></code></a>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>

@@ -37,9 +37,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.8.5"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.9b3"
            title="Released on 19 Mar 2022" data-toggle="tooltip">
-          v<b>4.8.5</b>
+          v<b>4.9b3</b>
         </a>
       </li>
     </ul>
@@ -291,8 +291,6 @@
         <li><a href="cli-options.html#cmdoption-post-filter">command line option</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     --password YOUR-PASSWORD
 
@@ -300,6 +298,8 @@
         <li><a href="cli-options.html#cmdoption-password">command line option</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     --post-filter filter
 
@@ -333,6 +333,13 @@
 
       <ul>
         <li><a href="cli-options.html#cmdoption-resume-prefix">command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --sanitize-paths
+
+      <ul>
+        <li><a href="cli-options.html#cmdoption-sanitize-paths">command line option</a>
 </li>
       </ul></li>
       <li>
@@ -469,6 +476,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="module/exceptions.html#instaloader.AbortDownloadException">AbortDownloadException</a>
 </li>
+      <li><a href="module/structures.html#instaloader.Post.accessibility_caption">accessibility_caption() (Post property)</a>
+</li>
       <li><a href="module/structures.html#instaloader.Hashtag.allow_following">allow_following() (Hashtag property)</a>
 </li>
   </ul></td>
@@ -584,6 +593,8 @@
         <li><a href="cli-options.html#cmdoption-request-timeout">--request-timeout N</a>
 </li>
         <li><a href="cli-options.html#cmdoption-resume-prefix">--resume-prefix prefix</a>
+</li>
+        <li><a href="cli-options.html#cmdoption-sanitize-paths">--sanitize-paths</a>
 </li>
         <li><a href="cli-options.html#cmdoption-sessionfile">--sessionfile SESSIONFILE</a>
 </li>
@@ -754,14 +765,24 @@
 </li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.format_filename_within_target_path">format_filename_within_target_path() (Instaloader method)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="module/nodeiterator.html#instaloader.NodeIterator.freeze">freeze() (NodeIterator method)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="module/structures.html#instaloader.Profile.from_id">from_id() (Profile class method)</a>
 </li>
-      <li><a href="module/structures.html#instaloader.Post.from_mediaid">from_mediaid() (Post class method)</a>
+      <li><a href="module/structures.html#instaloader.Post.from_iphone_struct">from_iphone_struct() (Post class method)</a>
+
+      <ul>
+        <li><a href="module/structures.html#instaloader.Profile.from_iphone_struct">(Profile class method)</a>
 </li>
+      </ul></li>
+      <li><a href="module/structures.html#instaloader.Post.from_mediaid">from_mediaid() (Post class method)</a>
+
+      <ul>
+        <li><a href="module/structures.html#instaloader.StoryItem.from_mediaid">(StoryItem class method)</a>
+</li>
+      </ul></li>
       <li><a href="module/structures.html#instaloader.Hashtag.from_name">from_name() (Hashtag class method)</a>
 </li>
       <li><a href="module/structures.html#instaloader.Post.from_shortcode">from_shortcode() (Post class method)</a>
@@ -840,6 +861,8 @@
         <li><a href="module/structures.html#instaloader.Profile.get_posts">(Profile method)</a>
 </li>
       </ul></li>
+      <li><a href="module/structures.html#instaloader.Hashtag.get_posts_resumable">get_posts_resumable() (Hashtag method)</a>
+</li>
       <li><a href="module/structures.html#instaloader.TopSearchResults.get_prefixed_usernames">get_prefixed_usernames() (TopSearchResults method)</a>
 </li>
       <li><a href="module/structures.html#instaloader.LatestStamps.get_profile_id">get_profile_id() (LatestStamps method)</a>
@@ -851,8 +874,6 @@
       <li><a href="module/structures.html#instaloader.TopSearchResults.get_profiles">get_profiles() (TopSearchResults method)</a>
 </li>
       <li><a href="module/instaloadercontext.html#instaloader.InstaloaderContext.get_raw">get_raw() (InstaloaderContext method)</a>
-</li>
-      <li><a href="module/structures.html#instaloader.Hashtag.get_related_tags">get_related_tags() (Hashtag method)</a>
 </li>
       <li><a href="module/structures.html#instaloader.Profile.get_saved_posts">get_saved_posts() (Profile method)</a>
 </li>
@@ -930,10 +951,10 @@
 </li>
       <li><a href="module/exceptions.html#instaloader.InvalidArgumentException">InvalidArgumentException</a>
 </li>
-      <li><a href="module/structures.html#instaloader.Profile.is_business_account">is_business_account() (Profile property)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="module/structures.html#instaloader.Profile.is_business_account">is_business_account() (Profile property)</a>
+</li>
       <li><a href="module/structures.html#instaloader.Hashtag.is_following">is_following() (Hashtag property)</a>
 </li>
       <li><a href="module/instaloadercontext.html#instaloader.InstaloaderContext.is_logged_in">is_logged_in() (InstaloaderContext property)</a>
@@ -941,8 +962,6 @@
       <li><a href="module/structures.html#instaloader.Profile.is_private">is_private() (Profile property)</a>
 </li>
       <li><a href="module/structures.html#instaloader.Post.is_sponsored">is_sponsored() (Post property)</a>
-</li>
-      <li><a href="module/structures.html#instaloader.Hashtag.is_top_media_only">is_top_media_only() (Hashtag property)</a>
 </li>
       <li><a href="module/structures.html#instaloader.Profile.is_verified">is_verified() (Profile property)</a>
 </li>
