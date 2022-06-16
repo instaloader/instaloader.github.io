@@ -599,12 +599,13 @@ This is handy for running <a class="reference internal" href="basic-usage.html#i
 <code class="sig-name descname">+args.txt</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-arg-args-txt" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read arguments from file <cite>args.txt</cite>, a shortcut to provide arguments from
 file rather than command-line. This provides a convenient way to hide login
-info from CLI, and can also be used to simplify management of long arguments.</p>
+info from CLI, and can also be used to simplify management of long arguments.
+You can provide more than one file at once, e.g.: <code class="docutils literal notranslate"><span class="pre">+args1.txt</span> <span class="pre">+args2.txt</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Text file should separate arguments with line breaks.</p>
 </div>
-<p>args.txt example:</p>
+<p><cite>args.txt</cite> example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">login</span><span class="o">=</span><span class="n">MYUSERNAME</span>
 <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="n">MYPASSWORD</span>
 <span class="o">--</span><span class="n">fast</span><span class="o">-</span><span class="n">update</span>
