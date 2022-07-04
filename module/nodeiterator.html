@@ -130,7 +130,7 @@ Iterator <a class="reference internal" href="#instaloader.NodeIterator" title="i
 <h2><code class="docutils literal notranslate"><span class="pre">NodeIterator</span></code><a class="headerlink" href="#nodeiterator" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="instaloader.NodeIterator">
-<em class="property">class </em><code class="sig-name descname">NodeIterator</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">query_hash</em>, <em class="sig-param">edge_extractor</em>, <em class="sig-param">node_wrapper</em>, <em class="sig-param">query_variables=None</em>, <em class="sig-param">query_referer=None</em>, <em class="sig-param">first_data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.NodeIterator" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">NodeIterator</code><span class="sig-paren">(</span><em class="sig-param">context</em>, <em class="sig-param">query_hash</em>, <em class="sig-param">edge_extractor</em>, <em class="sig-param">node_wrapper</em>, <em class="sig-param">query_variables=None</em>, <em class="sig-param">query_referer=None</em>, <em class="sig-param">first_data=None</em>, <em class="sig-param">is_first=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.NodeIterator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate the nodes within edges in a GraphQL pagination. Instances of this class are returned by many (but not all)
 of Instaloader’s <a class="reference internal" href="structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>-returning functions (such as <a class="reference internal" href="structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a> etc.).</p>
 <p>What makes this iterator special is its ability to freeze/store its current state, e.g. to interrupt an iteration,
@@ -194,8 +194,14 @@ NodeIterators are matching if and only if they have the same magic.</p>
 <dt id="instaloader.NodeIterator.first_item">
 <em class="property">property </em><code class="sig-name descname">first_item</code><a class="headerlink" href="#instaloader.NodeIterator.first_item" title="Permalink to this definition">¶</a></dt>
 <dd><p>If this iterator has produced any items, returns the first item produced.</p>
+<p>It is possible to override what is considered the first item (for example, to consider the
+newest item in case items are not in strict chronological order) by passing a callback
+function as the <cite>is_first</cite> parameter when creating the class.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.8.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.9.2: </span>What is considered the first item can be overridden.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
