@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.9.6"
-           title="Released on 19 Apr 2023" data-toggle="tooltip">
-          v<b>4.9.6</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.10"
+           title="Released on 10 Jul 2023" data-toggle="tooltip">
+          v<b>4.10</b>
         </a>
       </li>
     </ul>
@@ -547,7 +547,7 @@ hashable.</p>
 <dt id="instaloader.Post.get_comments">
 <code class="sig-name descname">get_comments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Post.get_comments" title="Permalink to this definition">¶</a></dt>
 <dd><p>Iterate over all comments of the post.</p>
-<p>Each comment is represented by a PostComment namedtuple with fields text (string), created_at (datetime),
+<p>Each comment is represented by a PostComment NamedTuple with fields text (string), created_at (datetime),
 id (int), owner (<a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>) and answers (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code></a>[<a class="reference internal" href="#instaloader.PostCommentAnswer" title="instaloader.PostCommentAnswer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostCommentAnswer</span></code></a>])
 if available.</p>
 <div class="versionchanged">
@@ -605,7 +605,7 @@ if available.</p>
 <dl class="method">
 <dt id="instaloader.Post.location">
 <em class="property">property </em><code class="sig-name descname">location</code><a class="headerlink" href="#instaloader.Post.location" title="Permalink to this definition">¶</a></dt>
-<dd><p>If the Post has a location, returns PostLocation namedtuple with fields ‘id’, ‘lat’ and ‘lng’ and ‘name’.</p>
+<dd><p>If the Post has a location, returns PostLocation NamedTuple with fields ‘id’, ‘lat’ and ‘lng’ and ‘name’.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 4.2.9: </span>Require being logged in (as required by Instagram), return None if not logged-in.</p>
 </div>
@@ -635,15 +635,15 @@ if available.</p>
 <em class="property">class </em><code class="sig-name descname">PostSidecarNode</code><a class="headerlink" href="#instaloader.PostSidecarNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Item of a Sidecar Post.</p>
 <dl class="attribute">
-<dt id="instaloader.PostSidecarNode.display_url">
-<code class="sig-name descname">display_url</code><a class="headerlink" href="#instaloader.PostSidecarNode.display_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>URL of image or video thumbnail.</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="instaloader.PostSidecarNode.is_video">
 <code class="sig-name descname">is_video</code><a class="headerlink" href="#instaloader.PostSidecarNode.is_video" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether this node is a video.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.PostSidecarNode.display_url">
+<code class="sig-name descname">display_url</code><a class="headerlink" href="#instaloader.PostSidecarNode.display_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>URL of image or video thumbnail.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -658,9 +658,9 @@ if available.</p>
 <dt id="instaloader.PostComment">
 <em class="property">class </em><code class="sig-name descname">PostComment</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">created_at_utc</em>, <em class="sig-param">text</em>, <em class="sig-param">owner</em>, <em class="sig-param">likes_count</em>, <em class="sig-param">answers</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.PostComment" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
-<dt id="instaloader.PostComment.answers">
-<code class="sig-name descname">answers</code><a class="headerlink" href="#instaloader.PostComment.answers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Iterator which yields all <a class="reference internal" href="#instaloader.PostCommentAnswer" title="instaloader.PostCommentAnswer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostCommentAnswer</span></code></a>s for the comment.</p>
+<dt id="instaloader.PostComment.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostComment.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID number of comment.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -670,15 +670,9 @@ if available.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="instaloader.PostComment.id">
-<code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostComment.id" title="Permalink to this definition">¶</a></dt>
-<dd><p>ID number of comment.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="instaloader.PostComment.likes_count">
-<code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostComment.likes_count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of likes on comment.</p>
+<dt id="instaloader.PostComment.text">
+<code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostComment.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comment text.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -688,9 +682,15 @@ if available.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="instaloader.PostComment.text">
-<code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostComment.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Comment text.</p>
+<dt id="instaloader.PostComment.likes_count">
+<code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostComment.likes_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of likes on comment.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.PostComment.answers">
+<code class="sig-name descname">answers</code><a class="headerlink" href="#instaloader.PostComment.answers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterator which yields all <a class="reference internal" href="#instaloader.PostCommentAnswer" title="instaloader.PostCommentAnswer"><code class="xref py py-class docutils literal notranslate"><span class="pre">PostCommentAnswer</span></code></a>s for the comment.</p>
 </dd></dl>
 
 </dd></dl>
@@ -699,21 +699,21 @@ if available.</p>
 <dt id="instaloader.PostCommentAnswer">
 <em class="property">class </em><code class="sig-name descname">PostCommentAnswer</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">created_at_utc</em>, <em class="sig-param">text</em>, <em class="sig-param">owner</em>, <em class="sig-param">likes_count</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.PostCommentAnswer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
-<dt id="instaloader.PostCommentAnswer.created_at_utc">
-<code class="sig-name descname">created_at_utc</code><a class="headerlink" href="#instaloader.PostCommentAnswer.created_at_utc" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> when comment was created (UTC).</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="instaloader.PostCommentAnswer.id">
 <code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostCommentAnswer.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID number of comment.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="instaloader.PostCommentAnswer.likes_count">
-<code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostCommentAnswer.likes_count" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of likes on comment.</p>
+<dt id="instaloader.PostCommentAnswer.created_at_utc">
+<code class="sig-name descname">created_at_utc</code><a class="headerlink" href="#instaloader.PostCommentAnswer.created_at_utc" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> when comment was created (UTC).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.PostCommentAnswer.text">
+<code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostCommentAnswer.text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Comment text.</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -723,9 +723,9 @@ if available.</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="instaloader.PostCommentAnswer.text">
-<code class="sig-name descname">text</code><a class="headerlink" href="#instaloader.PostCommentAnswer.text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Comment text.</p>
+<dt id="instaloader.PostCommentAnswer.likes_count">
+<code class="sig-name descname">likes_count</code><a class="headerlink" href="#instaloader.PostCommentAnswer.likes_count" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of likes on comment.</p>
 </dd></dl>
 
 </dd></dl>
@@ -734,27 +734,9 @@ if available.</p>
 <dt id="instaloader.PostLocation">
 <em class="property">class </em><code class="sig-name descname">PostLocation</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">name</em>, <em class="sig-param">slug</em>, <em class="sig-param">has_public_page</em>, <em class="sig-param">lat</em>, <em class="sig-param">lng</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.PostLocation" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
-<dt id="instaloader.PostLocation.has_public_page">
-<code class="sig-name descname">has_public_page</code><a class="headerlink" href="#instaloader.PostLocation.has_public_page" title="Permalink to this definition">¶</a></dt>
-<dd><p>Whether location has a public page.</p>
-</dd></dl>
-
-<dl class="attribute">
 <dt id="instaloader.PostLocation.id">
 <code class="sig-name descname">id</code><a class="headerlink" href="#instaloader.PostLocation.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID number of location.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="instaloader.PostLocation.lat">
-<code class="sig-name descname">lat</code><a class="headerlink" href="#instaloader.PostLocation.lat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Latitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or None).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="instaloader.PostLocation.lng">
-<code class="sig-name descname">lng</code><a class="headerlink" href="#instaloader.PostLocation.lng" title="Permalink to this definition">¶</a></dt>
-<dd><p>Longitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or None).</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -767,6 +749,24 @@ if available.</p>
 <dt id="instaloader.PostLocation.slug">
 <code class="sig-name descname">slug</code><a class="headerlink" href="#instaloader.PostLocation.slug" title="Permalink to this definition">¶</a></dt>
 <dd><p>URL friendly variant of location name.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.PostLocation.has_public_page">
+<code class="sig-name descname">has_public_page</code><a class="headerlink" href="#instaloader.PostLocation.has_public_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether location has a public page.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.PostLocation.lat">
+<code class="sig-name descname">lat</code><a class="headerlink" href="#instaloader.PostLocation.lat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Latitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or None).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="instaloader.PostLocation.lng">
+<code class="sig-name descname">lng</code><a class="headerlink" href="#instaloader.PostLocation.lng" title="Permalink to this definition">¶</a></dt>
+<dd><p>Longitude (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> or None).</p>
 </dd></dl>
 
 </dd></dl>
@@ -1073,6 +1073,62 @@ if available.</p>
 <dt id="instaloader.StoryItem.typename">
 <em class="property">property </em><code class="sig-name descname">typename</code><a class="headerlink" href="#instaloader.StoryItem.typename" title="Permalink to this definition">¶</a></dt>
 <dd><p>Type of post, GraphStoryImage or GraphStoryVideo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.caption">
+<em class="property">property </em><code class="sig-name descname">caption</code><a class="headerlink" href="#instaloader.StoryItem.caption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Caption.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.10.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.caption_hashtags">
+<em class="property">property </em><code class="sig-name descname">caption_hashtags</code><a class="headerlink" href="#instaloader.StoryItem.caption_hashtags" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all lowercased hashtags (without preceeding #) that occur in the StoryItem’s caption.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.10.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.caption_mentions">
+<em class="property">property </em><code class="sig-name descname">caption_mentions</code><a class="headerlink" href="#instaloader.StoryItem.caption_mentions" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all lowercased profiles that are mentioned in the StoryItem’s caption, without preceeding &#64;.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.10.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.StoryItem.pcaption">
+<em class="property">property </em><code class="sig-name descname">pcaption</code><a class="headerlink" href="#instaloader.StoryItem.pcaption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Printable caption, useful as a format specifier for –filename-pattern.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.10.</span></p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
@@ -1497,6 +1553,34 @@ or constructor directly rather than this method, since it requires more requests
 </dd></dl>
 
 <dl class="method">
+<dt id="instaloader.Profile.biography_hashtags">
+<em class="property">property </em><code class="sig-name descname">biography_hashtags</code><a class="headerlink" href="#instaloader.Profile.biography_hashtags" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all lowercased hashtags (without preceeding #) that occur in the Profile’s biography.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.10.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.biography_mentions">
+<em class="property">property </em><code class="sig-name descname">biography_mentions</code><a class="headerlink" href="#instaloader.Profile.biography_mentions" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all lowercased profiles that are mentioned in the Profile’s biography, without preceeding &#64;.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.10.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="instaloader.Profile.blocked_by_viewer">
 <em class="property">property </em><code class="sig-name descname">blocked_by_viewer</code><a class="headerlink" href="#instaloader.Profile.blocked_by_viewer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -1698,6 +1782,21 @@ i.e. the viewer has privileges to view it.</p>
 </dl>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.3.</span></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Profile.get_followed_hashtags">
+<code class="sig-name descname">get_followed_hashtags</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Profile.get_followed_hashtags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve list of hashtags followed by given profile.
+To use this, one needs to be logged in and private profiles has to be followed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Hashtag" title="instaloader.Hashtag">Hashtag</a>]</p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.10.</span></p>
 </div>
 </dd></dl>
 

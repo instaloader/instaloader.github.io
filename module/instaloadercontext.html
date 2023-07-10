@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.9.6"
-           title="Released on 19 Apr 2023" data-toggle="tooltip">
-          v<b>4.9.6</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.10"
+           title="Released on 10 Jul 2023" data-toggle="tooltip">
+          v<b>4.10</b>
         </a>
       </li>
     </ul>
@@ -191,9 +191,21 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 <dd><p>Returns our default anonymous requests.Session object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.29.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.31.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a></p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.save_session">
+<code class="sig-name descname">save_session</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.save_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not meant to be used directly, use <a class="reference internal" href="instaloader.html#instaloader.Instaloader.save_session" title="instaloader.Instaloader.save_session"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.save_session()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.InstaloaderContext.load_session">
+<code class="sig-name descname">load_session</code><span class="sig-paren">(</span><em class="sig-param">username</em>, <em class="sig-param">sessiondata</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.load_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not meant to be used directly, use <a class="reference internal" href="instaloader.html#instaloader.Instaloader.load_session" title="instaloader.Instaloader.load_session"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.load_session()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -262,7 +274,7 @@ Not meant to be used directly, use <a class="reference internal" href="instaload
 
 <dl class="method">
 <dt id="instaloader.InstaloaderContext.get_json">
-<code class="sig-name descname">get_json</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">params</em>, <em class="sig-param">host='www.instagram.com'</em>, <em class="sig-param">session=None</em>, <em class="sig-param">_attempt=1</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.get_json" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_json</code><span class="sig-paren">(</span><em class="sig-param">path</em>, <em class="sig-param">params</em>, <em class="sig-param">host='www.instagram.com'</em>, <em class="sig-param">session=None</em>, <em class="sig-param">_attempt=1</em>, <em class="sig-param">response_headers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.get_json" title="Permalink to this definition">¶</a></dt>
 <dd><p>JSON request to Instagram.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -270,7 +282,7 @@ Not meant to be used directly, use <a class="reference internal" href="instaload
 <li><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – URL, relative to the given domain which defaults to www.instagram.com/</p></li>
 <li><p><strong>params</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – GET parameters</p></li>
 <li><p><strong>host</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – Domain part of the URL from where to download the requested JSON; defaults to www.instagram.com</p></li>
-<li><p><strong>session</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.29.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>]) – Session to use, or None to use self.session</p></li>
+<li><p><strong>session</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.31.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Session</span></code></a>]) – Session to use, or None to use self.session</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -387,7 +399,7 @@ Not meant to be used directly, use <a class="reference internal" href="instaload
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Response" title="(in Requests v2.29.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Response" title="(in Requests v2.31.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -428,7 +440,7 @@ Not meant to be used directly, use <a class="reference internal" href="instaload
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Response" title="(in Requests v2.29.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Response" title="(in Requests v2.31.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Response</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>

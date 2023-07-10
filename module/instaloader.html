@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.9.6"
-           title="Released on 19 Apr 2023" data-toggle="tooltip">
-          v<b>4.9.6</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.10"
+           title="Released on 10 Jul 2023" data-toggle="tooltip">
+          v<b>4.10</b>
         </a>
       </li>
     </ul>
@@ -296,9 +296,42 @@ the profile pic is downloaded unless it already exists</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="instaloader.Instaloader.save_session">
+<code class="sig-name descname">save_session</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader.save_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves internally stored <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.31.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> object to <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#instaloader.LoginRequiredException" title="instaloader.LoginRequiredException"><strong>LoginRequiredException</strong></a> – If called without being logged in.</p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.10.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="instaloader.Instaloader.load_session">
+<code class="sig-name descname">load_session</code><span class="sig-paren">(</span><em class="sig-param">username</em>, <em class="sig-param">session_data</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader.load_session" title="Permalink to this definition">¶</a></dt>
+<dd><p>Internally stores <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.31.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> object from <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 4.10.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="instaloader.Instaloader.save_session_to_file">
 <code class="sig-name descname">save_session_to_file</code><span class="sig-paren">(</span><em class="sig-param">filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader.save_session_to_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Saves internally stored <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.29.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> object.</p>
+<dd><p>Saves internally stored <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.31.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]) – Filename, or None to use default filename.</p>
@@ -315,7 +348,7 @@ the profile pic is downloaded unless it already exists</p>
 <dl class="method">
 <dt id="instaloader.Instaloader.load_session_from_file">
 <code class="sig-name descname">load_session_from_file</code><span class="sig-paren">(</span><em class="sig-param">username</em>, <em class="sig-param">filename=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader.load_session_from_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Internally stores <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.29.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> object loaded from file.</p>
+<dd><p>Internally stores <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.31.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> object loaded from file.</p>
 <p>If filename is None, the file with the default session path is loaded.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
@@ -330,7 +363,7 @@ the profile pic is downloaded unless it already exists</p>
 <dl class="method">
 <dt id="instaloader.Instaloader.test_login">
 <code class="sig-name descname">test_login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader.test_login" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the Instagram username to which given <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.29.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> object belongs, or None.</p>
+<dd><p>Returns the Instagram username to which given <a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.31.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">requests.Session</span></code></a> object belongs, or None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</p>

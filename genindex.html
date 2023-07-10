@@ -37,9 +37,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.9.6"
-           title="Released on 19 Apr 2023" data-toggle="tooltip">
-          v<b>4.9.6</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.10"
+           title="Released on 10 Jul 2023" data-toggle="tooltip">
+          v<b>4.10</b>
         </a>
       </li>
     </ul>
@@ -502,9 +502,13 @@
 </li>
       <li><a href="module/nodeiterator.html#instaloader.FrozenNodeIterator.best_before">best_before (FrozenNodeIterator attribute)</a>
 </li>
+      <li><a href="module/structures.html#instaloader.Profile.biography">biography() (Profile property)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="module/structures.html#instaloader.Profile.biography">biography() (Profile property)</a>
+      <li><a href="module/structures.html#instaloader.Profile.biography_hashtags">biography_hashtags() (Profile property)</a>
+</li>
+      <li><a href="module/structures.html#instaloader.Profile.biography_mentions">biography_mentions() (Profile property)</a>
 </li>
       <li><a href="module/structures.html#instaloader.Profile.blocked_by_viewer">blocked_by_viewer() (Profile property)</a>
 </li>
@@ -517,11 +521,23 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="module/structures.html#instaloader.Post.caption">caption() (Post property)</a>
+
+      <ul>
+        <li><a href="module/structures.html#instaloader.StoryItem.caption">(StoryItem property)</a>
 </li>
+      </ul></li>
       <li><a href="module/structures.html#instaloader.Post.caption_hashtags">caption_hashtags() (Post property)</a>
+
+      <ul>
+        <li><a href="module/structures.html#instaloader.StoryItem.caption_hashtags">(StoryItem property)</a>
 </li>
+      </ul></li>
       <li><a href="module/structures.html#instaloader.Post.caption_mentions">caption_mentions() (Post property)</a>
+
+      <ul>
+        <li><a href="module/structures.html#instaloader.StoryItem.caption_mentions">(StoryItem property)</a>
 </li>
+      </ul></li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.check_profile_id">check_profile_id() (Instaloader method)</a>
 </li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.close">close() (Instaloader method)</a>
@@ -811,6 +827,8 @@
 </li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.get_feed_posts">get_feed_posts() (Instaloader method)</a>
 </li>
+      <li><a href="module/structures.html#instaloader.Profile.get_followed_hashtags">get_followed_hashtags() (Profile method)</a>
+</li>
       <li><a href="module/structures.html#instaloader.Profile.get_followees">get_followees() (Profile method)</a>
 </li>
       <li><a href="module/structures.html#instaloader.Profile.get_followers">get_followers() (Profile method)</a>
@@ -1031,6 +1049,12 @@
 </li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.load_profile_id">load_profile_id() (Instaloader method)</a>
 </li>
+      <li><a href="module/instaloader.html#instaloader.Instaloader.load_session">load_session() (Instaloader method)</a>
+
+      <ul>
+        <li><a href="module/instaloadercontext.html#instaloader.InstaloaderContext.load_session">(InstaloaderContext method)</a>
+</li>
+      </ul></li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.load_session_from_file">load_session_from_file() (Instaloader method)</a>
 
       <ul>
@@ -1146,7 +1170,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="module/structures.html#instaloader.Post.pcaption">pcaption() (Post property)</a>
+
+      <ul>
+        <li><a href="module/structures.html#instaloader.StoryItem.pcaption">(StoryItem property)</a>
 </li>
+      </ul></li>
       <li><a href="module/structures.html#instaloader.Post">Post (class in instaloader)</a>
 </li>
       <li><a href="module/structures.html#instaloader.LatestStamps.POST_TIMESTAMP">POST_TIMESTAMP (LatestStamps attribute)</a>
@@ -1163,10 +1191,10 @@
 </li>
       <li><a href="module/structures.html#instaloader.PostSidecarNode">PostSidecarNode (class in instaloader)</a>
 </li>
-      <li><a href="module/exceptions.html#instaloader.PrivateProfileNotFollowedException">PrivateProfileNotFollowedException</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="module/exceptions.html#instaloader.PrivateProfileNotFollowedException">PrivateProfileNotFollowedException</a>
+</li>
       <li><a href="module/structures.html#instaloader.Profile">Profile (class in instaloader)</a>
 </li>
       <li><a href="module/structures.html#instaloader.Post.profile">profile() (Post property)</a>
@@ -1251,6 +1279,12 @@
         <li><a href="module/structures.html#instaloader.LatestStamps.save_profile_id">(LatestStamps method)</a>
 </li>
       </ul></li>
+      <li><a href="module/instaloader.html#instaloader.Instaloader.save_session">save_session() (Instaloader method)</a>
+
+      <ul>
+        <li><a href="module/instaloadercontext.html#instaloader.InstaloaderContext.save_session">(InstaloaderContext method)</a>
+</li>
+      </ul></li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.save_session_to_file">save_session_to_file() (Instaloader method)</a>
 
       <ul>
@@ -1265,10 +1299,10 @@
 </li>
       <li><a href="module/structures.html#instaloader.LatestStamps.set_last_post_timestamp">set_last_post_timestamp() (LatestStamps method)</a>
 </li>
-      <li><a href="module/structures.html#instaloader.LatestStamps.set_last_story_timestamp">set_last_story_timestamp() (LatestStamps method)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="module/structures.html#instaloader.LatestStamps.set_last_story_timestamp">set_last_story_timestamp() (LatestStamps method)</a>
+</li>
       <li><a href="module/structures.html#instaloader.LatestStamps.set_last_tagged_timestamp">set_last_tagged_timestamp() (LatestStamps method)</a>
 </li>
       <li><a href="module/structures.html#instaloader.LatestStamps.set_profile_pic">set_profile_pic() (LatestStamps method)</a>
