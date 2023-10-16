@@ -128,8 +128,8 @@ with the Instaloader command line interface.</p>
 <section id="download-posts-in-a-specific-period">
 <h2>Download Posts in a Specific Period<a class="headerlink" href="#download-posts-in-a-specific-period" title="Permalink to this headline">¶</a></h2>
 <p>To only download Instagram pictures (and metadata) that are within a specific
-period, you can simply use <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropwhile()</span></code></a> and
-<a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">takewhile()</span></code></a> from <a class="reference external" href="https://docs.python.org/3/library/itertools.html#module-itertools" title="(in Python v3.11)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">itertools</span></code></a> on a generator that returns
+period, you can simply use <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropwhile()</span></code></a> and
+<a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">takewhile()</span></code></a> from <a class="reference external" href="https://docs.python.org/3/library/itertools.html#module-itertools" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">itertools</span></code></a> on a generator that returns
 Posts in <strong>exact chronological order</strong>, such as <a class="reference internal" href="module/structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">dropwhile</span><span class="p">,</span> <span class="n">takewhile</span>
@@ -150,8 +150,8 @@ Posts in <strong>exact chronological order</strong>, such as <a class="reference
 </div>
 <p>See also <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.download_post" title="instaloader.Instaloader.download_post"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.download_post()</span></code></a>.</p>
 <p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/121">Issue #121</a>.</p>
-<p>The code example with <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropwhile()</span></code></a> and
-<a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">takewhile()</span></code></a> makes the assumption that the post iterator returns
+<p>The code example with <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropwhile()</span></code></a> and
+<a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">takewhile()</span></code></a> makes the assumption that the post iterator returns
 posts in exact chronological order.  As discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/666">Issue #666</a>, the following
 approach fits for an <strong>almost chronological order</strong>, where up to <em>k</em> older posts
 are inserted into an otherwise chronological order, such as a Hashtag feed.</p>
@@ -276,7 +276,7 @@ list of posts which are offline but not online (i.e. deleted in the profile).</p
 <section id="only-one-post-per-user">
 <h2>Only one Post per User<a class="headerlink" href="#only-one-post-per-user" title="Permalink to this headline">¶</a></h2>
 <p>To download only the single most recent post per user within a hashtag feed,
-this snippet uses a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> that contains the users of whom a post has
+this snippet uses a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> that contains the users of whom a post has
 already been downloaded. For each post, it checks whether the post’s creator is
 already contained in that set. If not, the post is downloaded from Instagram and
 the user is added to that set.</p>
