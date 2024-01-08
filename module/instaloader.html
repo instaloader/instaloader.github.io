@@ -40,7 +40,7 @@
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
            href="https://github.com/instaloader/instaloader/releases/tag/v4.10.2"
-           title="Released on  9 Dec 2023" data-toggle="tooltip">
+           title="Released on 18 Dec 2023" data-toggle="tooltip">
           v<b>4.10.2</b>
         </a>
       </li>
@@ -566,7 +566,7 @@ or None if profile name and the highlights’ titles should be used instead</p><
 
 <dl class="method">
 <dt id="instaloader.Instaloader.posts_download_loop">
-<code class="sig-name descname">posts_download_loop</code><span class="sig-paren">(</span><em class="sig-param">posts</em>, <em class="sig-param">target</em>, <em class="sig-param">fast_update=False</em>, <em class="sig-param">post_filter=None</em>, <em class="sig-param">max_count=None</em>, <em class="sig-param">total_count=None</em>, <em class="sig-param">owner_profile=None</em>, <em class="sig-param">takewhile=None</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader.posts_download_loop" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">posts_download_loop</code><span class="sig-paren">(</span><em class="sig-param">posts</em>, <em class="sig-param">target</em>, <em class="sig-param">fast_update=False</em>, <em class="sig-param">post_filter=None</em>, <em class="sig-param">max_count=None</em>, <em class="sig-param">total_count=None</em>, <em class="sig-param">owner_profile=None</em>, <em class="sig-param">takewhile=None</em>, <em class="sig-param">possibly_pinned=0</em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.Instaloader.posts_download_loop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download the Posts returned by given Post Iterator.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.4.</span></p>
@@ -576,6 +576,9 @@ or None if profile name and the highlights’ titles should be used instead</p><
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 4.8: </span>Add <cite>takewhile</cite> parameter.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.10.3: </span>Add <cite>possibly_pinned</cite> parameter.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -588,6 +591,8 @@ or None if profile name and the highlights’ titles should be used instead</p><
 <li><p><strong>total_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]) – Total number of posts returned by given iterator.</p></li>
 <li><p><strong>owner_profile</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference internal" href="structures.html#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>]) – Associated profile, if any.</p></li>
 <li><p><strong>takewhile</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.12)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></a>[[<a class="reference internal" href="structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>]]) – Expression evaluated for each post. Once it returns false, downloading stops.</p></li>
+<li><p><strong>possibly_pinned</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – Number of posts that might be pinned. These posts do not cause download
+to stop even if they’ve already been downloaded.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
