@@ -1,24 +1,24 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en" data-content_root="./">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   
     <title>Advanced Instaloader Examples &#8212; Instaloader  documentation</title>
   
 
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=377f2d93" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css?v=d1e01417" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.10.3"
-           title="Released on 12 Jan 2024" data-toggle="tooltip">
-          v<b>4.10.3</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.11"
+           title="Released on 18 Mar 2024" data-toggle="tooltip">
+          v<b>4.11</b>
         </a>
       </li>
     </ul>
@@ -104,8 +104,8 @@
         
 
   <section id="advanced-instaloader-examples">
-<span id="codesnippets"></span><h1>Advanced Instaloader Examples<a class="headerlink" href="#advanced-instaloader-examples" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="contents">
+<span id="codesnippets"></span><h1>Advanced Instaloader Examples<a class="headerlink" href="#advanced-instaloader-examples" title="Link to this heading">¶</a></h1>
+<nav class="contents" id="contents">
 <p class="topic-title">Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#advanced-instaloader-examples" id="id1">Advanced Instaloader Examples</a></p>
@@ -119,14 +119,14 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <p>Here we present code examples that use the <a class="reference internal" href="as-module.html#python-module-instaloader"><span class="std std-ref">Python Module instaloader</span></a> for
 more advanced Instagram downloading or metadata mining than what is possible
 with the Instaloader command line interface.</p>
 <p>The scripts presented here can be downloaded from our source tree:
 <a class="reference external" href="https://github.com/instaloader/instaloader/tree/master/docs/codesnippets">instaloader/docs/codesnippets/</a></p>
 <section id="download-posts-in-a-specific-period">
-<h2>Download Posts in a Specific Period<a class="headerlink" href="#download-posts-in-a-specific-period" title="Permalink to this headline">¶</a></h2>
+<h2>Download Posts in a Specific Period<a class="headerlink" href="#download-posts-in-a-specific-period" title="Link to this heading">¶</a></h2>
 <p>To only download Instagram pictures (and metadata) that are within a specific
 period, you can simply use <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropwhile()</span></code></a> and
 <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile" title="(in Python v3.12)"><code class="xref py py-func docutils literal notranslate"><span class="pre">takewhile()</span></code></a> from <a class="reference external" href="https://docs.python.org/3/library/itertools.html#module-itertools" title="(in Python v3.12)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">itertools</span></code></a> on a generator that returns
@@ -190,7 +190,7 @@ are inserted into an otherwise chronological order, such as a Hashtag feed.</p>
 </div>
 </section>
 <section id="likes-of-a-profile-ghost-followers">
-<h2>Likes of a Profile / Ghost Followers<a class="headerlink" href="#likes-of-a-profile-ghost-followers" title="Permalink to this headline">¶</a></h2>
+<h2>Likes of a Profile / Ghost Followers<a class="headerlink" href="#likes-of-a-profile-ghost-followers" title="Link to this heading">¶</a></h2>
 <p>To obtain a list of your inactive followers, i.e. followers that did not like
 any of your pictures, you can use this approach.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">instaloader</span>
@@ -228,7 +228,7 @@ any of your pictures, you can use this approach.</p>
 <p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/120">Issue #120</a>.</p>
 </section>
 <section id="track-deleted-posts">
-<h2>Track Deleted Posts<a class="headerlink" href="#track-deleted-posts" title="Permalink to this headline">¶</a></h2>
+<h2>Track Deleted Posts<a class="headerlink" href="#track-deleted-posts" title="Link to this heading">¶</a></h2>
 <p>This script uses Instaloader to obtain a list of currently-online Instagram and
 compares it with the set of posts that you already have downloaded.  It outputs
 a list of posts which are online but not offline (i.e. not yet downloaded) and a
@@ -274,7 +274,7 @@ list of posts which are offline but not online (i.e. deleted in the profile).</p
 <p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/56">Issue #56</a>.</p>
 </section>
 <section id="only-one-post-per-user">
-<h2>Only one Post per User<a class="headerlink" href="#only-one-post-per-user" title="Permalink to this headline">¶</a></h2>
+<h2>Only one Post per User<a class="headerlink" href="#only-one-post-per-user" title="Link to this heading">¶</a></h2>
 <p>To download only the single most recent post per user within a hashtag feed,
 this snippet uses a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">set</span></code></a> that contains the users of whom a post has
 already been downloaded. For each post, it checks whether the post’s creator is
@@ -301,7 +301,7 @@ the user is added to that set.</p>
 <p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/113">Issue #113</a>.</p>
 </section>
 <section id="top-x-posts-of-user">
-<h2>Top X Posts of User<a class="headerlink" href="#top-x-posts-of-user" title="Permalink to this headline">¶</a></h2>
+<h2>Top X Posts of User<a class="headerlink" href="#top-x-posts-of-user" title="Link to this heading">¶</a></h2>
 <p>With Instaloader, it is easy to download the few most-liked pictures of a user.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
@@ -325,7 +325,7 @@ the user is added to that set.</p>
 <p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/194">Issue #194</a>.</p>
 </section>
 <section id="metadata-json-files">
-<h2>Metadata JSON Files<a class="headerlink" href="#metadata-json-files" title="Permalink to this headline">¶</a></h2>
+<h2>Metadata JSON Files<a class="headerlink" href="#metadata-json-files" title="Link to this heading">¶</a></h2>
 <p>The JSON files Instaloader saves along with each Post contain all the metadata
 that has been retrieved from Instagram while downloading the picture and
 associated required information.</p>

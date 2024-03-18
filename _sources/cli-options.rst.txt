@@ -196,6 +196,25 @@ Instaloader to login.
 
    Login name (profile name) for your Instagram account.
 
+.. option:: --load-cookies BROWSER-NAME, -b BROWSER-NAME
+
+   Use Instagram cookie in your browser to login.
+   This feature requires the browser_cookie3 library.
+   Compatible with :option:`--cookiefile` if you want to load cookies from browser profiles.
+   Incompatible with :option:`--login` due to potential username mismatch between user input and browser login.
+   Supported browsers: Chrome, Firefox, Edge, Opera, Safari, Brave.
+
+   After loading the cookies run the :option:`--login` option as it is required to download high quality media
+   and to make full use of Instaloader's features.
+
+   .. versionadded:: 4.11
+
+.. option:: --cookiefile COOKIE-FILE, -B COOKIE-FILE
+
+   Cookie file path of a browser profile to load cookies from.
+
+  .. versionadded:: 4.11
+
 .. option:: --sessionfile SESSIONFILE, -f SESSIONFILE
 
    Path for loading and storing session key file.  Defaults to
@@ -281,7 +300,7 @@ How to Download
 .. option:: --user-agent USER_AGENT
 
    User Agent to use for HTTP requests. Per default, Instaloader pretends being
-   Chrome/92 on Linux.
+   Chrome/120 on Linux.
 
 .. option:: --max-connection-attempts N
 

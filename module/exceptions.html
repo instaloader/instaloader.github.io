@@ -1,24 +1,24 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en" data-content_root="../">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   
     <title>Exceptions &#8212; Instaloader  documentation</title>
   
 
-    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/instaloaderdoc.css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=377f2d93" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="../_static/instaloaderdoc.css?v=d1e01417" />
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="../_static/instaloaderdoc.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Advanced Instaloader Examples" href="../codesnippets.html" />
@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.10.3"
-           title="Released on 12 Jan 2024" data-toggle="tooltip">
-          v<b>4.10.3</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.11"
+           title="Released on 18 Mar 2024" data-toggle="tooltip">
+          v<b>4.11</b>
         </a>
       </li>
     </ul>
@@ -89,7 +89,25 @@
 <li class="toctree-l2"><a class="reference internal" href="structures.html">Instagram Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nodeiterator.html">Resumable Iterations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="instaloadercontext.html"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext</span></code> (Low-level functions)</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Exceptions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.exceptions.InstaloaderException"><code class="docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.exceptions.ConnectionException"><code class="docutils literal notranslate"><span class="pre">ConnectionException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.QueryReturnedBadRequestException"><code class="docutils literal notranslate"><span class="pre">QueryReturnedBadRequestException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.QueryReturnedForbiddenException"><code class="docutils literal notranslate"><span class="pre">QueryReturnedForbiddenException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.ProfileNotExistsException"><code class="docutils literal notranslate"><span class="pre">ProfileNotExistsException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.ProfileHasNoPicsException"><code class="docutils literal notranslate"><span class="pre">ProfileHasNoPicsException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.PrivateProfileNotFollowedException"><code class="docutils literal notranslate"><span class="pre">PrivateProfileNotFollowedException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.LoginRequiredException"><code class="docutils literal notranslate"><span class="pre">LoginRequiredException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.TwoFactorAuthRequiredException"><code class="docutils literal notranslate"><span class="pre">TwoFactorAuthRequiredException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.InvalidArgumentException"><code class="docutils literal notranslate"><span class="pre">InvalidArgumentException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.BadResponseException"><code class="docutils literal notranslate"><span class="pre">BadResponseException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.BadCredentialsException"><code class="docutils literal notranslate"><span class="pre">BadCredentialsException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.PostChangedException"><code class="docutils literal notranslate"><span class="pre">PostChangedException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.QueryReturnedNotFoundException"><code class="docutils literal notranslate"><span class="pre">QueryReturnedNotFoundException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.TooManyRequestsException"><code class="docutils literal notranslate"><span class="pre">TooManyRequestsException</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instaloader.AbortDownloadException"><code class="docutils literal notranslate"><span class="pre">AbortDownloadException</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../codesnippets.html">Advanced Instaloader Examples</a></li>
@@ -103,118 +121,118 @@
         
 
   <section id="exceptions">
-<h1>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h1>
-<dl class="exception">
-<dt id="instaloader.exceptions.InstaloaderException">
-<em class="property">exception </em><code class="sig-name descname">InstaloaderException</code><a class="headerlink" href="#instaloader.exceptions.InstaloaderException" title="Permalink to this definition">¶</a></dt>
+<h1>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">¶</a></h1>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.exceptions.InstaloaderException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.exceptions.</span></span><span class="sig-name descname"><span class="pre">InstaloaderException</span></span><a class="headerlink" href="#instaloader.exceptions.InstaloaderException" title="Link to this definition">¶</a></dt>
 <dd><p>Base exception for this script.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Note</dt>
+<dt class="field-odd">Note<span class="colon">:</span></dt>
 <dd class="field-odd"><p>This exception should not be raised directly.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.exceptions.ConnectionException">
-<em class="property">exception </em><code class="sig-name descname">ConnectionException</code><a class="headerlink" href="#instaloader.exceptions.ConnectionException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.exceptions.ConnectionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.exceptions.</span></span><span class="sig-name descname"><span class="pre">ConnectionException</span></span><a class="headerlink" href="#instaloader.exceptions.ConnectionException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.QueryReturnedBadRequestException">
-<em class="property">exception </em><code class="sig-name descname">QueryReturnedBadRequestException</code><a class="headerlink" href="#instaloader.QueryReturnedBadRequestException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.QueryReturnedBadRequestException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">QueryReturnedBadRequestException</span></span><a class="headerlink" href="#instaloader.QueryReturnedBadRequestException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.QueryReturnedForbiddenException">
-<em class="property">exception </em><code class="sig-name descname">QueryReturnedForbiddenException</code><a class="headerlink" href="#instaloader.QueryReturnedForbiddenException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.QueryReturnedForbiddenException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">QueryReturnedForbiddenException</span></span><a class="headerlink" href="#instaloader.QueryReturnedForbiddenException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.ProfileNotExistsException">
-<em class="property">exception </em><code class="sig-name descname">ProfileNotExistsException</code><a class="headerlink" href="#instaloader.ProfileNotExistsException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.ProfileNotExistsException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">ProfileNotExistsException</span></span><a class="headerlink" href="#instaloader.ProfileNotExistsException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.ProfileHasNoPicsException">
-<em class="property">exception </em><code class="sig-name descname">ProfileHasNoPicsException</code><a class="headerlink" href="#instaloader.ProfileHasNoPicsException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.ProfileHasNoPicsException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">ProfileHasNoPicsException</span></span><a class="headerlink" href="#instaloader.ProfileHasNoPicsException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 <div class="deprecated">
 <p><span class="versionmodified deprecated">Deprecated since version 4.2.2: </span>Not raised anymore.</p>
 </div>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.PrivateProfileNotFollowedException">
-<em class="property">exception </em><code class="sig-name descname">PrivateProfileNotFollowedException</code><a class="headerlink" href="#instaloader.PrivateProfileNotFollowedException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.PrivateProfileNotFollowedException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">PrivateProfileNotFollowedException</span></span><a class="headerlink" href="#instaloader.PrivateProfileNotFollowedException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.LoginRequiredException">
-<em class="property">exception </em><code class="sig-name descname">LoginRequiredException</code><a class="headerlink" href="#instaloader.LoginRequiredException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.LoginRequiredException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">LoginRequiredException</span></span><a class="headerlink" href="#instaloader.LoginRequiredException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.TwoFactorAuthRequiredException">
-<em class="property">exception </em><code class="sig-name descname">TwoFactorAuthRequiredException</code><a class="headerlink" href="#instaloader.TwoFactorAuthRequiredException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.TwoFactorAuthRequiredException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">TwoFactorAuthRequiredException</span></span><a class="headerlink" href="#instaloader.TwoFactorAuthRequiredException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.2.</span></p>
 </div>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.InvalidArgumentException">
-<em class="property">exception </em><code class="sig-name descname">InvalidArgumentException</code><a class="headerlink" href="#instaloader.InvalidArgumentException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.InvalidArgumentException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">InvalidArgumentException</span></span><a class="headerlink" href="#instaloader.InvalidArgumentException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.BadResponseException">
-<em class="property">exception </em><code class="sig-name descname">BadResponseException</code><a class="headerlink" href="#instaloader.BadResponseException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.BadResponseException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">BadResponseException</span></span><a class="headerlink" href="#instaloader.BadResponseException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.BadCredentialsException">
-<em class="property">exception </em><code class="sig-name descname">BadCredentialsException</code><a class="headerlink" href="#instaloader.BadCredentialsException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.BadCredentialsException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">BadCredentialsException</span></span><a class="headerlink" href="#instaloader.BadCredentialsException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.PostChangedException">
-<em class="property">exception </em><code class="sig-name descname">PostChangedException</code><a class="headerlink" href="#instaloader.PostChangedException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.InstaloaderException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.PostChangedException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">PostChangedException</span></span><a class="headerlink" href="#instaloader.PostChangedException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.InstaloaderException" title="instaloader.exceptions.InstaloaderException"><code class="xref py py-class docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.2.2.</span></p>
 </div>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.QueryReturnedNotFoundException">
-<em class="property">exception </em><code class="sig-name descname">QueryReturnedNotFoundException</code><a class="headerlink" href="#instaloader.QueryReturnedNotFoundException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.ConnectionException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.QueryReturnedNotFoundException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">QueryReturnedNotFoundException</span></span><a class="headerlink" href="#instaloader.QueryReturnedNotFoundException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConnectionException</span></code></a></p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 4.3: </span>QueryReturnedNotFoundException now inherits ConnectionException
 to retry on 404 errors.</p>
 </div>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.TooManyRequestsException">
-<em class="property">exception </em><code class="sig-name descname">TooManyRequestsException</code><a class="headerlink" href="#instaloader.TooManyRequestsException" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.exceptions.ConnectionException</span></code></a></p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.TooManyRequestsException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">TooManyRequestsException</span></span><a class="headerlink" href="#instaloader.TooManyRequestsException" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConnectionException</span></code></a></p>
 </dd></dl>
 
-<dl class="exception">
-<dt id="instaloader.AbortDownloadException">
-<em class="property">exception </em><code class="sig-name descname">AbortDownloadException</code><a class="headerlink" href="#instaloader.AbortDownloadException" title="Permalink to this definition">¶</a></dt>
+<dl class="py exception">
+<dt class="sig sig-object py" id="instaloader.AbortDownloadException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">instaloader.</span></span><span class="sig-name descname"><span class="pre">AbortDownloadException</span></span><a class="headerlink" href="#instaloader.AbortDownloadException" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
 <p>Exception that is not catched in the error catchers inside the download loop and so aborts the
 download loop.</p>

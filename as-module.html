@@ -1,25 +1,25 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en" data-content_root="./">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="Documentation of Instaloader module, a powerful and intuitive Python library to download Instagram media and metadata." name="description" />
 
   
     <title>Python Module instaloader &#8212; Instaloader  documentation</title>
   
 
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=377f2d93" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css?v=d1e01417" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Instaloader (Main Class)" href="module/instaloader.html" />
@@ -40,9 +40,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.10.3"
-           title="Released on 12 Jan 2024" data-toggle="tooltip">
-          v<b>4.10.3</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.11"
+           title="Released on 18 Mar 2024" data-toggle="tooltip">
+          v<b>4.11</b>
         </a>
       </li>
     </ul>
@@ -104,7 +104,7 @@
         
 
   <section id="module-instaloader">
-<span id="id1"></span><span id="python-module-instaloader"></span><h1>Python Module <a class="reference internal" href="#module-instaloader" title="instaloader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a><a class="headerlink" href="#module-instaloader" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><span id="python-module-instaloader"></span><h1>Python Module <a class="reference internal" href="#module-instaloader" title="instaloader"><code class="xref py py-mod docutils literal notranslate"><span class="pre">instaloader</span></code></a><a class="headerlink" href="#module-instaloader" title="Link to this heading">¶</a></h1>
 <p>Instaloader exposes its internally used methods and structures as a Python
 module, making it a powerful and intuitive Python API for Instagram,
 allowing to further customize obtaining media and metadata.</p>
@@ -218,7 +218,10 @@ its ID:</p>
 divided into the following subsections:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="module/instaloader.html"><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code> (Main Class)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module/instaloader.html"><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code> (Main Class)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module/instaloader.html#instaloader.Instaloader"><code class="docutils literal notranslate"><span class="pre">Instaloader</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="module/structures.html">Instagram Structures</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="module/structures.html#posts">Posts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="module/structures.html#user-stories">User Stories</a></li>
@@ -226,6 +229,7 @@ divided into the following subsections:</p>
 <li class="toctree-l2"><a class="reference internal" href="module/structures.html#profiles">Profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="module/structures.html#hashtags">Hashtags</a></li>
 <li class="toctree-l2"><a class="reference internal" href="module/structures.html#topsearchresults">TopSearchResults</a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/structures.html#titlepic">TitlePic</a></li>
 <li class="toctree-l2"><a class="reference internal" href="module/structures.html#loading-and-saving">Loading and Saving</a></li>
 <li class="toctree-l2"><a class="reference internal" href="module/structures.html#lateststamps">LatestStamps</a></li>
 </ul>
@@ -240,7 +244,25 @@ divided into the following subsections:</p>
 <li class="toctree-l2"><a class="reference internal" href="module/instaloadercontext.html#ratecontroller"><code class="docutils literal notranslate"><span class="pre">RateController</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="module/exceptions.html">Exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="module/exceptions.html">Exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.exceptions.InstaloaderException"><code class="docutils literal notranslate"><span class="pre">InstaloaderException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.exceptions.ConnectionException"><code class="docutils literal notranslate"><span class="pre">ConnectionException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.QueryReturnedBadRequestException"><code class="docutils literal notranslate"><span class="pre">QueryReturnedBadRequestException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.QueryReturnedForbiddenException"><code class="docutils literal notranslate"><span class="pre">QueryReturnedForbiddenException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.ProfileNotExistsException"><code class="docutils literal notranslate"><span class="pre">ProfileNotExistsException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.ProfileHasNoPicsException"><code class="docutils literal notranslate"><span class="pre">ProfileHasNoPicsException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.PrivateProfileNotFollowedException"><code class="docutils literal notranslate"><span class="pre">PrivateProfileNotFollowedException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.LoginRequiredException"><code class="docutils literal notranslate"><span class="pre">LoginRequiredException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.TwoFactorAuthRequiredException"><code class="docutils literal notranslate"><span class="pre">TwoFactorAuthRequiredException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.InvalidArgumentException"><code class="docutils literal notranslate"><span class="pre">InvalidArgumentException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.BadResponseException"><code class="docutils literal notranslate"><span class="pre">BadResponseException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.BadCredentialsException"><code class="docutils literal notranslate"><span class="pre">BadCredentialsException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.PostChangedException"><code class="docutils literal notranslate"><span class="pre">PostChangedException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.QueryReturnedNotFoundException"><code class="docutils literal notranslate"><span class="pre">QueryReturnedNotFoundException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.TooManyRequestsException"><code class="docutils literal notranslate"><span class="pre">TooManyRequestsException</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="module/exceptions.html#instaloader.AbortDownloadException"><code class="docutils literal notranslate"><span class="pre">AbortDownloadException</span></code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>

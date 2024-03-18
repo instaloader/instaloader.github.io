@@ -1,25 +1,25 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en" data-content_root="./">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta content="How to download pictures from Instagram. Description of basic usage of Instaloader, free tool to download photos from public and private profiles, hashtags, stories, feeds, saved media, and their metadata, comments and captions." name="description" />
 
   
     <title>Download Pictures from Instagram &#8212; Instaloader  documentation</title>
   
 
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=377f2d93" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css?v=d1e01417" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Command Line Options" href="cli-options.html" />
@@ -40,9 +40,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.10.3"
-           title="Released on 12 Jan 2024" data-toggle="tooltip">
-          v<b>4.10.3</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.11"
+           title="Released on 18 Mar 2024" data-toggle="tooltip">
+          v<b>4.11</b>
         </a>
       </li>
     </ul>
@@ -106,11 +106,11 @@
         
 
   <section id="download-pictures-from-instagram">
-<span id="id1"></span><h1>Download Pictures from Instagram<a class="headerlink" href="#download-pictures-from-instagram" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Download Pictures from Instagram<a class="headerlink" href="#download-pictures-from-instagram" title="Link to this heading">¶</a></h1>
 <p>Here we describe how to use Instaloader to download pictures from Instagram. If
 you do not have Instaloader installed yet, see <a class="reference internal" href="installation.html#install"><span class="std std-ref">Install Instaloader</span></a>.</p>
 <section id="basic-usage">
-<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">¶</a></h2>
 <p>To <strong>download all pictures and videos of a profile</strong>, as well as the
 <strong>profile picture</strong>, do</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader profile [profile ...]
@@ -145,7 +145,7 @@ is given.  So you can download private profiles <strong>non-interactively</stron
 already have a valid session cookie file.</p>
 </section>
 <section id="what-to-download">
-<span id="id2"></span><h2>What to Download<a class="headerlink" href="#what-to-download" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>What to Download<a class="headerlink" href="#what-to-download" title="Link to this heading">¶</a></h2>
 <p>Instaloader supports the following targets:</p>
 <ul>
 <li><dl>
@@ -249,7 +249,7 @@ Google Maps link (requires <a class="reference internal" href="cli-options.html#
 <a class="reference internal" href="cli-options.html#command-line-options"><span class="std std-ref">Command Line Options</span></a>.</p>
 </section>
 <section id="filename-specification">
-<span id="id3"></span><h2>Filename Specification<a class="headerlink" href="#filename-specification" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Filename Specification<a class="headerlink" href="#filename-specification" title="Link to this heading">¶</a></h2>
 <p>For each target, Instaloader creates a directory named after the target,
 i.e. <code class="docutils literal notranslate"><span class="pre">profile</span></code>, <code class="docutils literal notranslate"><span class="pre">#hashtag</span></code>, <code class="docutils literal notranslate"><span class="pre">%location</span> <span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">:feed</span></code>, etc. and therein saves the
 posts in files named after the post’s timestamp.</p>
@@ -331,7 +331,7 @@ etc.</p>
 </div>
 </section>
 <section id="filter-posts">
-<span id="id4"></span><h2>Filter Posts<a class="headerlink" href="#filter-posts" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Filter Posts<a class="headerlink" href="#filter-posts" title="Link to this heading">¶</a></h2>
 <p>The options <a class="reference internal" href="cli-options.html#cmdoption-post-filter"><code class="xref std std-option docutils literal notranslate"><span class="pre">--post-filter</span></code></a> and <a class="reference internal" href="cli-options.html#cmdoption-storyitem-filter"><code class="xref std std-option docutils literal notranslate"><span class="pre">--storyitem-filter</span></code></a>
 allow to specify criteria that posts or story items have to
 meet to be downloaded. If not given, all posts are downloaded.</p>
@@ -414,7 +414,7 @@ defined:</p>
 </ul>
 </section>
 <section id="metadata-text-files">
-<span id="id5"></span><h2>Metadata Text Files<a class="headerlink" href="#metadata-text-files" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>Metadata Text Files<a class="headerlink" href="#metadata-text-files" title="Link to this heading">¶</a></h2>
 <p>Unless <a class="reference internal" href="cli-options.html#cmdoption-no-captions"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-captions</span></code></a> is given, Instaloader creates a <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file
 along with each post where the Post’s caption is saved.</p>
 <p>You can customize what metadata to save for each Post or StoryItem with
@@ -441,7 +441,7 @@ when they were downloaded:</p>
 </div>
 </section>
 <section id="instaloader-as-cronjob">
-<span id="id6"></span><h2>Instaloader as Cronjob<a class="headerlink" href="#instaloader-as-cronjob" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>Instaloader as Cronjob<a class="headerlink" href="#instaloader-as-cronjob" title="Link to this heading">¶</a></h2>
 <p>Instaloader is suitable for running as a cronjob to periodically update your
 personal Instagram archive. The <a class="reference internal" href="cli-options.html#cmdoption-quiet"><code class="xref std std-option docutils literal notranslate"><span class="pre">--quiet</span></code></a> option disables user
 interactions and logging of non-error messages. To non-interactively use
@@ -459,7 +459,7 @@ the given targets:</p>
 <a class="reference internal" href="cli-options.html#cmdoption-sessionfile"><code class="xref std std-option docutils literal notranslate"><span class="pre">--sessionfile</span></code></a> option for how to override this path.</p>
 </section>
 <section id="programming-instaloader">
-<h2>Programming Instaloader<a class="headerlink" href="#programming-instaloader" title="Permalink to this headline">¶</a></h2>
+<h2>Programming Instaloader<a class="headerlink" href="#programming-instaloader" title="Link to this heading">¶</a></h2>
 <p>If your task cannot be done with the command line interface of Instaloader,
 consider taking a look at the <a class="reference internal" href="as-module.html#python-module-instaloader"><span class="std std-ref">Python Module instaloader</span></a>.
 Instaloader exposes its internally used methods and structures, making it a

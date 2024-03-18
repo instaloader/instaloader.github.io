@@ -1,24 +1,24 @@
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html lang="en" data-content_root="./">
   <head>
-    <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   
     <title>Troubleshooting &#8212; Instaloader  documentation</title>
   
 
-    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=377f2d93" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css?v=d1e01417" />
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Contributing to Instaloader" href="contributing.html" />
@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.10.3"
-           title="Released on 12 Jan 2024" data-toggle="tooltip">
-          v<b>4.10.3</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.11"
+           title="Released on 18 Mar 2024" data-toggle="tooltip">
+          v<b>4.11</b>
         </a>
       </li>
     </ul>
@@ -102,9 +102,9 @@
         
 
   <section id="troubleshooting">
-<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h1>
 <section id="too-many-requests">
-<h2>429 Too Many Requests<a class="headerlink" href="#too-many-requests" title="Permalink to this headline">¶</a></h2>
+<h2>429 Too Many Requests<a class="headerlink" href="#too-many-requests" title="Link to this heading">¶</a></h2>
 <p>Instaloader has a logic to keep track of its requests to Instagram and to obey
 their rate limits. The rate controller assumes that</p>
 <ul class="simple">
@@ -131,7 +131,7 @@ logged-in accesses (see <a class="reference internal" href="cli-options.html#cmd
 <a class="reference internal" href="module/instaloadercontext.html#instaloader.RateController" title="instaloader.RateController"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.RateController</span></code></a>.</p>
 </section>
 <section id="too-many-queries-in-the-last-time">
-<h2>Too many queries in the last time<a class="headerlink" href="#too-many-queries-in-the-last-time" title="Permalink to this headline">¶</a></h2>
+<h2>Too many queries in the last time<a class="headerlink" href="#too-many-queries-in-the-last-time" title="Link to this heading">¶</a></h2>
 <p><strong>“Too many queries in the last time”</strong> is not an error. It is a notice that the
 rate limit has almost been reached, according to Instaloader’s own rate
 accounting mechanism.</p>
@@ -139,12 +139,12 @@ accounting mechanism.</p>
 <a class="reference internal" href="module/instaloadercontext.html#instaloader.RateController" title="instaloader.RateController"><code class="xref py py-class docutils literal notranslate"><span class="pre">instaloader.RateController</span></code></a>.</p>
 </section>
 <section id="private-but-not-followed">
-<h2>Private but not followed<a class="headerlink" href="#private-but-not-followed" title="Permalink to this headline">¶</a></h2>
+<h2>Private but not followed<a class="headerlink" href="#private-but-not-followed" title="Link to this heading">¶</a></h2>
 <p>You have to follow a private account to access most of its associated
 information.</p>
 </section>
 <section id="login-error">
-<h2>Login error<a class="headerlink" href="#login-error" title="Permalink to this headline">¶</a></h2>
+<h2>Login error<a class="headerlink" href="#login-error" title="Link to this heading">¶</a></h2>
 <p>Instaloader’s login <em>should</em> work fine, both with and without
 Two-Factor-Authentication. It also supports handling the <em>checkpoint challenge</em>,
 issued when Instagram suspects authentication activity on your account, by
