@@ -130,7 +130,7 @@ stores all posts along with the pictures’ captions there.</p>
 <p>Instaloader supports the following targets:</p>
 <ul>
 <li><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">profile</span></code></dt><dd><p>Public profile, or private profile with <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">profile</span></code></dt><dd><p>Public profile, or private profile with <a class="reference internal" href="#login"><span class="std std-ref">login</span></a>.</p>
 <p>If an already-downloaded profile has been renamed, Instaloader automatically
 finds it by its unique ID and renames the folder accordingly.</p>
 <p>Besides the profile’s posts, its current profile picture is downloaded. For
@@ -169,7 +169,7 @@ each profile you download,</p>
 <dt><code class="docutils literal notranslate"><span class="pre">%location</span> <span class="pre">id</span></code></dt><dd><p>Posts tagged with a given location; the location ID is the numerical ID
 Instagram labels a location with (e.g.
 https://www.instagram.com/explore/locations/<strong>362629379</strong>/plymouth-naval-memorial/).
-Requires <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+Requires <a class="reference internal" href="#login"><span class="std std-ref">login</span></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.2.</span></p>
 </div>
@@ -178,23 +178,23 @@ Requires <a class="reference internal" href="#cmdoption-login"><code class="xref
 </li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">:stories</span></code></dt><dd><p>The currently-visible <strong>stories</strong> of your followees (requires
-<a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+<a class="reference internal" href="#login"><span class="std std-ref">login</span></a>).</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">:feed</span></code></dt><dd><p>Your <strong>feed</strong> (requires <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+<dt><code class="docutils literal notranslate"><span class="pre">:feed</span></code></dt><dd><p>Your <strong>feed</strong> (requires <a class="reference internal" href="#login"><span class="std std-ref">login</span></a>).</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">:saved</span></code></dt><dd><p>Posts which are marked as <strong>saved</strong> (requires <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+<dt><code class="docutils literal notranslate"><span class="pre">:saved</span></code></dt><dd><p>Posts which are marked as <strong>saved</strong> (requires <a class="reference internal" href="#login"><span class="std std-ref">login</span></a>).</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">&#64;profile</span></code></dt><dd><p>All profiles that are followed by <code class="docutils literal notranslate"><span class="pre">profile</span></code>, i.e. the <em>followees</em> of
-<code class="docutils literal notranslate"><span class="pre">profile</span></code> (requires <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+<code class="docutils literal notranslate"><span class="pre">profile</span></code> (requires <a class="reference internal" href="#login"><span class="std std-ref">login</span></a>).</p>
 </dd>
 </dl>
 </li>
@@ -254,7 +254,7 @@ imply <a class="reference internal" href="#cmdoption-no-videos"><code class="xre
 <span id="cmdoption-G"></span><span class="sig-name descname"><span class="pre">--geotags</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-G</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-geotags" title="Link to this definition">¶</a></dt>
 <dd><p>Download geotags when available. Geotags are stored as a text file with
 the location’s name and a Google Maps link. This requires an additional
-request to the Instagram server for each picture. Requires <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+request to the Instagram server for each picture. Requires <a class="reference internal" href="#login"><span class="std std-ref">login</span></a>.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -262,7 +262,7 @@ request to the Instagram server for each picture. Requires <a class="reference i
 <span id="cmdoption-C"></span><span class="sig-name descname"><span class="pre">--comments</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-C</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-comments" title="Link to this definition">¶</a></dt>
 <dd><p>Download and update comments for each post. This requires an additional
 request to the Instagram server for each post, which is why it is disabled by
-default. Requires <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+default. Requires <a class="reference internal" href="#login"><span class="std std-ref">login</span></a>.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -331,14 +331,14 @@ the first three images.</p>
 <dt class="sig sig-object std" id="cmdoption-stories">
 <span id="cmdoption-s"></span><span class="sig-name descname"><span class="pre">--stories</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-stories" title="Link to this definition">¶</a></dt>
 <dd><p>Also download stories of each profile that is downloaded. Requires
-<a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+<a class="reference internal" href="#login"><span class="std std-ref">login</span></a>.</p>
 </dd></dl>
 
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-highlights">
 <span class="sig-name descname"><span class="pre">--highlights</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-highlights" title="Link to this definition">¶</a></dt>
 <dd><p>Also download highlights of each profile that is downloaded. Requires
-<a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+<a class="reference internal" href="#login"><span class="std std-ref">login</span></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.1.</span></p>
 </div>
@@ -419,11 +419,13 @@ See <a class="reference internal" href="basic-usage.html#filter-posts"><span cla
 
 </section>
 <section id="login-download-private-profiles">
-<h2>Login (Download Private Profiles)<a class="headerlink" href="#login-download-private-profiles" title="Link to this heading">¶</a></h2>
+<span id="login"></span><h2>Login (Download Private Profiles)<a class="headerlink" href="#login-download-private-profiles" title="Link to this heading">¶</a></h2>
 <p>Instaloader can login to Instagram. This allows downloading private
 profiles. To login, pass the <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a> option. Your session cookie (not your
 password!) will be saved to a local file to be reused next time you want
 Instaloader to login.</p>
+<p>Instead of <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>, it is possible to use
+<a class="reference internal" href="#cmdoption-load-cookies"><code class="xref std std-option docutils literal notranslate"><span class="pre">--load-cookies</span></code></a> to import a session from a browser.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-login">
 <span id="cmdoption-l"></span><span class="sig-name descname"><span class="pre">--login</span></span><span class="sig-prename descclassname"> <span class="pre">YOUR-USERNAME</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-l</span></span><span class="sig-prename descclassname"> <span class="pre">YOUR-USERNAME</span></span><a class="headerlink" href="#cmdoption-login" title="Link to this definition">¶</a></dt>
@@ -438,8 +440,8 @@ This feature requires the browser_cookie3 library.
 Compatible with <a class="reference internal" href="#cmdoption-cookiefile"><code class="xref std std-option docutils literal notranslate"><span class="pre">--cookiefile</span></code></a> if you want to load cookies from browser profiles.
 Incompatible with <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a> due to potential username mismatch between user input and browser login.
 Supported browsers: Chrome, Firefox, Edge, Opera, Safari, Brave.</p>
-<p>After loading the cookies run the <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a> option as it is required to download high quality media
-and to make full use of Instaloader’s features.</p>
+<p>In subsequent runs, you can just use <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a> to reuse the
+same session, which is saved by Instaloader.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.11.</span></p>
 </div>

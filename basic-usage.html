@@ -149,7 +149,7 @@ already have a valid session cookie file.</p>
 <p>Instaloader supports the following targets:</p>
 <ul>
 <li><dl>
-<dt><code class="docutils literal notranslate"><span class="pre">profile</span></code></dt><dd><p>Public profile, or private profile with <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+<dt><code class="docutils literal notranslate"><span class="pre">profile</span></code></dt><dd><p>Public profile, or private profile with <a class="reference internal" href="cli-options.html#login"><span class="std std-ref">login</span></a>.</p>
 <p>If an already-downloaded profile has been renamed, Instaloader automatically
 finds it by its unique ID and renames the folder accordingly.</p>
 <p>Besides the profile’s posts, its current profile picture is downloaded. For
@@ -188,7 +188,7 @@ each profile you download,</p>
 <dt><code class="docutils literal notranslate"><span class="pre">%location</span> <span class="pre">id</span></code></dt><dd><p>Posts tagged with a given location; the location ID is the numerical ID
 Instagram labels a location with (e.g.
 https://www.instagram.com/explore/locations/<strong>362629379</strong>/plymouth-naval-memorial/).
-Requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>.</p>
+Requires <a class="reference internal" href="cli-options.html#login"><span class="std std-ref">login</span></a>.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 4.2.</span></p>
 </div>
@@ -197,23 +197,23 @@ Requires <a class="reference internal" href="cli-options.html#cmdoption-login"><
 </li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">:stories</span></code></dt><dd><p>The currently-visible <strong>stories</strong> of your followees (requires
-<a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+<a class="reference internal" href="cli-options.html#login"><span class="std std-ref">login</span></a>).</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">:feed</span></code></dt><dd><p>Your <strong>feed</strong> (requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+<dt><code class="docutils literal notranslate"><span class="pre">:feed</span></code></dt><dd><p>Your <strong>feed</strong> (requires <a class="reference internal" href="cli-options.html#login"><span class="std std-ref">login</span></a>).</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">:saved</span></code></dt><dd><p>Posts which are marked as <strong>saved</strong> (requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+<dt><code class="docutils literal notranslate"><span class="pre">:saved</span></code></dt><dd><p>Posts which are marked as <strong>saved</strong> (requires <a class="reference internal" href="cli-options.html#login"><span class="std std-ref">login</span></a>).</p>
 </dd>
 </dl>
 </li>
 <li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">&#64;profile</span></code></dt><dd><p>All profiles that are followed by <code class="docutils literal notranslate"><span class="pre">profile</span></code>, i.e. the <em>followees</em> of
-<code class="docutils literal notranslate"><span class="pre">profile</span></code> (requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>).</p>
+<code class="docutils literal notranslate"><span class="pre">profile</span></code> (requires <a class="reference internal" href="cli-options.html#login"><span class="std std-ref">login</span></a>).</p>
 </dd>
 </dl>
 </li>
@@ -240,7 +240,7 @@ downloads the pictures and videos and their captions. You can specify</p>
 </li>
 <li><dl class="simple">
 <dt><a class="reference internal" href="cli-options.html#cmdoption-geotags"><code class="xref std std-option docutils literal notranslate"><span class="pre">--geotags</span></code></a></dt><dd><p><strong>download geotags</strong> of each post and save them as
-Google Maps link (requires <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>),</p>
+Google Maps link (requires <a class="reference internal" href="cli-options.html#login"><span class="std std-ref">login</span></a>),</p>
 </dd>
 </dl>
 </li>
@@ -371,7 +371,7 @@ multiple pictures/videos in one post) have this attribute set to False.</p>
 <p>As <a class="reference internal" href="cli-options.html#cmdoption-post-filter"><code class="xref std std-option docutils literal notranslate"><span class="pre">--post-filter</span></code></a>, the following attributes can be used additionally:</p>
 <ul>
 <li><dl>
-<dt><a class="reference internal" href="module/structures.html#instaloader.Post.viewer_has_liked" title="instaloader.Post.viewer_has_liked"><code class="xref py py-attr docutils literal notranslate"><span class="pre">viewer_has_liked</span></code></a> (bool)</dt><dd><p>Whether user (with <a class="reference internal" href="cli-options.html#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a>) has liked given post. To download the
+<dt><a class="reference internal" href="module/structures.html#instaloader.Post.viewer_has_liked" title="instaloader.Post.viewer_has_liked"><code class="xref py py-attr docutils literal notranslate"><span class="pre">viewer_has_liked</span></code></a> (bool)</dt><dd><p>Whether user (with <a class="reference internal" href="cli-options.html#login"><span class="std std-ref">login</span></a>) has liked given post. To download the
 pictures from your feed that you have liked:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --login=your_username --post-filter=viewer_has_liked :feed
 </pre></div>
