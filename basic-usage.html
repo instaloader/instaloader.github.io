@@ -40,9 +40,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.11.1"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.12"
            title="Released on 29 Jun 2024" data-toggle="tooltip">
-          v<b>4.11.1</b>
+          v<b>4.12</b>
         </a>
       </li>
     </ul>
@@ -89,6 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#filename-specification">Filename Specification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#filter-posts">Filter Posts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#metadata-text-files">Metadata Text Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exit-codes">Exit codes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#instaloader-as-cronjob">Instaloader as Cronjob</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#programming-instaloader">Programming Instaloader</a></li>
 </ul>
@@ -440,8 +441,35 @@ when they were downloaded:</p>
 </pre></div>
 </div>
 </section>
+<section id="exit-codes">
+<span id="id6"></span><h2>Exit codes<a class="headerlink" href="#exit-codes" title="Link to this heading">¶</a></h2>
+<p>Different exit codes are used to indicate different kinds of error:</p>
+<dl class="simple">
+<dt>0</dt><dd><p>No error, all downloads were successful.</p>
+</dd>
+<dt>1</dt><dd><p>A non-fatal error happened. One or more posts, or even one or more
+profiles could not be downloaded, but execution was not stopped. The
+errors are repeated at the end of the log for easy access.</p>
+</dd>
+<dt>2</dt><dd><p>Command-line error. An unrecognized option was passed, or an invalid
+combination of options, for example. No interaction with Instagram
+was made.</p>
+</dd>
+<dt>3</dt><dd><p>Login error. It was not possible to login. Downloads were not
+attempted.</p>
+</dd>
+<dt>4</dt><dd><p>Fatal download error. Downloads were interrupted and no further
+attempts were made. Happens when a response with one of the status
+codes in the <a class="reference internal" href="cli-options.html#cmdoption-abort-on"><code class="xref std std-option docutils literal notranslate"><span class="pre">--abort-on</span></code></a> option were passed, or when
+Instagram logs the user out during downloads.</p>
+</dd>
+<dt>5</dt><dd><p>Interrupted by the user. Happens when the user presses Control-C or
+sends SIGINT to the process.</p>
+</dd>
+</dl>
+</section>
 <section id="instaloader-as-cronjob">
-<span id="id6"></span><h2>Instaloader as Cronjob<a class="headerlink" href="#instaloader-as-cronjob" title="Link to this heading">¶</a></h2>
+<span id="id7"></span><h2>Instaloader as Cronjob<a class="headerlink" href="#instaloader-as-cronjob" title="Link to this heading">¶</a></h2>
 <p>Instaloader is suitable for running as a cronjob to periodically update your
 personal Instagram archive. The <a class="reference internal" href="cli-options.html#cmdoption-quiet"><code class="xref std std-option docutils literal notranslate"><span class="pre">--quiet</span></code></a> option disables user
 interactions and logging of non-error messages. To non-interactively use

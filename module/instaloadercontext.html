@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.11.1"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.12"
            title="Released on 29 Jun 2024" data-toggle="tooltip">
-          v<b>4.11.1</b>
+          v<b>4.12</b>
         </a>
       </li>
     </ul>
@@ -103,6 +103,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.get_raw"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.get_raw()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.graphql_node_list"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.graphql_node_list()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.graphql_query"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.graphql_query()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.has_stored_errors"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.has_stored_errors</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.head"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.head()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.is_logged_in"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.is_logged_in</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.load_session"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.load_session()</span></code></a></li>
@@ -334,6 +335,12 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="instaloader.InstaloaderContext.has_stored_errors">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">has_stored_errors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></em><a class="headerlink" href="#instaloader.InstaloaderContext.has_stored_errors" title="Link to this definition">¶</a></dt>
+<dd><p>Returns whether any error has been reported and stored to be repeated at program termination.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="instaloader.InstaloaderContext.head">
 <span class="sig-name descname"><span class="pre">head</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_redirects</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Response" title="(in Requests v2.32.3)"><span class="pre">Response</span></a></span></span><a class="headerlink" href="#instaloader.InstaloaderContext.head" title="Link to this definition">¶</a></dt>
@@ -383,14 +390,18 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 <dl class="field-list simple">
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="exceptions.html#instaloader.InvalidArgumentException" title="instaloader.InvalidArgumentException"><strong>InvalidArgumentException</strong></a> – If the provided username does not exist.</p></li>
 <li><p><a class="reference internal" href="exceptions.html#instaloader.BadCredentialsException" title="instaloader.BadCredentialsException"><strong>BadCredentialsException</strong></a> – If the provided password is wrong.</p></li>
-<li><p><a class="reference internal" href="exceptions.html#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><strong>ConnectionException</strong></a> – If connection to Instagram failed.</p></li>
 <li><p><a class="reference internal" href="exceptions.html#instaloader.TwoFactorAuthRequiredException" title="instaloader.TwoFactorAuthRequiredException"><strong>TwoFactorAuthRequiredException</strong></a> – First step of 2FA login done, now call
 <a class="reference internal" href="instaloader.html#instaloader.Instaloader.two_factor_login" title="instaloader.Instaloader.two_factor_login"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.two_factor_login()</span></code></a>.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.LoginException" title="instaloader.LoginException"><strong>LoginException</strong></a> – An error happened during login (for example, and invalid response).
+Or if the provided username does not exist.</p></li>
 </ul>
 </dd>
 </dl>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.12: </span>Raises LoginException instead of ConnectionException when an error happens.
+Raises LoginException instead of InvalidArgumentException when the username does not exist.</p>
+</div>
 </dd></dl>
 
 <dl class="py property">
