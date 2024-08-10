@@ -10,12 +10,12 @@
   
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=377f2d93" />
-    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=eeb27264" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic.css?v=fb9458d3" />
     <link rel="stylesheet" type="text/css" href="../_static/instaloaderdoc.css?v=d1e01417" />
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="../_static/instaloaderdoc.js"></script>
@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.12.2"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.13"
            title="Released on 10 Aug 2024" data-toggle="tooltip">
-          v<b>4.12.2</b>
+          v<b>4.13</b>
         </a>
       </li>
     </ul>
@@ -94,6 +94,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.anonymous_copy"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.anonymous_copy()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.close"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.close()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.do_sleep"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.do_sleep()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.doc_id_graphql_query"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.doc_id_graphql_query()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.error"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.error()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.error_catcher"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.error_catcher()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.get_and_write_raw"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.get_and_write_raw()</span></code></a></li>
@@ -191,6 +192,27 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="instaloader.InstaloaderContext.doc_id_graphql_query">
+<span class="sig-name descname"><span class="pre">doc_id_graphql_query</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">doc_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">variables</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">referer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#instaloader.InstaloaderContext.doc_id_graphql_query" title="Link to this definition">¶</a></dt>
+<dd><p>Do a doc_id-based GraphQL Query using method POST.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.13.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>doc_id</strong> – doc_id for the query.</p></li>
+<li><p><strong>variables</strong> – Variables for the Query.</p></li>
+<li><p><strong>referer</strong> – HTTP Referer, or None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The server’s response dictionary.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="instaloader.InstaloaderContext.error">
 <span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeat_at_end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.error" title="Link to this definition">¶</a></dt>
 <dd><p>Log a non-fatal error message to stderr, which is repeated at program termination.</p>
@@ -259,21 +281,22 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.2.1.</span></p>
+<p><span class="versionmodified added">Added in version 4.2.1.</span></p>
 </div>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="instaloader.InstaloaderContext.get_json">
-<span class="sig-name descname"><span class="pre">get_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'www.instagram.com'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.32.3)"><span class="pre">Session</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_attempt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#instaloader.InstaloaderContext.get_json" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'www.instagram.com'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Session" title="(in Requests v2.32.3)"><span class="pre">Session</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_attempt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_post</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.12)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.12)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#instaloader.InstaloaderContext.get_json" title="Link to this definition">¶</a></dt>
 <dd><p>JSON request to Instagram.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>path</strong> – URL, relative to the given domain which defaults to www.instagram.com/</p></li>
-<li><p><strong>params</strong> – GET parameters</p></li>
+<li><p><strong>params</strong> – request parameters</p></li>
 <li><p><strong>host</strong> – Domain part of the URL from where to download the requested JSON; defaults to www.instagram.com</p></li>
 <li><p><strong>session</strong> – Session to use, or None to use self.session</p></li>
+<li><p><strong>use_post</strong> – Use POST instead of GET to make the request</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -287,6 +310,9 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 </ul>
 </dd>
 </dl>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.13: </span>Added <cite>use_post</cite> parameter.</p>
+</div>
 </dd></dl>
 
 <dl class="py method">
@@ -303,7 +329,7 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.2.1.</span></p>
+<p><span class="versionmodified added">Added in version 4.2.1.</span></p>
 </div>
 </dd></dl>
 
@@ -355,7 +381,7 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.7.6.</span></p>
+<p><span class="versionmodified added">Added in version 4.7.6.</span></p>
 </div>
 </dd></dl>
 
@@ -442,7 +468,7 @@ Not meant to be used directly, use <a class="reference internal" href="instaload
 </dd>
 </dl>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.2.</span></p>
+<p><span class="versionmodified added">Added in version 4.2.</span></p>
 </div>
 </dd></dl>
 
@@ -450,7 +476,7 @@ Not meant to be used directly, use <a class="reference internal" href="instaload
 <dt class="sig sig-object py" id="instaloader.InstaloaderContext.update_cookies">
 <span class="sig-name descname"><span class="pre">update_cookies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cookie</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.InstaloaderContext.update_cookies" title="Link to this definition">¶</a></dt>
 <dd><div class="versionadded">
-<p><span class="versionmodified added">New in version 4.11.</span></p>
+<p><span class="versionmodified added">Added in version 4.11.</span></p>
 </div>
 </dd></dl>
 
@@ -459,7 +485,7 @@ Not meant to be used directly, use <a class="reference internal" href="instaload
 <span class="sig-name descname"><span class="pre">write_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.12)"><span class="pre">bytes</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://requests.readthedocs.io/en/latest/api/#requests.Response" title="(in Requests v2.32.3)"><span class="pre">Response</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.12)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#instaloader.InstaloaderContext.write_raw" title="Link to this definition">¶</a></dt>
 <dd><p>Write raw response data into a file.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.2.1.</span></p>
+<p><span class="versionmodified added">Added in version 4.2.1.</span></p>
 </div>
 </dd></dl>
 
@@ -484,7 +510,7 @@ exception when the rate limit is hit:</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified added">New in version 4.5.</span></p>
+<p><span class="versionmodified added">Added in version 4.5.</span></p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="instaloader.RateController.count_per_sliding_window">
