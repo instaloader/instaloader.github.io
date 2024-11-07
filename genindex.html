@@ -36,9 +36,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.13.2"
-           title="Released on 26 Oct 2024" data-toggle="tooltip">
-          v<b>4.13.2</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.14"
+           title="Released on  7 Nov 2024" data-toggle="tooltip">
+          v<b>4.14</b>
         </a>
       </li>
     </ul>
@@ -332,6 +332,13 @@
 
       <ul>
         <li><a href="cli-options.html#cmdoption-quiet">command line option</a>
+</li>
+      </ul></li>
+      <li>
+    --reels
+
+      <ul>
+        <li><a href="cli-options.html#cmdoption-reels">command line option</a>
 </li>
       </ul></li>
       <li>
@@ -637,6 +644,8 @@
 </li>
         <li><a href="cli-options.html#cmdoption-quiet">--quiet</a>
 </li>
+        <li><a href="cli-options.html#cmdoption-reels">--reels</a>
+</li>
         <li><a href="cli-options.html#cmdoption-request-timeout">--request-timeout</a>
 </li>
         <li><a href="cli-options.html#cmdoption-resume-prefix">--resume-prefix</a>
@@ -776,6 +785,8 @@
 </li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.download_profiles">download_profiles() (instaloader.Instaloader method)</a>
 </li>
+      <li><a href="module/instaloader.html#instaloader.Instaloader.download_reels">download_reels() (instaloader.Instaloader method)</a>
+</li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.download_saved_posts">download_saved_posts() (instaloader.Instaloader method)</a>
 </li>
       <li><a href="module/instaloader.html#instaloader.Instaloader.download_stories">download_stories() (instaloader.Instaloader method)</a>
@@ -910,6 +921,8 @@
 </li>
       <li><a href="module/structures.html#instaloader.LatestStamps.get_last_post_timestamp">get_last_post_timestamp() (instaloader.LatestStamps method)</a>
 </li>
+      <li><a href="module/structures.html#instaloader.LatestStamps.get_last_reels_timestamp">get_last_reels_timestamp() (instaloader.LatestStamps method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="module/structures.html#instaloader.LatestStamps.get_last_story_timestamp">get_last_story_timestamp() (instaloader.LatestStamps method)</a>
@@ -941,6 +954,8 @@
       <li><a href="module/structures.html#instaloader.TopSearchResults.get_profiles">get_profiles() (instaloader.TopSearchResults method)</a>
 </li>
       <li><a href="module/instaloadercontext.html#instaloader.InstaloaderContext.get_raw">get_raw() (instaloader.InstaloaderContext method)</a>
+</li>
+      <li><a href="module/structures.html#instaloader.Profile.get_reels">get_reels() (instaloader.Profile method)</a>
 </li>
       <li><a href="module/structures.html#instaloader.Profile.get_saved_posts">get_saved_posts() (instaloader.Profile method)</a>
 </li>
@@ -1332,6 +1347,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="module/instaloadercontext.html#instaloader.RateController">RateController (class in instaloader)</a>
 </li>
+      <li><a href="module/structures.html#instaloader.LatestStamps.REELS_TIMESTAMP">REELS_TIMESTAMP (instaloader.LatestStamps attribute)</a>
+</li>
       <li><a href="module/nodeiterator.html#instaloader.FrozenNodeIterator.remaining_data">remaining_data (instaloader.FrozenNodeIterator attribute)</a>
 </li>
   </ul></td>
@@ -1382,6 +1399,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="module/structures.html#instaloader.LatestStamps.set_last_reels_timestamp">set_last_reels_timestamp() (instaloader.LatestStamps method)</a>
+</li>
       <li><a href="module/structures.html#instaloader.LatestStamps.set_last_story_timestamp">set_last_story_timestamp() (instaloader.LatestStamps method)</a>
 </li>
       <li><a href="module/structures.html#instaloader.LatestStamps.set_last_tagged_timestamp">set_last_tagged_timestamp() (instaloader.LatestStamps method)</a>

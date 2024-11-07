@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.13.2"
-           title="Released on 26 Oct 2024" data-toggle="tooltip">
-          v<b>4.13.2</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.14"
+           title="Released on  7 Nov 2024" data-toggle="tooltip">
+          v<b>4.14</b>
         </a>
       </li>
     </ul>
@@ -247,6 +247,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.Profile.get_igtv_posts"><code class="docutils literal notranslate"><span class="pre">Profile.get_igtv_posts()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.Profile.get_posts"><code class="docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.Profile.get_profile_pic_url"><code class="docutils literal notranslate"><span class="pre">Profile.get_profile_pic_url()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#instaloader.Profile.get_reels"><code class="docutils literal notranslate"><span class="pre">Profile.get_reels()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.Profile.get_saved_posts"><code class="docutils literal notranslate"><span class="pre">Profile.get_saved_posts()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.Profile.get_similar_accounts"><code class="docutils literal notranslate"><span class="pre">Profile.get_similar_accounts()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.Profile.get_tagged_posts"><code class="docutils literal notranslate"><span class="pre">Profile.get_tagged_posts()</span></code></a></li>
@@ -329,10 +330,12 @@
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.POST_TIMESTAMP"><code class="docutils literal notranslate"><span class="pre">LatestStamps.POST_TIMESTAMP</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.PROFILE_ID"><code class="docutils literal notranslate"><span class="pre">LatestStamps.PROFILE_ID</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.PROFILE_PIC"><code class="docutils literal notranslate"><span class="pre">LatestStamps.PROFILE_PIC</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.REELS_TIMESTAMP"><code class="docutils literal notranslate"><span class="pre">LatestStamps.REELS_TIMESTAMP</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.STORY_TIMESTAMP"><code class="docutils literal notranslate"><span class="pre">LatestStamps.STORY_TIMESTAMP</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.TAGGED_TIMESTAMP"><code class="docutils literal notranslate"><span class="pre">LatestStamps.TAGGED_TIMESTAMP</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.get_last_igtv_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.get_last_igtv_timestamp()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.get_last_post_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.get_last_post_timestamp()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.get_last_reels_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.get_last_reels_timestamp()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.get_last_story_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.get_last_story_timestamp()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.get_last_tagged_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.get_last_tagged_timestamp()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.get_profile_id"><code class="docutils literal notranslate"><span class="pre">LatestStamps.get_profile_id()</span></code></a></li>
@@ -341,6 +344,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.save_profile_id"><code class="docutils literal notranslate"><span class="pre">LatestStamps.save_profile_id()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.set_last_igtv_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.set_last_igtv_timestamp()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.set_last_post_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.set_last_post_timestamp()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.set_last_reels_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.set_last_reels_timestamp()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.set_last_story_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.set_last_story_timestamp()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.set_last_tagged_timestamp"><code class="docutils literal notranslate"><span class="pre">LatestStamps.set_last_tagged_timestamp()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.LatestStamps.set_profile_pic"><code class="docutils literal notranslate"><span class="pre">LatestStamps.set_profile_pic()</span></code></a></li>
@@ -1423,6 +1427,20 @@ To use this, one needs to be logged in and private profiles has to be followed.<
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="instaloader.Profile.get_reels">
+<span class="sig-name descname"><span class="pre">get_reels</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.nodeiterator.NodeIterator"><span class="pre">NodeIterator</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#instaloader.Post" title="instaloader.structures.Post"><span class="pre">Post</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#instaloader.Profile.get_reels" title="Link to this definition">¶</a></dt>
+<dd><p>Retrieve all reels from a profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post">Post</a>]</p>
+</dd>
+</dl>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.14.0.</span></p>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="instaloader.Profile.get_saved_posts">
 <span class="sig-name descname"><span class="pre">get_saved_posts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.nodeiterator.NodeIterator"><span class="pre">NodeIterator</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#instaloader.Post" title="instaloader.structures.Post"><span class="pre">Post</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#instaloader.Profile.get_saved_posts" title="Link to this definition">¶</a></dt>
 <dd><p>Get Posts that are marked as saved by the user.</p>
@@ -1466,7 +1484,7 @@ To use this, one needs to be logged in.</p>
 <dt class="sig sig-object py" id="instaloader.Profile.has_highlight_reels">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">has_highlight_reels</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></em><a class="headerlink" href="#instaloader.Profile.has_highlight_reels" title="Link to this definition">¶</a></dt>
 <dd><div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 4.0.6: </span>Always returns <cite>True</cite> since <a class="reference external" href="https://github.com/instaloader/instaloader/issues/153">Issue #153</a>.</p>
+<p><span class="versionmodified deprecated">Deprecated since version 4.0.6: </span>Always returns <cite>True</cite> since <a class="extlink-issue reference external" href="https://github.com/instaloader/instaloader/issues/153">Issue #153</a>.</p>
 </div>
 <p>Before broken, this indicated whether the <a class="reference internal" href="#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a> had available stories.</p>
 </dd></dl>
@@ -1637,7 +1655,7 @@ hashtag with the given name.</p>
 <span class="sig-name descname"><span class="pre">get_posts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.13)"><span class="pre">Iterator</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#instaloader.Post" title="instaloader.structures.Post"><span class="pre">Post</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#instaloader.Hashtag.get_posts" title="Link to this definition">¶</a></dt>
 <dd><p>Yields the recent posts associated with this hashtag.</p>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">Deprecated since version 4.9: </span>Use <a class="reference internal" href="#instaloader.Hashtag.get_posts_resumable" title="instaloader.Hashtag.get_posts_resumable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Hashtag.get_posts_resumable()</span></code></a> as this method may return incorrect results (<a class="reference external" href="https://github.com/instaloader/instaloader/issues/1457">Issue #1457</a>)</p>
+<p><span class="versionmodified deprecated">Deprecated since version 4.9: </span>Use <a class="reference internal" href="#instaloader.Hashtag.get_posts_resumable" title="instaloader.Hashtag.get_posts_resumable"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Hashtag.get_posts_resumable()</span></code></a> as this method may return incorrect results (<a class="extlink-issue reference external" href="https://github.com/instaloader/instaloader/issues/1457">Issue #1457</a>)</p>
 </div>
 </dd></dl>
 
@@ -1923,6 +1941,11 @@ will be created.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt class="sig sig-object py" id="instaloader.LatestStamps.REELS_TIMESTAMP">
+<span class="sig-name descname"><span class="pre">REELS_TIMESTAMP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'reels-timestamp'</span></em><a class="headerlink" href="#instaloader.LatestStamps.REELS_TIMESTAMP" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="instaloader.LatestStamps.STORY_TIMESTAMP">
 <span class="sig-name descname"><span class="pre">STORY_TIMESTAMP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'story-timestamp'</span></em><a class="headerlink" href="#instaloader.LatestStamps.STORY_TIMESTAMP" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -1942,6 +1965,12 @@ will be created.</p>
 <dt class="sig sig-object py" id="instaloader.LatestStamps.get_last_post_timestamp">
 <span class="sig-name descname"><span class="pre">get_last_post_timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><span class="pre">datetime</span></a></span></span><a class="headerlink" href="#instaloader.LatestStamps.get_last_post_timestamp" title="Link to this definition">¶</a></dt>
 <dd><p>Returns timestamp of last download of a profile’s posts.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="instaloader.LatestStamps.get_last_reels_timestamp">
+<span class="sig-name descname"><span class="pre">get_last_reels_timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><span class="pre">datetime</span></a></span></span><a class="headerlink" href="#instaloader.LatestStamps.get_last_reels_timestamp" title="Link to this definition">¶</a></dt>
+<dd><p>Returns timestamp of last download of a profile’s reels posts.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -1990,6 +2019,12 @@ will be created.</p>
 <dt class="sig sig-object py" id="instaloader.LatestStamps.set_last_post_timestamp">
 <span class="sig-name descname"><span class="pre">set_last_post_timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><span class="pre">datetime</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.set_last_post_timestamp" title="Link to this definition">¶</a></dt>
 <dd><p>Sets timestamp of last download of a profile’s posts.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="instaloader.LatestStamps.set_last_reels_timestamp">
+<span class="sig-name descname"><span class="pre">set_last_reels_timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.13)"><span class="pre">datetime</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#instaloader.LatestStamps.set_last_reels_timestamp" title="Link to this definition">¶</a></dt>
+<dd><p>Sets timestamp of last download of a profile’s reels posts.</p>
 </dd></dl>
 
 <dl class="py method">

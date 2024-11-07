@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.13.2"
-           title="Released on 26 Oct 2024" data-toggle="tooltip">
-          v<b>4.13.2</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.14"
+           title="Released on  7 Nov 2024" data-toggle="tooltip">
+          v<b>4.14</b>
         </a>
       </li>
     </ul>
@@ -149,10 +149,10 @@ Posts in <strong>exact chronological order</strong>, such as <a class="reference
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.download_post" title="instaloader.Instaloader.download_post"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.download_post()</span></code></a>.</p>
-<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/121">Issue #121</a>.</p>
+<p>Discussed in <a class="extlink-issue reference external" href="https://github.com/instaloader/instaloader/issues/121">Issue #121</a>.</p>
 <p>The code example with <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropwhile()</span></code></a> and
 <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile" title="(in Python v3.13)"><code class="xref py py-func docutils literal notranslate"><span class="pre">takewhile()</span></code></a> makes the assumption that the post iterator returns
-posts in exact chronological order.  As discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/666">Issue #666</a>, the following
+posts in exact chronological order.  As discussed in <a class="extlink-issue reference external" href="https://github.com/instaloader/instaloader/issues/666">Issue #666</a>, the following
 approach fits for an <strong>almost chronological order</strong>, where up to <em>k</em> older posts
 are inserted into an otherwise chronological order, such as a Hashtag feed.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
@@ -225,7 +225,7 @@ any of your pictures, you can use this approach.</p>
 <p>See also <a class="reference internal" href="module/structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Post.get_likes" title="instaloader.Post.get_likes"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Post.get_likes()</span></code></a>,
 <a class="reference internal" href="module/structures.html#instaloader.Profile.get_followers" title="instaloader.Profile.get_followers"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_followers()</span></code></a>, <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.load_session_from_file" title="instaloader.Instaloader.load_session_from_file"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.load_session_from_file()</span></code></a>,
 <a class="reference internal" href="module/structures.html#instaloader.Profile.from_username" title="instaloader.Profile.from_username"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.from_username()</span></code></a>.</p>
-<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/120">Issue #120</a>.</p>
+<p>Discussed in <a class="extlink-issue reference external" href="https://github.com/instaloader/instaloader/issues/120">Issue #120</a>.</p>
 </section>
 <section id="track-deleted-posts">
 <h2>Track Deleted Posts<a class="headerlink" href="#track-deleted-posts" title="Link to this heading">¶</a></h2>
@@ -271,7 +271,7 @@ list of posts which are offline but not online (i.e. deleted in the profile).</p
 </div>
 <p>See also <a class="reference internal" href="module/structures.html#instaloader.load_structure_from_file" title="instaloader.load_structure_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_structure_from_file()</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Profile.from_username" title="instaloader.Profile.from_username"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.from_username()</span></code></a>,
 <a class="reference internal" href="module/structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>.</p>
-<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/56">Issue #56</a>.</p>
+<p>Discussed in <a class="extlink-issue reference external" href="https://github.com/instaloader/instaloader/issues/56">Issue #56</a>.</p>
 </section>
 <section id="only-one-post-per-user">
 <h2>Only one Post per User<a class="headerlink" href="#only-one-post-per-user" title="Link to this heading">¶</a></h2>
@@ -298,7 +298,7 @@ the user is added to that set.</p>
 </div>
 <p>See also <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.download_post" title="instaloader.Instaloader.download_post"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.download_post()</span></code></a>,
 <a class="reference internal" href="module/structures.html#instaloader.Post.owner_profile" title="instaloader.Post.owner_profile"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Post.owner_profile</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Profile" title="instaloader.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">Profile</span></code></a>.</p>
-<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/113">Issue #113</a>.</p>
+<p>Discussed in <a class="extlink-issue reference external" href="https://github.com/instaloader/instaloader/issues/113">Issue #113</a>.</p>
 </section>
 <section id="top-x-posts-of-user">
 <h2>Top X Posts of User<a class="headerlink" href="#top-x-posts-of-user" title="Link to this heading">¶</a></h2>
@@ -322,7 +322,7 @@ the user is added to that set.</p>
     <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">PROFILE</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Discussed in <a class="reference external" href="https://github.com/instaloader/instaloader/issues/194">Issue #194</a>.</p>
+<p>Discussed in <a class="extlink-issue reference external" href="https://github.com/instaloader/instaloader/issues/194">Issue #194</a>.</p>
 </section>
 <section id="metadata-json-files">
 <h2>Metadata JSON Files<a class="headerlink" href="#metadata-json-files" title="Link to this heading">¶</a></h2>
