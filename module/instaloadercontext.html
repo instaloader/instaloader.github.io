@@ -303,7 +303,10 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedBadRequestException" title="instaloader.QueryReturnedBadRequestException"><strong>QueryReturnedBadRequestException</strong></a> – When the server responds with a 400.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.AbortDownloadException" title="instaloader.AbortDownloadException"><strong>AbortDownloadException</strong></a> – When the server responds with
+‘feedback_required’/’checkpoint_required’/’challenge_required’</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedBadRequestException" title="instaloader.QueryReturnedBadRequestException"><strong>QueryReturnedBadRequestException</strong></a> – When the server responds with a 400 (and not
+‘feedback_required’/’checkpoint_required’/’challenge_required’).</p></li>
 <li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedNotFoundException" title="instaloader.QueryReturnedNotFoundException"><strong>QueryReturnedNotFoundException</strong></a> – When the server responds with a 404.</p></li>
 <li><p><a class="reference internal" href="exceptions.html#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><strong>ConnectionException</strong></a> – When query repeatedly failed.</p></li>
 </ul>
