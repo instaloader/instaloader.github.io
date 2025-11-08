@@ -9,13 +9,13 @@
     <title>Troubleshooting &#8212; Instaloader  documentation</title>
   
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=377f2d93" />
-    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=fb9458d3" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=ffb9ec24" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=29da98fa" />
     <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css?v=d1e01417" />
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.14.2"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.15a1"
            title="Released on 18 Jul 2025" data-toggle="tooltip">
-          v<b>4.14.2</b>
+          v<b>4.15a1</b>
         </a>
       </li>
     </ul>
@@ -159,19 +159,19 @@ Also, session files usually do not expire.</p>
 (<a class="extlink-example reference external" href="https://raw.githubusercontent.com/instaloader/instaloader/master/docs/codesnippets/615_import_firefox_session.py">Example 615_import_firefox_session.py</a>) to workaround login problems by
 importing the session cookies from Firefox and bypassing Instaloader’s login and
 so still use Instaloader’s logged-in functionality.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
-<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">expanduser</span>
-<span class="kn">from</span> <span class="nn">platform</span> <span class="kn">import</span> <span class="n">system</span>
-<span class="kn">from</span> <span class="nn">sqlite3</span> <span class="kn">import</span> <span class="n">OperationalError</span><span class="p">,</span> <span class="n">connect</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">argparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArgumentParser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">glob</span><span class="w"> </span><span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os.path</span><span class="w"> </span><span class="kn">import</span> <span class="n">expanduser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">platform</span><span class="w"> </span><span class="kn">import</span> <span class="n">system</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlite3</span><span class="w"> </span><span class="kn">import</span> <span class="n">OperationalError</span><span class="p">,</span> <span class="n">connect</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">instaloader</span> <span class="kn">import</span> <span class="n">ConnectionException</span><span class="p">,</span> <span class="n">Instaloader</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">instaloader</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectionException</span><span class="p">,</span> <span class="n">Instaloader</span>
 <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;Instaloader not found.</span><span class="se">\n</span><span class="s2">  pip install [--user] instaloader&quot;</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">get_cookiefile</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_cookiefile</span><span class="p">():</span>
     <span class="n">default_cookiefile</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;Windows&quot;</span><span class="p">:</span> <span class="s2">&quot;~/AppData/Roaming/Mozilla/Firefox/Profiles/*/cookies.sqlite&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Darwin&quot;</span><span class="p">:</span> <span class="s2">&quot;~/Library/Application Support/Firefox/Profiles/*/cookies.sqlite&quot;</span><span class="p">,</span>
@@ -182,7 +182,7 @@ so still use Instaloader’s logged-in functionality.</p>
     <span class="k">return</span> <span class="n">cookiefiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">import_session</span><span class="p">(</span><span class="n">cookiefile</span><span class="p">,</span> <span class="n">sessionfile</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">import_session</span><span class="p">(</span><span class="n">cookiefile</span><span class="p">,</span> <span class="n">sessionfile</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using cookies from </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cookiefile</span><span class="p">))</span>
     <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;file:</span><span class="si">{</span><span class="n">cookiefile</span><span class="si">}</span><span class="s2">?immutable=1&quot;</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>

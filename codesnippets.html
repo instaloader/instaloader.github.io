@@ -9,13 +9,13 @@
     <title>Advanced Instaloader Examples &#8212; Instaloader  documentation</title>
   
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=377f2d93" />
-    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=fb9458d3" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=ffb9ec24" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=29da98fa" />
     <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css?v=d1e01417" />
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.14.2"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.15a1"
            title="Released on 18 Jul 2025" data-toggle="tooltip">
-          v<b>4.14.2</b>
+          v<b>4.15a1</b>
         </a>
       </li>
     </ul>
@@ -131,10 +131,10 @@ with the Instaloader command line interface.</p>
 period, you can simply use <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.dropwhile" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">dropwhile()</span></code></a> and
 <a class="reference external" href="https://docs.python.org/3/library/itertools.html#itertools.takewhile" title="(in Python v3.14)"><code class="xref py py-func docutils literal notranslate"><span class="pre">takewhile()</span></code></a> from <a class="reference external" href="https://docs.python.org/3/library/itertools.html#module-itertools" title="(in Python v3.14)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">itertools</span></code></a> on a generator that returns
 Posts in <strong>exact chronological order</strong>, such as <a class="reference internal" href="module/structures.html#instaloader.Profile.get_posts" title="instaloader.Profile.get_posts"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.get_posts()</span></code></a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">dropwhile</span><span class="p">,</span> <span class="n">takewhile</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">dropwhile</span><span class="p">,</span> <span class="n">takewhile</span>
 
-<span class="kn">import</span> <span class="nn">instaloader</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">instaloader</span>
 
 <span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
 
@@ -155,12 +155,12 @@ Posts in <strong>exact chronological order</strong>, such as <a class="reference
 posts in exact chronological order.  As discussed in <a class="extlink-issue reference external" href="https://github.com/instaloader/instaloader/issues/666">Issue #666</a>, the following
 approach fits for an <strong>almost chronological order</strong>, where up to <em>k</em> older posts
 are inserted into an otherwise chronological order, such as a Hashtag feed.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">import</span> <span class="nn">instaloader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">instaloader</span>
 
 <span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
 
-<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;urbanphotography&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;urbanphotography&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts_resumable</span><span class="p">()</span>
 
 <span class="n">SINCE</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># further from today, inclusive</span>
 <span class="n">UNTIL</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>  <span class="c1"># closer to today, not inclusive</span>
@@ -193,7 +193,7 @@ are inserted into an otherwise chronological order, such as a Hashtag feed.</p>
 <h2>Likes of a Profile / Ghost Followers<a class="headerlink" href="#likes-of-a-profile-ghost-followers" title="Link to this heading">¶</a></h2>
 <p>To obtain a list of your inactive followers, i.e. followers that did not like
 any of your pictures, you can use this approach.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">instaloader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">instaloader</span>
 
 <span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
 
@@ -233,11 +233,11 @@ any of your pictures, you can use this approach.</p>
 compares it with the set of posts that you already have downloaded.  It outputs
 a list of posts which are online but not offline (i.e. not yet downloaded) and a
 list of posts which are offline but not online (i.e. deleted in the profile).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
-<span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
-<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">chdir</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">glob</span><span class="w"> </span><span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sys</span><span class="w"> </span><span class="kn">import</span> <span class="n">argv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">os</span><span class="w"> </span><span class="kn">import</span> <span class="n">chdir</span>
 
-<span class="kn">from</span> <span class="nn">instaloader</span> <span class="kn">import</span> <span class="n">Instaloader</span><span class="p">,</span> <span class="n">Post</span><span class="p">,</span> <span class="n">Profile</span><span class="p">,</span> <span class="n">load_structure_from_file</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">instaloader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Instaloader</span><span class="p">,</span> <span class="n">Post</span><span class="p">,</span> <span class="n">Profile</span><span class="p">,</span> <span class="n">load_structure_from_file</span>
 
 <span class="c1"># Instaloader instantiation - you may pass additional arguments to the constructor here</span>
 <span class="n">L</span> <span class="o">=</span> <span class="n">Instaloader</span><span class="p">()</span>
@@ -280,11 +280,11 @@ this snippet uses a <a class="reference external" href="https://docs.python.org/
 already been downloaded. For each post, it checks whether the post’s creator is
 already contained in that set. If not, the post is downloaded from Instagram and
 the user is added to that set.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">instaloader</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">instaloader</span>
 
 <span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
 
-<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s1">&#39;urbanphotography&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s1">&#39;urbanphotography&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts_resumable</span><span class="p">()</span>
 
 <span class="n">users</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
@@ -303,10 +303,10 @@ the user is added to that set.</p>
 <section id="top-x-posts-of-user">
 <h2>Top X Posts of User<a class="headerlink" href="#top-x-posts-of-user" title="Link to this heading">¶</a></h2>
 <p>With Instaloader, it is easy to download the few most-liked pictures of a user.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">islice</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">ceil</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">islice</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">ceil</span>
 
-<span class="kn">from</span> <span class="nn">instaloader</span> <span class="kn">import</span> <span class="n">Instaloader</span><span class="p">,</span> <span class="n">Profile</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">instaloader</span><span class="w"> </span><span class="kn">import</span> <span class="n">Instaloader</span><span class="p">,</span> <span class="n">Profile</span>
 
 <span class="n">PROFILE</span> <span class="o">=</span> <span class="o">...</span>        <span class="c1"># profile to download from</span>
 <span class="n">X_percentage</span> <span class="o">=</span> <span class="mi">10</span>    <span class="c1"># percentage of posts that should be downloaded</span>

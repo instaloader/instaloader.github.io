@@ -9,13 +9,13 @@
     <title>Command Line Options &#8212; Instaloader  documentation</title>
   
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=377f2d93" />
-    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=fb9458d3" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=ffb9ec24" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=29da98fa" />
     <link rel="stylesheet" type="text/css" href="_static/instaloaderdoc.css?v=d1e01417" />
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.14.2"
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.15a1"
            title="Released on 18 Jul 2025" data-toggle="tooltip">
-          v<b>4.14.2</b>
+          v<b>4.15a1</b>
         </a>
       </li>
     </ul>
@@ -450,13 +450,12 @@ Instaloader to login.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-load-cookies">
 <span id="cmdoption-b"></span><span class="sig-name descname"><span class="pre">--load-cookies</span></span><span class="sig-prename descclassname"> <span class="pre">BROWSER-NAME</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-b</span></span><span class="sig-prename descclassname"> <span class="pre">BROWSER-NAME</span></span><a class="headerlink" href="#cmdoption-load-cookies" title="Link to this definition">¶</a></dt>
-<dd><p>Use Instagram cookie in your browser to login.
-This feature requires the browser_cookie3 library.
-Compatible with <a class="reference internal" href="#cmdoption-cookiefile"><code class="xref std std-option docutils literal notranslate"><span class="pre">--cookiefile</span></code></a> if you want to load cookies from browser profiles.
-Incompatible with <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a> due to potential username mismatch between user input and browser login.
-Supported browsers: Brave, Chrome, Chromium, Edge, Firefox, LibreWolf, Opera, Opera_GX, Safari and Vivaldi.</p>
-<p>In subsequent runs, you can just use <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a> to reuse the
-same session, which is saved by Instaloader.</p>
+<dd><p>Load Instagram session cookies from a browser instead of using Instaloader’s own login mechanism.
+This method requires the <a class="reference external" href="https://github.com/borisbabic/browser_cookie3">browser_cookie3</a> library.
+By default, cookies are loaded from the browser’s main profile, but you can specify a custom cookie file using <a class="reference internal" href="#cmdoption-cookiefile"><code class="xref std std-option docutils literal notranslate"><span class="pre">--cookiefile</span></code></a>.</p>
+<p>Since <a class="reference internal" href="#cmdoption-load-cookies"><code class="xref std std-option docutils literal notranslate"><span class="pre">--load-cookies</span></code></a> and <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a> are alternative ways to acquire a session, they cannot be used together when initially acquiring a session.</p>
+<p>Supported browsers: Arc, Brave, Chrome, Chromium, Edge, Firefox, LibreWolf, Opera, Opera_GX, Safari, and Vivaldi.</p>
+<p>Once logged in via browser cookies, Instaloader saves the session, allowing you to use <a class="reference internal" href="#cmdoption-login"><code class="xref std std-option docutils literal notranslate"><span class="pre">--login</span></code></a> in subsequent runs.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 4.11.</span></p>
 </div>
@@ -465,9 +464,8 @@ same session, which is saved by Instaloader.</p>
 <dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-cookiefile">
 <span id="cmdoption-B"></span><span class="sig-name descname"><span class="pre">--cookiefile</span></span><span class="sig-prename descclassname"> <span class="pre">COOKIE-FILE</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-B</span></span><span class="sig-prename descclassname"> <span class="pre">COOKIE-FILE</span></span><a class="headerlink" href="#cmdoption-cookiefile" title="Link to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Cookie file path of a browser profile to load cookies from.</p>
-</div></blockquote>
+<dd><p>Specifies a cookie file path for <a class="reference internal" href="#cmdoption-load-cookies"><code class="xref std std-option docutils literal notranslate"><span class="pre">--load-cookies</span></code></a> to load cookies from a particular browser profile.
+This option must be used together with <a class="reference internal" href="#cmdoption-load-cookies"><code class="xref std std-option docutils literal notranslate"><span class="pre">--load-cookies</span></code></a> and does not work on its own.</p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 4.11.</span></p>
 </div>
@@ -581,7 +579,7 @@ information when interrupted.</p>
 <dt class="sig sig-object std" id="cmdoption-user-agent">
 <span class="sig-name descname"><span class="pre">--user-agent</span></span><span class="sig-prename descclassname"> <span class="pre">USER_AGENT</span></span><a class="headerlink" href="#cmdoption-user-agent" title="Link to this definition">¶</a></dt>
 <dd><p>User Agent to use for HTTP requests. Per default, Instaloader pretends being
-Chrome/127 on Linux.</p>
+Chrome/142 on Linux.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -589,7 +587,7 @@ Chrome/127 on Linux.</p>
 <span class="sig-name descname"><span class="pre">--max-connection-attempts</span></span><span class="sig-prename descclassname"> <span class="pre">N</span></span><a class="headerlink" href="#cmdoption-max-connection-attempts" title="Link to this definition">¶</a></dt>
 <dd><p>Maximum number of connection attempts until a request is aborted. Defaults
 to <code class="docutils literal notranslate"><span class="pre">3</span></code>. If a connection fails, it can be manually skipped by hitting
-<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Control</kbd>-<kbd class="kbd docutils literal notranslate">c</kbd></kbd>. Set this to <code class="docutils literal notranslate"><span class="pre">0</span></code> to retry infinitely.</p>
+<kbd class="kbd docutils literal notranslate">Control</kbd>-<kbd class="kbd docutils literal notranslate">c</kbd>. Set this to <code class="docutils literal notranslate"><span class="pre">0</span></code> to retry infinitely.</p>
 </dd></dl>
 
 <dl class="std option">
