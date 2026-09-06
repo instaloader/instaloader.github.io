@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.15.2"
-           title="Released on  5 Jul 2026" data-toggle="tooltip">
-          v<b>4.15.2</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.15.3"
+           title="Released on 26 Jul 2026" data-toggle="tooltip">
+          v<b>4.15.3</b>
         </a>
       </li>
     </ul>
@@ -175,8 +175,13 @@ so still use Instaloader’s logged-in functionality.</p>
     <span class="n">default_cookiefile</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;Windows&quot;</span><span class="p">:</span> <span class="s2">&quot;~/AppData/Roaming/Mozilla/Firefox/Profiles/*/cookies.sqlite&quot;</span><span class="p">,</span>
         <span class="s2">&quot;Darwin&quot;</span><span class="p">:</span> <span class="s2">&quot;~/Library/Application Support/Firefox/Profiles/*/cookies.sqlite&quot;</span><span class="p">,</span>
-    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">system</span><span class="p">(),</span> <span class="s2">&quot;~/.mozilla/firefox/*/cookies.sqlite&quot;</span><span class="p">)</span>
-    <span class="n">cookiefiles</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="n">default_cookiefile</span><span class="p">))</span>
+    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">system</span><span class="p">(),</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">default_cookiefile</span><span class="p">:</span>
+        <span class="n">cookiefiles</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="n">default_cookiefile</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Check Firefox 147+ XDG path, then legacy</span>
+        <span class="n">cookiefiles</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/.config/mozilla/firefox/*/cookies.sqlite&quot;</span><span class="p">))</span> <span class="ow">or</span> \
+                      <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/.mozilla/firefox/*/cookies.sqlite&quot;</span><span class="p">))</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">cookiefiles</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;No Firefox cookies.sqlite file found. Use -c COOKIEFILE.&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">cookiefiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
