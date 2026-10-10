@@ -15,8 +15,8 @@
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -168,55 +168,55 @@ so still use Instaloader’s logged-in functionality.</p>
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">from</span><span class="w"> </span><span class="nn">instaloader</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConnectionException</span><span class="p">,</span> <span class="n">Instaloader</span>
 <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;Instaloader not found.</span><span class="se">\n</span><span class="s2">  pip install [--user] instaloader&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">"Instaloader not found.</span><span class="se">\n</span><span class="s2">  pip install [--user] instaloader"</span><span class="p">)</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">get_cookiefile</span><span class="p">():</span>
     <span class="n">default_cookiefile</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;Windows&quot;</span><span class="p">:</span> <span class="s2">&quot;~/AppData/Roaming/Mozilla/Firefox/Profiles/*/cookies.sqlite&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Darwin&quot;</span><span class="p">:</span> <span class="s2">&quot;~/Library/Application Support/Firefox/Profiles/*/cookies.sqlite&quot;</span><span class="p">,</span>
+        <span class="s2">"Windows"</span><span class="p">:</span> <span class="s2">"~/AppData/Roaming/Mozilla/Firefox/Profiles/*/cookies.sqlite"</span><span class="p">,</span>
+        <span class="s2">"Darwin"</span><span class="p">:</span> <span class="s2">"~/Library/Application Support/Firefox/Profiles/*/cookies.sqlite"</span><span class="p">,</span>
     <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">system</span><span class="p">(),</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">default_cookiefile</span><span class="p">:</span>
         <span class="n">cookiefiles</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="n">default_cookiefile</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Check Firefox 147+ XDG path, then legacy</span>
-        <span class="n">cookiefiles</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/.config/mozilla/firefox/*/cookies.sqlite&quot;</span><span class="p">))</span> <span class="ow">or</span> \
-                      <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~/.mozilla/firefox/*/cookies.sqlite&quot;</span><span class="p">))</span>
+        <span class="n">cookiefiles</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">"~/.config/mozilla/firefox/*/cookies.sqlite"</span><span class="p">))</span> <span class="ow">or</span> \
+                      <span class="n">glob</span><span class="p">(</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">"~/.mozilla/firefox/*/cookies.sqlite"</span><span class="p">))</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">cookiefiles</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;No Firefox cookies.sqlite file found. Use -c COOKIEFILE.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">"No Firefox cookies.sqlite file found. Use -c COOKIEFILE."</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">cookiefiles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">import_session</span><span class="p">(</span><span class="n">cookiefile</span><span class="p">,</span> <span class="n">sessionfile</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using cookies from </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cookiefile</span><span class="p">))</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;file:</span><span class="si">{</span><span class="n">cookiefile</span><span class="si">}</span><span class="s2">?immutable=1&quot;</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Using cookies from </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cookiefile</span><span class="p">))</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="sa">f</span><span class="s2">"file:</span><span class="si">{</span><span class="n">cookiefile</span><span class="si">}</span><span class="s2">?immutable=1"</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">cookie_data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-            <span class="s2">&quot;SELECT name, value FROM moz_cookies WHERE baseDomain=&#39;instagram.com&#39;&quot;</span>
+            <span class="s2">"SELECT name, value FROM moz_cookies WHERE baseDomain='instagram.com'"</span>
         <span class="p">)</span>
     <span class="k">except</span> <span class="n">OperationalError</span><span class="p">:</span>
         <span class="n">cookie_data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-            <span class="s2">&quot;SELECT name, value FROM moz_cookies WHERE host LIKE &#39;</span><span class="si">%i</span><span class="s2">nstagram.com&#39;&quot;</span>
+            <span class="s2">"SELECT name, value FROM moz_cookies WHERE host LIKE '</span><span class="si">%i</span><span class="s2">nstagram.com'"</span>
         <span class="p">)</span>
     <span class="n">instaloader</span> <span class="o">=</span> <span class="n">Instaloader</span><span class="p">(</span><span class="n">max_connection_attempts</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">instaloader</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">_session</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cookie_data</span><span class="p">)</span>
     <span class="n">username</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">test_login</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">username</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;Not logged in. Are you logged in successfully in Firefox?&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Imported session cookie for </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">"Not logged in. Are you logged in successfully in Firefox?"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Imported session cookie for </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">username</span><span class="p">))</span>
     <span class="n">instaloader</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
     <span class="n">instaloader</span><span class="o">.</span><span class="n">save_session_to_file</span><span class="p">(</span><span class="n">sessionfile</span><span class="p">)</span>
 
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">()</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-c&quot;</span><span class="p">,</span> <span class="s2">&quot;--cookiefile&quot;</span><span class="p">)</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-f&quot;</span><span class="p">,</span> <span class="s2">&quot;--sessionfile&quot;</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-c"</span><span class="p">,</span> <span class="s2">"--cookiefile"</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">"-f"</span><span class="p">,</span> <span class="s2">"--sessionfile"</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">import_session</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">cookiefile</span> <span class="ow">or</span> <span class="n">get_cookiefile</span><span class="p">(),</span> <span class="n">args</span><span class="o">.</span><span class="n">sessionfile</span><span class="p">)</span>
     <span class="k">except</span> <span class="p">(</span><span class="n">ConnectionException</span><span class="p">,</span> <span class="n">OperationalError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;Cookie import failed: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">"Cookie import failed: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>To use this script,</p>

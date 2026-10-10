@@ -16,8 +16,8 @@
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -328,7 +328,7 @@ etc.</p>
 </li>
 </ul>
 <p>For example, encode the poster’s profile name in the filenames with:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --filename-pattern={date_utc}_UTC_{profile} &quot;#hashtag&quot;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --filename-pattern={date_utc}_UTC_{profile} "#hashtag"
 </pre></div>
 </div>
 <p>As another example, you may instruct Instaloader to store posts in a
@@ -357,7 +357,7 @@ where the attributes from <a class="reference internal" href="module/structures.
 <li><dl>
 <dt><a class="reference internal" href="module/structures.html#instaloader.Post.date_utc" title="instaloader.Post.date_utc"><code class="xref py py-attr docutils literal notranslate"><span class="pre">date_utc</span></code></a> (datetime), <a class="reference internal" href="module/structures.html#instaloader.Post.date_local" title="instaloader.Post.date_local"><code class="xref py py-attr docutils literal notranslate"><span class="pre">date_local</span></code></a> (datetime)</dt><dd><p>Creation timestamp. Since <a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code></a> objects can be created
 inside filter strings, this easily allows filtering by creation date. E.g.:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-filter=&quot;date_utc &lt;= datetime(2018, 5, 31)&quot; target
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-filter="date_utc &lt;= datetime(2018, 5, 31)" target
 </pre></div>
 </div>
 </dd>
@@ -365,7 +365,7 @@ inside filter strings, this easily allows filtering by creation date. E.g.:</p>
 </li>
 <li><dl>
 <dt><a class="reference internal" href="module/structures.html#instaloader.Post.is_video" title="instaloader.Post.is_video"><code class="xref py py-attr docutils literal notranslate"><span class="pre">is_video</span></code></a> (bool)</dt><dd><p>Whether Post/StoryItem is a video. For example, you may skip videos:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-filter=&quot;not is_video&quot; target
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-filter="not is_video" target
 </pre></div>
 </div>
 <p>This is not the same as <a class="reference internal" href="cli-options.html#cmdoption-no-videos"><code class="xref std std-option docutils literal notranslate"><span class="pre">--no-videos</span></code></a> and
@@ -389,7 +389,7 @@ pictures from your feed that you have liked:</p>
 <li><dl>
 <dt><a class="reference internal" href="module/structures.html#instaloader.Post.likes" title="instaloader.Post.likes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">likes</span></code></a> (int), <a class="reference internal" href="module/structures.html#instaloader.Post.comments" title="instaloader.Post.comments"><code class="xref py py-attr docutils literal notranslate"><span class="pre">comments</span></code></a> (int)</dt><dd><p>Likes count / comments count. You might only want to download posts that
 were either liked by yourself or by many others:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --login=your_username --post-filter=&quot;likes&gt;100 or viewer_has_liked&quot; profile
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --login=your_username --post-filter="likes&gt;100 or viewer_has_liked" profile
 </pre></div>
 </div>
 </dd>
@@ -398,7 +398,7 @@ were either liked by yourself or by many others:</p>
 <li><dl>
 <dt><a class="reference internal" href="module/structures.html#instaloader.Post.caption_hashtags" title="instaloader.Post.caption_hashtags"><code class="xref py py-attr docutils literal notranslate"><span class="pre">caption_hashtags</span></code></a> (list of str) / <a class="reference internal" href="module/structures.html#instaloader.Post.caption_mentions" title="instaloader.Post.caption_mentions"><code class="xref py py-attr docutils literal notranslate"><span class="pre">caption_mentions</span></code></a> (list of str)</dt><dd><p><code class="docutils literal notranslate"><span class="pre">#hashtags</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;mentions</span></code> (lowercased) in the Post’s caption. For example, to
 download posts of kittens that are cute:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-filter=&quot;&#39;cute&#39; in caption_hashtags&quot; &quot;#kitten&quot;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-filter="'cute' in caption_hashtags" "#kitten"
 </pre></div>
 </div>
 </dd>
@@ -436,14 +436,14 @@ and as such, the same fields are supported as in <a class="reference internal" h
 and <a class="reference internal" href="#filter-posts"><span class="std std-ref">Filter Posts</span></a>.</p>
 <p>For example, to save the current number of likes for each post, rather than
 the post’s caption:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-metadata-txt=&quot;{likes} likes.&quot; &lt;target&gt;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-metadata-txt="{likes} likes." &lt;target&gt;
 </pre></div>
 </div>
 <p>Note that with this feature, it is possible to easily and quickly extract
 additional metadata of already-downloaded posts, by reimporting their JSON
 files. Say, you now also want to export the number of comments the Posts had
 when they were downloaded:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-metadata-txt=&quot;{likes} likes, {comments} comments.&quot; &lt;target&gt;/*.json.xz
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>instaloader --post-metadata-txt="{likes} likes, {comments} comments." &lt;target&gt;/*.json.xz
 </pre></div>
 </div>
 </section>

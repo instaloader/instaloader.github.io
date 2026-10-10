@@ -15,8 +15,8 @@
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/instaloaderdoc.js?v=d3bfff1a"></script>
     <script src="_static/instaloaderdoc.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -138,14 +138,14 @@ Posts in <strong>exact chronological order</strong>, such as <a class="reference
 
 <span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
 
-<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;instagram&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
+<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">"instagram"</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
 
 <span class="n">SINCE</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">UNTIL</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2015</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">takewhile</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;</span> <span class="n">UNTIL</span><span class="p">,</span> <span class="n">dropwhile</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">date</span> <span class="o">&gt;</span> <span class="n">SINCE</span><span class="p">,</span> <span class="n">posts</span><span class="p">)):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
-    <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="s2">&quot;instagram&quot;</span><span class="p">)</span>
+    <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="s2">"instagram"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.download_post" title="instaloader.Instaloader.download_post"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.download_post()</span></code></a>.</p>
@@ -160,7 +160,7 @@ are inserted into an otherwise chronological order, such as a Hashtag feed.</p>
 
 <span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
 
-<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">&quot;urbanphotography&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts_resumable</span><span class="p">()</span>
+<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s2">"urbanphotography"</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts_resumable</span><span class="p">()</span>
 
 <span class="n">SINCE</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># further from today, inclusive</span>
 <span class="n">UNTIL</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2020</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>  <span class="c1"># closer to today, not inclusive</span>
@@ -180,7 +180,7 @@ are inserted into an otherwise chronological order, such as a Hashtag feed.</p>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">continue</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="s2">&quot;#urbanphotography&quot;</span><span class="p">)</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="s2">"#urbanphotography"</span><span class="p">)</span>
         <span class="c1"># if you want to tune k, uncomment below to get your k max</span>
         <span class="c1">#k_list.append(k)</span>
         <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># set k to 0</span>
@@ -197,7 +197,7 @@ any of your pictures, you can use this approach.</p>
 
 <span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
 
-<span class="n">USER</span> <span class="o">=</span> <span class="s2">&quot;your_account&quot;</span>
+<span class="n">USER</span> <span class="o">=</span> <span class="s2">"your_account"</span>
 <span class="n">PROFILE</span> <span class="o">=</span> <span class="n">USER</span>
 
 <span class="c1"># Load session previously saved with `instaloader -l USERNAME`:</span>
@@ -206,18 +206,18 @@ any of your pictures, you can use this approach.</p>
 <span class="n">profile</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">PROFILE</span><span class="p">)</span>
 
 <span class="n">likes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fetching likes of all posts of profile </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Fetching likes of all posts of profile </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">profile</span><span class="o">.</span><span class="n">get_posts</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">post</span><span class="p">)</span>
     <span class="n">likes</span> <span class="o">=</span> <span class="n">likes</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">get_likes</span><span class="p">())</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fetching followers of profile </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Fetching followers of profile </span><span class="si">{}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">username</span><span class="p">))</span>
 <span class="n">followers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">profile</span><span class="o">.</span><span class="n">get_followers</span><span class="p">())</span>
 
 <span class="n">ghosts</span> <span class="o">=</span> <span class="n">followers</span> <span class="o">-</span> <span class="n">likes</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Storing ghosts into file.&quot;</span><span class="p">)</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;inactive-users.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Storing ghosts into file."</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"inactive-users.txt"</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">ghost</span> <span class="ow">in</span> <span class="n">ghosts</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">ghost</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
@@ -248,25 +248,25 @@ list of posts which are offline but not online (i.e. deleted in the profile).</p
 <span class="k">try</span><span class="p">:</span>
     <span class="n">TARGET</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">&quot;Pass profile name as argument!&quot;</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">SystemExit</span><span class="p">(</span><span class="s2">"Pass profile name as argument!"</span><span class="p">)</span>
 
 <span class="c1"># Obtain set of posts that are on hard disk</span>
 <span class="n">chdir</span><span class="p">(</span><span class="n">TARGET</span><span class="p">)</span>
 <span class="n">offline_posts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">Post</span><span class="p">),</span>
                            <span class="p">(</span><span class="n">load_structure_from_file</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
-                            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.json.xz&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*.json&#39;</span><span class="p">)))))</span>
+                            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s1">'*.json.xz'</span><span class="p">)</span> <span class="o">+</span> <span class="n">glob</span><span class="p">(</span><span class="s1">'*.json'</span><span class="p">)))))</span>
 
 <span class="c1"># Obtain set of posts that are currently online</span>
 <span class="n">post_iterator</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">from_username</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="n">TARGET</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
 <span class="n">online_posts</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">post_iterator</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">online_posts</span> <span class="o">-</span> <span class="n">offline_posts</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not yet downloaded posts:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">online_posts</span> <span class="o">-</span> <span class="n">offline_posts</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Not yet downloaded posts:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">online_posts</span> <span class="o">-</span> <span class="n">offline_posts</span><span class="p">)))</span>
 
 <span class="k">if</span> <span class="n">offline_posts</span> <span class="o">-</span> <span class="n">online_posts</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deleted posts:&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">offline_posts</span> <span class="o">-</span> <span class="n">online_posts</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Deleted posts:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">(</span><span class="n">offline_posts</span> <span class="o">-</span> <span class="n">online_posts</span><span class="p">)))</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="module/structures.html#instaloader.load_structure_from_file" title="instaloader.load_structure_from_file"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_structure_from_file()</span></code></a>, <a class="reference internal" href="module/structures.html#instaloader.Profile.from_username" title="instaloader.Profile.from_username"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Profile.from_username()</span></code></a>,
@@ -284,16 +284,16 @@ the user is added to that set.</p>
 
 <span class="n">L</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Instaloader</span><span class="p">()</span>
 
-<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s1">&#39;urbanphotography&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts_resumable</span><span class="p">()</span>
+<span class="n">posts</span> <span class="o">=</span> <span class="n">instaloader</span><span class="o">.</span><span class="n">Hashtag</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">context</span><span class="p">,</span> <span class="s1">'urbanphotography'</span><span class="p">)</span><span class="o">.</span><span class="n">get_posts_resumable</span><span class="p">()</span>
 
 <span class="n">users</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">post</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">post</span><span class="o">.</span><span class="n">owner_profile</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
-        <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="s1">&#39;#urbanphotography&#39;</span><span class="p">)</span>
+        <span class="n">L</span><span class="o">.</span><span class="n">download_post</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="s1">'#urbanphotography'</span><span class="p">)</span>
         <span class="n">users</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">post</span><span class="o">.</span><span class="n">owner_profile</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> from </span><span class="si">{}</span><span class="s2"> skipped.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">post</span><span class="o">.</span><span class="n">owner_profile</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2"> from </span><span class="si">{}</span><span class="s2"> skipped."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">post</span><span class="o">.</span><span class="n">owner_profile</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>See also <a class="reference internal" href="module/structures.html#instaloader.Post" title="instaloader.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">Post</span></code></a>, <a class="reference internal" href="module/instaloader.html#instaloader.Instaloader.download_post" title="instaloader.Instaloader.download_post"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Instaloader.download_post()</span></code></a>,
