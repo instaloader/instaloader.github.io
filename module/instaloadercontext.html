@@ -101,6 +101,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.get_anonymous_session"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.get_anonymous_session()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.get_iphone_json"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.get_iphone_json()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.get_json"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.get_json()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.get_page_data"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.get_page_data()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.get_raw"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.get_raw()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.graphql_node_list"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.graphql_node_list()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.graphql_query"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.graphql_query()</span></code></a></li>
@@ -315,6 +316,28 @@ class <a class="reference internal" href="instaloader.html#instaloader.Instaload
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 4.13: </span>Added <cite>use_post</cite> parameter.</p>
 </div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="instaloader.InstaloaderContext.get_page_data">
+<span class="sig-name descname"><span class="pre">get_page_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.15)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.15)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.15)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#instaloader.InstaloaderContext.get_page_data" title="Link to this definition">¶</a></dt>
+<dd><p>Load a page of <code class="docutils literal notranslate"><span class="pre">www.instagram.com</span></code> as a logged-out visitor and return the data it embeds.</p>
+<p>Instagram renders public profile and post pages with the results of their GraphQL queries
+embedded in the HTML, even when it refuses anonymous API requests for the same data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> – URL, relative to <code class="docutils literal notranslate"><span class="pre">www.instagram.com/</span></code></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The <code class="docutils literal notranslate"><span class="pre">data</span></code> object of each query result that the page embeds, in page order.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#instaloader.QueryReturnedNotFoundException" title="instaloader.QueryReturnedNotFoundException"><strong>QueryReturnedNotFoundException</strong></a> – When the server responds with a 404.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.exceptions.ConnectionException" title="instaloader.exceptions.ConnectionException"><strong>ConnectionException</strong></a> – When the request failed.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
