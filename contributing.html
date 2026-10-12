@@ -167,6 +167,12 @@ final version.</p></li>
 </li>
 </ul>
 </li>
+<li><p>Keep Pull Requests focused: address a single problem or feature in a
+self-contained change. Avoid bundling multiple independent fixes, refactorings,
+or architectural changes into one pull request, as this makes it hard to
+review, validate, or selectively merge them.</p></li>
+<li><p>Be mindful of backward compatibility: changes should preserve existing intended
+behavior whenever possible.</p></li>
 <li><p>All Pull Requests are analyzed by <a class="reference external" href="https://www.pylint.org/">Pylint</a> for
 error and syntax checking of the source and
 <a class="reference external" href="https://github.com/python/mypy">Mypy</a> for type checking. You can run them
