@@ -39,9 +39,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item ml-0 ml-sm-2">
         <a class="nav-link"
-           href="https://github.com/instaloader/instaloader/releases/tag/v4.15.5"
-           title="Released on 24 Oct 2026" data-toggle="tooltip">
-          v<b>4.15.5</b>
+           href="https://github.com/instaloader/instaloader/releases/tag/v4.16"
+           title="Released on 26 Oct 2026" data-toggle="tooltip">
+          v<b>4.16</b>
         </a>
       </li>
     </ul>
@@ -1424,6 +1424,12 @@ To use this, one needs to be logged in and private profiles has to be followed.<
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="nodeiterator.html#instaloader.NodeIterator" title="instaloader.NodeIterator">NodeIterator</a>[<a class="reference internal" href="#instaloader.Post" title="instaloader.Post">Post</a>]</p>
 </dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#instaloader.PrivateProfileNotFollowedException" title="instaloader.PrivateProfileNotFollowedException"><strong>PrivateProfileNotFollowedException</strong></a> – When logged in and the profile is private and not followed.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#instaloader.LoginRequiredException" title="instaloader.LoginRequiredException"><strong>LoginRequiredException</strong></a> – When not logged in and the profile is private.</p></li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
@@ -1545,8 +1551,12 @@ i.e. the viewer has privileges to view it.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="instaloader.Profile.mediacount">
-<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">mediacount</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><span class="pre">int</span></a></span><a class="headerlink" href="#instaloader.Profile.mediacount" title="Link to this definition">¶</a></dt>
-<dd></dd></dl>
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">mediacount</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></span><a class="headerlink" href="#instaloader.Profile.mediacount" title="Link to this definition">¶</a></dt>
+<dd><p>Number of posts, or None if unavailable (e.g. when not logged in).</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 4.16: </span>Returns None if unavailable (e.g. when not logged in).</p>
+</div>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="instaloader.Profile.own_profile">
