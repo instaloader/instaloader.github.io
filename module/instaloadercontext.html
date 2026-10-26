@@ -117,6 +117,7 @@
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.test_login"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.test_login()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.two_factor_login"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.two_factor_login()</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.update_cookies"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.update_cookies()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.user_id"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.user_id</span></code></a></li>
 <li class="toctree-l5"><a class="reference internal" href="#instaloader.InstaloaderContext.write_raw"><code class="docutils literal notranslate"><span class="pre">InstaloaderContext.write_raw()</span></code></a></li>
 </ul>
 </li>
@@ -499,6 +500,16 @@ Not meant to be used directly, use <a class="reference internal" href="instaload
 <dd><div class="versionadded">
 <p><span class="versionmodified added">Added in version 4.11.</span></p>
 </div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="instaloader.InstaloaderContext.user_id">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">user_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></span><a class="headerlink" href="#instaloader.InstaloaderContext.user_id" title="Link to this definition">¶</a></dt>
+<dd><p>ID of the user this session is logged in as.</p>
+<p>Derived from the <code class="docutils literal notranslate"><span class="pre">ds_user_id</span></code> cookie of the current session, so it is set for every
+logged-in session – whether it was established with <a class="reference internal" href="#instaloader.InstaloaderContext.login" title="instaloader.InstaloaderContext.login"><code class="xref py py-meth docutils literal notranslate"><span class="pre">login()</span></code></a>, loaded from a session
+file or imported from browser cookies – and <code class="docutils literal notranslate"><span class="pre">None</span></code> if not logged in. Assigning to it
+updates the <code class="docutils literal notranslate"><span class="pre">ds_user_id</span></code> cookie accordingly.</p>
 </dd></dl>
 
 <dl class="py method">
