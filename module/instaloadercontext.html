@@ -507,9 +507,7 @@ Not meant to be used directly, use <a class="reference internal" href="instaload
 <span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">user_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></span><a class="headerlink" href="#instaloader.InstaloaderContext.user_id" title="Link to this definition">¶</a></dt>
 <dd><p>ID of the user this session is logged in as.</p>
 <p>Derived from the <code class="docutils literal notranslate"><span class="pre">ds_user_id</span></code> cookie of the current session, so it is set for every
-logged-in session – whether it was established with <a class="reference internal" href="#instaloader.InstaloaderContext.login" title="instaloader.InstaloaderContext.login"><code class="xref py py-meth docutils literal notranslate"><span class="pre">login()</span></code></a>, loaded from a session
-file or imported from browser cookies – and <code class="docutils literal notranslate"><span class="pre">None</span></code> if not logged in. Assigning to it
-updates the <code class="docutils literal notranslate"><span class="pre">ds_user_id</span></code> cookie accordingly.</p>
+logged-in session, and <code class="docutils literal notranslate"><span class="pre">None</span></code> if not logged in.</p>
 </dd></dl>
 
 <dl class="py method">
